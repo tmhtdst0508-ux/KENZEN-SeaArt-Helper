@@ -54,7 +54,7 @@
 
 **Select cells from left to right to build a complete narrative:**
 
-**Character Count → Skin & Attributes → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type →Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
 
 **8\. Mastering "Copy without Comma"**
 
