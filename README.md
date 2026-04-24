@@ -1,4 +1,114 @@
-**(English is below)**
+**(日本語は下にあります)**
+
+**■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
+
+**\* Summary**
+
+**This is a professional prompt builder for SeaArt / Stable Diffusion, specialized in NSFW content and Japanese subculture styles.**
+
+**1\. Introduction**
+
+**This Excel workbook is powered by VBA macros.**
+
+- **Co-Developed with: Google Gemini (The heavy lifter who did the actual coding).**
+- **Open Source Ethos: Press Alt+F11 to open the VBA editor. Feel free to inspect, tweak, or overhaul the logic in the MainCode module.**
+- **Copyright & License: I retain the original copyright, but you are free to modify and redistribute it. No permission required (though a shout-out makes the author happy).**
+
+**2\. Design Philosophy**
+
+**Developed to drastically min-max the efficiency of NSFW-focused prompt construction in SeaArt. This is a dedicated English prompt builder designed to bridge the gap between your imagination and the AI's output. It's packed with my personal passion and... specific "preferences." Avoid the pitfalls of "Engrish" and take the shortest path to your ideal generation. ……Don't worry, it's totally KENZEN (Wholesome)!**
+
+**3\. Core Features (Safety First)**
+
+- **Full-Width Guard: If Japanese (full-width) characters are detected, the tool stops the copy process and alerts you with a beep.**
+- **Auto-Concatenation: Starting from the second copy, the tool automatically inserts a , (comma + space) between tags.**
+- **Real-Time Debugging: Your active prompt is always displayed in cell C2.**
+- **One-Click Reset: The Clear button wipes both the clipboard and the C2 cell instantly.**
+
+**4\. Getting Started**
+
+- **Unblock the File: Right-click the downloaded .xlsm file → Properties → Check "Unblock" at the bottom → Apply.**
+- **Enable Macros: Open the file and click "Enable Content" on the yellow security warning bar.**
+
+**5\. Search Panel & Controls**
+
+- **Floating Window: Stays "Always on Top" for a seamless workflow.**
+- **Smart Search:**
+  - **Enter a keyword and click Search (or hit Enter).**
+  - **The screen flashes for a split-second as the cursor teleports to the result.**
+  - **Hit Enter repeatedly to loop through multiple matches.**
+- **Refinement: \* Prompts accumulate in C2 and C4 (or C3 on the Sample sheet).**
+  - **Cell C4: Use this for manual tweaks (adding custom tags not in the list). Select this cell and click Copy to finalize.**
+- **Special Operations:**
+  - **Copy without Comma: Connects tags with only a space. Perfect for multi-word concepts like oversized tank top.**
+- **Undo & Purge:**
+  - **Undo: Roll back your last action (1-step buffer).**
+  - **Clear: Wipes clipboard and C2 (keeps your manual C4 tweaks).**
+  - **All Clear: Hard reset. Wipes everything.**
+
+**6\. The "Weighting" Engine**
+
+**Toggle the Weight checkbox in the floating window, select a value (1.1 - 1.3), and click Wrap Block. This wraps everything up to the previous comma in parentheses-e.g., (oversized tank top:1.1). _Safety Feature:_ To prevent accidental double-weighting and reduce AI compute load, the checkbox auto-resets to OFF after one use.**
+
+**7\. Workflow Flowchart**
+
+**Select cells from left to right to build a complete narrative:**
+
+**Character Count → Skin & Attributes → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+
+**8\. Mastering "Copy without Comma"**
+
+**The macro defaults to adding a comma. For phrases where a comma would break the logic-e.g., 1girl, walking in park with me,-do the following:**
+
+- **Copy 1girl (Normal).**
+- **Copy walking (Normal).**
+- **Copy in (Without Comma).**
+- **Copy park (Without Comma). ...and so on. Use Normal Copy only when you want the comma separator back.**
+
+**9\. "Add to Fav" Button**
+
+**This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
+
+**10\. Sample Promptss**
+
+- **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
+
+**Note: Manual weighting is required for custom samples.**
+
+- **Negative Prompting: Don't choke the AI. Over-tagging negatives causes "Prompt Bleed" or glitches. Keep it minimal (e.g., just enough to banish "unwanted males").**
+
+**11\. "My Favorite" Sheet**
+
+**This sheet allows you to manage up to 50 of your favorite prompts.**
+
+- **"Fav Copy" Button: Clicking this copies the prompt to your clipboard and simultaneously displays its description in the "Selected Prompt" cell. (After all, who can actually recall the details of a long, complex incantation just by glancing at it?)**
+- **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
+- **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
+
+**12．"Author's Notes (Tips and Rants) " Sheet**
+
+**Includes some tips and the "struggle stories" behind this macro. Good for a break.**
+
+**13\. "CONTACT" Sheet**
+
+**As also mentioned in this README, this sheet contains information such as the author's contact details and blog address.**
+
+**14\. Credits & Disclaimer**
+
+- **Disclaimer: Generation results are at the mercy of the AI. The author takes no responsibility for any damages (or lack of "nut") resulting from this tool.**
+- **Tested on: RIN Anim8Draw Illustrious - Anime Drawing Model (Ver.4.0A)**
+
+[**https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg**](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
+
+- **Author: Tomohito Fujikawa (aka "Dst" or "Deeste" / Former Eroge(Visual Novels) Writer).**
+- **Blog/Support:** [**https://dsblog.biz/**](https://dsblog.biz/)
+  - **Feedback and requests are welcome via the blog's mail form.**
+  - **Tips are greatly appreciated via PayPal:** [**https://paypal.me/dst0508**](https://paypal.me/dst0508)
+- **Bonus: Craving some Lore? Check out my SeaArt page! I put my VN writing skills to work by posting original short stories alongside my generated art.**
+
+[**https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077**](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077)
+
+**ENJOY! :)**
 
 **■KENZEN SeaArt Helper マニュアル**
 
@@ -125,113 +235,3 @@
 - 　**SeaArtの個人ページでは、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。**
 
 <https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI>
-
-**■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
-
-**\* Summary**
-
-**This is a professional prompt builder for SeaArt / Stable Diffusion, specialized in NSFW content and Japanese subculture styles.**
-
-**1\. Introduction**
-
-**This Excel workbook is powered by VBA macros.**
-
-- **Co-Developed with: Google Gemini (The heavy lifter who did the actual coding).**
-- **Open Source Ethos: Press Alt+F11 to open the VBA editor. Feel free to inspect, tweak, or overhaul the logic in the MainCode module.**
-- **Copyright & License: I retain the original copyright, but you are free to modify and redistribute it. No permission required (though a shout-out makes the author happy).**
-
-**2\. Design Philosophy**
-
-**Developed to drastically min-max the efficiency of NSFW-focused prompt construction in SeaArt. This is a dedicated English prompt builder designed to bridge the gap between your imagination and the AI's output. It's packed with my personal passion and... specific "preferences." Avoid the pitfalls of "Engrish" and take the shortest path to your ideal generation. ……Don't worry, it's totally KENZEN (Wholesome)!**
-
-**3\. Core Features (Safety First)**
-
-- **Full-Width Guard: If Japanese (full-width) characters are detected, the tool stops the copy process and alerts you with a beep.**
-- **Auto-Concatenation: Starting from the second copy, the tool automatically inserts a , (comma + space) between tags.**
-- **Real-Time Debugging: Your active prompt is always displayed in cell C2.**
-- **One-Click Reset: The Clear button wipes both the clipboard and the C2 cell instantly.**
-
-**4\. Getting Started**
-
-- **Unblock the File: Right-click the downloaded .xlsm file → Properties → Check "Unblock" at the bottom → Apply.**
-- **Enable Macros: Open the file and click "Enable Content" on the yellow security warning bar.**
-
-**5\. Search Panel & Controls**
-
-- **Floating Window: Stays "Always on Top" for a seamless workflow.**
-- **Smart Search:**
-  - **Enter a keyword and click Search (or hit Enter).**
-  - **The screen flashes for a split-second as the cursor teleports to the result.**
-  - **Hit Enter repeatedly to loop through multiple matches.**
-- **Refinement: \* Prompts accumulate in C2 and C4 (or C3 on the Sample sheet).**
-  - **Cell C4: Use this for manual tweaks (adding custom tags not in the list). Select this cell and click Copy to finalize.**
-- **Special Operations:**
-  - **Copy without Comma: Connects tags with only a space. Perfect for multi-word concepts like oversized tank top.**
-- **Undo & Purge:**
-  - **Undo: Roll back your last action (1-step buffer).**
-  - **Clear: Wipes clipboard and C2 (keeps your manual C4 tweaks).**
-  - **All Clear: Hard reset. Wipes everything.**
-
-**6\. The "Weighting" Engine**
-
-**Toggle the Weight checkbox in the floating window, select a value (1.1 - 1.3), and click Wrap Block. This wraps everything up to the previous comma in parentheses-e.g., (oversized tank top:1.1). _Safety Feature:_ To prevent accidental double-weighting and reduce AI compute load, the checkbox auto-resets to OFF after one use.**
-
-**7\. Workflow Flowchart**
-
-**Select cells from left to right to build a complete narrative:**
-
-**Character Count → Skin & Attributes → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
-
-**8\. Mastering "Copy without Comma"**
-
-**The macro defaults to adding a comma. For phrases where a comma would break the logic-e.g., 1girl, walking in park with me,-do the following:**
-
-- **Copy 1girl (Normal).**
-- **Copy walking (Normal).**
-- **Copy in (Without Comma).**
-- **Copy park (Without Comma). ...and so on. Use Normal Copy only when you want the comma separator back.**
-
-**9\. "Add to Fav" Button**
-
-**This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
-
-**10\. Sample Prompts & Dev Notes**
-
-- **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
-
-**Note: Manual weighting is required for custom samples.**
-
-- **Negative Prompting: Don't choke the AI. Over-tagging negatives causes "Prompt Bleed" or glitches. Keep it minimal (e.g., just enough to banish "unwanted males").**
-
-**11\. "My Favorite" Sheet**
-
-**This sheet allows you to manage up to 50 of your favorite prompts.**
-
-- **"Fav Copy" Button: Clicking this copies the prompt to your clipboard and simultaneously displays its description in the "Selected Prompt" cell. (After all, who can actually recall the details of a long, complex incantation just by glancing at it?)**
-- **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
-- **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
-
-**12．"Author's Notes (Tips and Rants) " Sheet**
-
-**Includes some tips and the "struggle stories" behind this macro. Good for a break.**
-
-**13\. "CONTACT" Sheet**
-
-**As also mentioned in this README, this sheet contains information such as the author's contact details and blog address.**
-
-**14\. Credits & Disclaimer**
-
-- **Disclaimer: Generation results are at the mercy of the AI. The author takes no responsibility for any damages (or lack of "nut") resulting from this tool.**
-- **Tested on: RIN Anim8Draw Illustrious - Anime Drawing Model (Ver.4.0A)**
-
-[**https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg**](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
-
-- **Author: Tomohito Fujikawa (aka "Dst" or "Deeste" / Former Eroge(Visual Novels) Writer).**
-- **Blog/Support:** [**https://dsblog.biz/**](https://dsblog.biz/)
-  - **Feedback and requests are welcome via the blog's mail form.**
-  - **Tips are greatly appreciated via PayPal:** [**https://paypal.me/dst0508**](https://paypal.me/dst0508)
-- **Bonus: Craving some Lore? Check out my SeaArt page! I put my VN writing skills to work by posting original short stories alongside my generated art.**
-
-[**https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077**](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077)
-
-**ENJOY! :)**
