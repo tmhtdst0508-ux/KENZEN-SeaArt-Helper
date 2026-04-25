@@ -54,7 +54,7 @@
 
 **Select cells from left to right to build a complete narrative:**
 
-**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type →Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwea r→ Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
 
 **8\. Mastering "Copy without Comma"**
 
@@ -69,7 +69,7 @@
 
 **This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
 
-**10\. "Sample Prompts" Sheet**
+**10\. Sample Prompts & Dev Notes**
 
 - **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
 
@@ -85,15 +85,33 @@
 - **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
 - **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
 
-**12．"Author's Notes (Tips and Rants) " Sheet**
+**12\. Exporting and Importing Prompts**
+
+**Exporting Behavior**
+
+- **Format: Data is exported in CSV format with UTF-8 encoding.**
+- **Filename: The default name is automatically set as "MyFavorite_yyyymmdd_HHmm" (Date and Time).**
+- **Overwriting Protection: If a file with the same name already exists in the destination folder, a suffix like "(1)" or "(2)" is automatically added. This prevents accidental deletion of existing backups.**
+
+**Importing Behavior**
+
+- **Import Mode Selection: When executed, you can choose to either "Append to existing data" or "Clear all and import as new."**
+- **Automatic Data Allocation:**
+  - **If a row contains two or more values: The 1st value is assigned to "Description" and the 2nd value to "Prompt."**
+  - **If only one value is found: It is forcibly stored in "Description" regardless of its original column, ensuring it remains searchable.**
+- **Sliding (Packing) Logic: Even if the CSV contains invalid formats or empty rows, only valid data is extracted and imported sequentially from the top without leaving any gaps.**
+- **Japanese Language Support: Full support for prompts and descriptions containing Japanese characters (Double-byte characters).**
+- **Error Logging: If any rows are skipped due to invalid characters (e.g., control characters), a detailed error log (ImportLog_HHmmss.txt) will be generated in the same folder as the CSV.**
+
+**13．"Author's Notes (Tips and Rants) " Sheet**
 
 **Includes some tips and the "struggle stories" behind this macro. Good for a break.**
 
-**13\. "CONTACT" Sheet**
+**14\. "CONTACT" Sheet**
 
 **As also mentioned in this README, this sheet contains information such as the author's contact details and blog address.**
 
-**14\. Credits & Disclaimer**
+**15\. Credits & Disclaimer**
 
 - **Disclaimer: Generation results are at the mercy of the AI. The author takes no responsibility for any damages (or lack of "nut") resulting from this tool.**
 - **Tested on: RIN Anim8Draw Illustrious - Anime Drawing Model (Ver.4.0A)**
@@ -110,9 +128,11 @@
 
 **ENJOY! :)**
 
-----------------------------------------
+----------------------
 
 **■KENZEN SeaArt Helper マニュアル**
+
+**要約：SeaArtでの、NSFW絵の生成プロンプト構築に特化したツールです。**
 
 **1\. はじめに**
 
@@ -181,7 +201,7 @@
 
 **11．「My Favorite」シート**
 
-**50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
+**50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、「プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
 
 **プロンプトのエクスポートとインポート**
 
@@ -237,3 +257,5 @@
 - 　**SeaArtの個人ページでは、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。**
 
 <https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI>
+
+**健やかなる()AIライフを！**
