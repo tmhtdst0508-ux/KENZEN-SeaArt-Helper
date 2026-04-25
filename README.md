@@ -69,7 +69,7 @@
 
 **This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
 
-**10\. Sample Prompts & Dev Notes**
+**10\. "Sample Prompts" Sheet**
 
 - **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
 
