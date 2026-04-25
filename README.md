@@ -1,5 +1,7 @@
 **(日本語は下にあります)**
 
+Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual.pdf)
+
 **■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
 
 **\* Summary**
@@ -131,6 +133,8 @@
 ----------------------
 
 **■KENZEN SeaArt Helper マニュアル**
+
+オフラインのマニュアルがご希望ですか？ [PDF版マニュアルはこちらからダウンロード！](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual.pdf)
 
 **要約：SeaArtでの、NSFW絵の生成プロンプト構築に特化したツールです。**
 
