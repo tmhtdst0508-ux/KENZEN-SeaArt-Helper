@@ -1,13 +1,12 @@
 **(日本語は下にあります)**
 
 Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.pdf)
-**(日本語は下にあります)**
+
 
 **■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
 
 **(For more information and the latest updates, please visit my GitHub repository.)**
 
-[**https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper**](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper)
 
 **\* Summary**
 
