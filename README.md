@@ -56,7 +56,9 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **Select cells from left to right to build a complete narrative:**
 
-**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwea r→ Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+
+**Hyperlinks at the start of the main sheet now come with an "Auto-Snap" feature! Click a link to jump, and the target cell will be whisked away to the far-left edge of your window for maximum visibility—it’s like having a personal valet for your spreadsheet. Plus, every section includes a "Back to Legend" link, so you can return to base without breaking a sweat.**
 
 **8\. Mastering "Copy without Comma"**
 
@@ -186,6 +188,8 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **キャラ数(Character Count) → 肌の色・属性(Skin & Attributes) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体型(Body Type) → 職業(Occupation) → 服装(Outfit) → 服の状態(Outfit State) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情・生理現象(Expressions & Physical States) → その他アイテム(Misc Items) → アングル(Camera Angle) → 修正(Censorship Fixes)**
 
+**メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。また、各項目の末尾には、「凡例に戻る」リンクを設置しています。**
+
 **7\. 「Copy without comma」の使い方**
 
 **マクロは、「最初を除き、コピーされる単語の頭に、カンマと半角スペースを付ける」挙動をします。なので、例えば、「（接頭句としてのポジティブプロンプト）, "1 girl" "go to"" park" "with" "me"」の場合は、まず、「1 girl」で通常コピー、次に「go to」でも通常コピー、次の「park」でカンマなしコピー、その次の「with」でも、カンマなしコピー……と、「次にカンマを入れるべき所」（例の場合は「me」）まで、カンマなしコピーをしてください。次のプロンプトを通常コピーすれば、区切りに「, 」が付きます。**
@@ -205,7 +209,7 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **11．「My Favorite」シート**
 
-**50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、「プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
+**50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
 
 **プロンプトのエクスポートとインポート**
 
