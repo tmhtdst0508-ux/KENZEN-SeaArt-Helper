@@ -1,8 +1,13 @@
 **(日本語は下にあります)**
 
-Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual.pdf)
+Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.pdf)
+**(日本語は下にあります)**
 
 **■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
+
+**(For more information and the latest updates, please visit my GitHub repository.)**
+
+[**https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper**](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper)
 
 **\* Summary**
 
@@ -56,9 +61,9 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **Select cells from left to right to build a complete narrative:**
 
-**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Outfit → Outfit State → Footwear & Legwea r → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
 
-**Hyperlinks at the start of the main sheet now come with an "Auto-Snap" feature! Click a link to jump, and the target cell will be whisked away to the far-left edge of your window for maximum visibility—it’s like having a personal valet for your spreadsheet. Plus, every section includes a "Back to Legend" link, so you can return to base without breaking a sweat.**
+**Hyperlinks at the start of the main sheet now come with an "Auto-Snap" feature! Click a link to jump, and the target cell will be whisked away to the far-left edge of your window for maximum visibility-it's like having a personal valet for your spreadsheet. Plus, every section includes a "Back to Legend" link, so you can return to base without breaking a sweat.**
 
 **8\. Mastering "Copy without Comma"**
 
@@ -69,11 +74,19 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 - **Copy in (Without Comma).**
 - **Copy park (Without Comma). ...and so on. Use Normal Copy only when you want the comma separator back.**
 
-**9\. "Add to Fav" Button**
+**9."Recall Me!" Button**
+
+**The "Wait, what was I doing?" Lifeline. Located on both the Main and Search windows, this button summons a floating window that reveals the current contents of your clipboard.**
+
+- **The Why: Let's be honest-the main sheet is wider than a horizontal skyscraper. When C2 scrolls out of sight, it's easy to think, "Wait, how much of this prompt did I actually build?"**
+- **The Wisdom: This feature was designed by an author in his 50s (because let's face it, at this age, our memory has more holes than a Swiss cheese!).**
+- **Note: The Recall window captures the clipboard exactly once the moment it appears. It doesn't "live-stream" your clipboard updates, so if you copy something new, just give the button another click to refresh your memory.**
+
+**10\. "Add to Fav" Button**
 
 **This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
 
-**10\. "Sample Prompts" Sheet**
+**11\. Sample Prompts & Dev Notes**
 
 - **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
 
@@ -81,7 +94,7 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 - **Negative Prompting: Don't choke the AI. Over-tagging negatives causes "Prompt Bleed" or glitches. Keep it minimal (e.g., just enough to banish "unwanted males").**
 
-**11\. "My Favorite" Sheet**
+**12\. "My Favorite" Sheet**
 
 **This sheet allows you to manage up to 50 of your favorite prompts.**
 
@@ -89,7 +102,14 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 - **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
 - **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
 
-**12\. Exporting and Importing Prompts**
+**13，"Replace Fav" Button**
+
+- - **Swap your old recipes for a Michelin-star prompt!**
+    - **This button overwrites the currently focused prompt in the "My Favorite" sheet with the contents of the Current Prompt (C2) from the main sheet.**
+    - **The Use Case: "I added a few extra 'spices' to my favorite prompt and now it's absolute perfection! But wait... I don't want a clone army of similar prompts cluttering my list."**
+    - **The Guardrail: If you accidentally click on a cell that isn't a designated prompt slot, the tool will snap at you with an error. It keeps your database clean and "KENZEN."**
+
+**14\. Exporting and Importing Prompts**
 
 **Exporting Behavior**
 
@@ -107,11 +127,11 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 - **Japanese Language Support: Full support for prompts and descriptions containing Japanese characters (Double-byte characters).**
 - **Error Logging: If any rows are skipped due to invalid characters (e.g., control characters), a detailed error log (ImportLog_HHmmss.txt) will be generated in the same folder as the CSV.**
 
-**13．"Author's Notes (Tips and Rants) " Sheet**
+**15．"Author's Notes (Tips and Rants) " Sheet**
 
 **Includes some tips and the "struggle stories" behind this macro. Good for a break.**
 
-**14\. "CONTACT" Sheet**
+**16\. "CONTACT" Sheet**
 
 **As also mentioned in this README, this sheet contains information such as the author's contact details and blog address.**
 
@@ -132,11 +152,11 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **ENJOY! :)**
 
-----------------------
+――――――――――――――――――――――――――――――――--
 
 **■KENZEN SeaArt Helper マニュアル**
 
-オフラインのマニュアルがご希望ですか？ [PDF版マニュアルはこちらからダウンロード！](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual.pdf)
+オフラインマニュアルはこちらから→ [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.pdf)
 
 **要約：SeaArtでの、NSFW絵の生成プロンプト構築に特化したツールです。**
 
@@ -198,20 +218,28 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **フロートウィンドウ（メイン、検索共通）の、「Weight（ウェイト）」のチェックボックスをオンにして、プルダウンメニューから度合い（1.1～1.3）を選び、「Wrap Block（ブロックをくくる）」をクリックすると、「その前のカンマまでの単語全て」が、まとめてカッコでくくられて、重み付けされます。もちろん、1つのプロンプトにも有効です。誤操作防止と、AIへの負荷軽減のために、一度「Weight」ボタンをクリックすると、チェックボックスはオフになります。**
 
-**9.** **Add to Favボタン**
+**9．Recall Me! ボタン**
+
+**メインウィンドウと、検索ウィンドウの両方に、共通して付いています。クリックすると、専用のフロートウィンドウが現れ、現在のクリップボードの内容が表示されます。メインシートが横方向に非常に長いため、C2セルの中が視認できなくなり、「今どこまでプロンプトを作ったっけ？」という、失念防止の機能です。（さすが、作者の年齢が50代なだけはあるな！）注意点としては、Recallウィンドウの挙動として、出現時にクリップボードの内容を1回取得するだけなので、その後追記していっても、リアルタイムでは反映されないということです。**
+
+**10.** **Add to Favボタン**
 
 **気に入ったプロンプトを、説明と共に、「My Favorite」シートに転送することができます。ボタンをクリックすると、説明書きの入力画面になるので、自分が分かりやすいような説明を書いて、「OK」をクリックすると、登録されます。最大50件までです。説明が空欄だと、登録できません。**
 
-**10\. 「Sample Prompt」（サンプルプロンプト）シート**
+**11\. 「Sample Prompt」（サンプルプロンプト）シート**
 
 - **サンプル： 「サンプルプロンプト」タブに作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）もちろんと言うべきか、それをコピーした上で、自分で調節して、オリジナルのプロンプトを作る事も出来ます。ただし、その場合の重み付けなどは、ご自身でお願いします。**
 - **ネガティブプロンプト： 縛りすぎはAIのバグを誘発します。最小限に留めるか、いっそオフにするのがコツです（「野郎の出演」等、絶許な結果を防ぐ程度に）。**
 
-**11．「My Favorite」シート**
+**12．「My Favorite」シート**
 
 **50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
 
-**プロンプトのエクスポートとインポート**
+**13．Replace Fav ボタン**
+
+**「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、メインシートのC2セル（Current Prompt）の内容と置換します。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。**
+
+**14．プロンプトのエクスポートとインポート**
 
 **「Export as CSV」及び、「Import from CSV」で、お気に入りリストのエクスポートとインポートができます。**
 
@@ -233,21 +261,21 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **スライド（詰め）機能: CSV内に形式不良や空行があっても、有効なデータだけを抽出して上方向へ隙間なく詰めてインポートします。**
 
-**日本語のサポート: 日本語（全角文字）を含むプロンプトや説明も完全にサポートしています。**
+**日本語のサポート: 日本語（全角文字）を含む説明も完全にサポートしています。**
 
 **エラーログ: 制御文字などの不純物により取り込めなかった行がある場合、CSVと同じフォルダに詳細なエラーログ（ImportLog\_時刻.txt）が生成されます。既存のリストに追加した結果が50件を超える場合、あふれたデータは、エラーログに記録されます。**
 
 **「Fav All Clear」ボタンをクリックすると、現在のクリップボードの内容、お気に入りリスト、「Selected Prompt」のセル全てを消去します。**
 
-**12．「作者覚え書き(ja) / Author's Notes (Tips and Rants)」シート**
+**15．「作者覚え書き(ja) / Author's Notes (Tips and Rants)」シート**
 
 **ちょっとしたTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）**
 
-**13．「CONTACT」シート**
+**16．「CONTACT」シート**
 
 **このREADMEにも書いていますが、作者の連絡先ブログなどを記載しています。**
 
-**14\. 免責事項・連絡先**
+**16\. 免責事項・連絡先**
 
 - **生成結果はAI次第です。当ツールの使用による損害について、作者は一切の責任を負いません。**
 - **検証モデル：RIN Anim8Draw Illustrious - Anime Drawing Model(Ver.4.0A)**
