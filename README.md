@@ -1,12 +1,8 @@
 **(日本語は下にあります)**
 
-Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.pdf)
-
-
 **■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
 
-**(For more information and the latest updates, please visit my GitHub repository.)**
-
+Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.1.pdf)
 
 **\* Summary**
 
@@ -85,7 +81,7 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
 
-**11\. Sample Prompts & Dev Notes**
+**11\. "Sample Prompt"Sheet**
 
 - **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompt" tab. Use them as a base or a source of... inspiration.**
 
@@ -101,12 +97,17 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 - **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
 - **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
 
-**13，"Replace Fav" Button**
+**13，"Replace Fav" Button(Updated for v1.0.6.1)**
 
-- - **Swap your old recipes for a Michelin-star prompt!**
-    - **This button overwrites the currently focused prompt in the "My Favorite" sheet with the contents of the Current Prompt (C2) from the main sheet.**
-    - **The Use Case: "I added a few extra 'spices' to my favorite prompt and now it's absolute perfection! But wait... I don't want a clone army of similar prompts cluttering my list."**
-    - **The Guardrail: If you accidentally click on a cell that isn't a designated prompt slot, the tool will snap at you with an error. It keeps your database clean and "KENZEN."**
+**This button replaces the prompt in your currently focused cell on the "My Favorite" sheet with the contents of the Current Prompt (C2) from the main sheet.**
+
+- **The Use Case: "I tweaked my favorite prompt and it's finally perfect! But I don't want to clutter my list with near-identical clones." This is your go-to tool for refining your library.**
+- **The Guardrail: If you try to click this on a cell that isn't a designated prompt slot, the tool will throw an error to protect your sheet's structure.**
+
+**New in v1.0.6.1: The "Don't Waste My Time" Logic I've added a high-precision Binary Comparison (DNA Scan) between your Clipboard and the Current Prompt (C2).**
+
+- **If they Mismatch: A dialog will pop up asking, "Something else is on your clipboard. Clear it and replace anyway?"**
+- **The Shortcut: If you click "Yes," the tool skips the second confirmation and executes the replacement immediately. Because let's be honest: the fewer dialog boxes we have to deal with, the better, YO!**
 
 **14\. Exporting and Importing Prompts**
 
@@ -155,7 +156,7 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **■KENZEN SeaArt Helper マニュアル**
 
-オフラインマニュアルはこちらから→ [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.0.6.1.pdf)
 
 **要約：SeaArtでの、NSFW絵の生成プロンプト構築に特化したツールです。**
 
@@ -236,7 +237,9 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **13．Replace Fav ボタン**
 
-**「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、メインシートのC2セル（Current Prompt）の内容と置換します。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。**
+**「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、メインシートのC2セル（Current Prompt）の内容と置換します（セルが空欄ならば、そのまま入力されます）。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。**
+
+**V1.0.6.1で追加した挙動：クリップボードの内容と、メインシートのC2セルの値をバイナリ比較し、不一致（別のプロンプトが入っているなど）の場合は、消していいかどうか、確認ダイアログを出します。そこで「はい」を選択すると、直ちに置換処理を実行します。ダイアログなんか、少ない方がいいんですYO!**
 
 **14．プロンプトのエクスポートとインポート**
 
