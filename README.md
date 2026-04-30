@@ -1,258 +1,249 @@
 **(日本語は下にあります)**
 
-**■ KENZEN SeaArt Helper Manual (NSFW Prompt Builder)**
+**KENZEN SeaArt Helper Manual (v2.0.0)**
 
-Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.1.0.pdf)
+Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.0.0.pdf)
 
-**\* Summary**
+**TL;DR: A specialized prompt builder tailored for generating NSFW content in SeaArt (and Stable Diffusion).**
 
-**This is a professional prompt builder for SeaArt / Stable Diffusion, specialized in NSFW content and Japanese subculture styles.**
+**1\. Introduction This Excel workbook is powered by VBA macros.**
 
-**1\. Introduction**
+- **Coding Assistance: Google Gemini (My unpaid AI intern who did the actual heavy lifting).**
+- **Transparency: Press Alt+F11 to open the VBA editor and inspect/modify the MainCode module. _(Rest assured, there are no malicious backdoors. However, it does contain pure, artisanal spaghetti code cooked up exactly to my Google Gemini overlord's specifications.)_**
+- **Copyright: I retain the original copyright, but you are free to modify and redistribute it. No permission is required (though a shout-out makes the author happy!).**
 
-**This Excel workbook is powered by VBA macros.**
-
-- **Co-Developed with: Google Gemini (The heavy lifter who did the actual coding).**
-- **Open Source Ethos: Press Alt+F11 to open the VBA editor. Feel free to inspect, tweak, or overhaul the logic in the MainCode module.**
-- **Copyright & License: I retain the original copyright, but you are free to modify and redistribute it. No permission required (though a shout-out makes the author happy).**
-
-**2\. Design Philosophy**
-
-**Developed to drastically min-max the efficiency of NSFW-focused prompt construction in SeaArt. This is a dedicated English prompt builder designed to bridge the gap between your imagination and the AI's output. It's packed with my personal passion and... specific "preferences." Avoid the pitfalls of "Engrish" and take the shortest path to your ideal generation. ……Don't worry, it's totally KENZEN (Wholesome)!**
+**2\. Design Philosophy Developed to drastically min-max the efficiency of NSFW-focused prompt construction in SeaArt. This is a dedicated English prompt builder designed to accurately bridge the gap between your intent and the AI's output. It’s packed with my personal passion and... specific "preferences." Avoid the pitfalls of "Engrish" and take the shortest path to your ideal generation. ...And let me repeat, it’s totally KENZEN (Wholesome(TM))!**
 
 **3\. Core Features (Safety First)**
 
-- **Full-Width Guard: If Japanese (full-width) characters are detected, the tool stops the copy process and alerts you with a beep.**
-- **Auto-Concatenation: Starting from the second copy, the tool automatically inserts a , (comma + space) between tags.**
-- **Real-Time Debugging: Your active prompt is always displayed in cell C2.**
-- **One-Click Reset: The Clear button wipes both the clipboard and the C2 cell instantly.**
+- **3-1. Anti-Double-Byte Alert: If Japanese (full-width) characters are detected, the tool stops the copy process and alerts you with a beep.**
+- **3-2. Auto-Concatenation: Starting from the second copy, the tool automatically inserts , (comma + space) to append tags.**
+- **3-3. Real-Time View: Your active prompt under construction is always visible in the "Current Prompt" field.**
+- **3-4. Reset Function: The Clear button wipes both the clipboard and the screen instantly.**
 
-**4\. Getting Started**
+**4\. Setup**
 
-- **Unblock the File: Right-click the downloaded .xlsm file → Properties → Check "Unblock" at the bottom → Apply.**
-- **Enable Macros: Open the file and click "Enable Content" on the yellow security warning bar.**
+- **4-1. Unblock the File: Right-click the downloaded .xlsm file → Properties → Check "Unblock" → Apply/Save.**
+- **4-2. Enable Macros: Open the file and click "Enable Content" on the security warning bar at the top.**
 
-**5\. Search Panel & Controls**
+**5\. Search Panel & Controls Once the macro is active, the Main Window opens. Even if you accidentally close it with the top-right "X", you can reopen it anytime via the Open Window button(or the hotkey Ctrl + Shift + O). The window consists of two tabs (panels): Cockpit and Favorites.**
 
-- **Floating Window: Stays "Always on Top" for a seamless workflow.**
-- **Smart Search:**
-  - **Enter a keyword and click Search (or hit Enter).**
-  - **The screen flashes for a split-second as the cursor teleports to the result.**
-  - **Hit Enter repeatedly to loop through multiple matches.**
-- **Refinement: \* Prompts accumulate in C2 and C4 (or C3 on the Sample sheet).**
-  - **Cell C4: Use this for manual tweaks (adding custom tags not in the list). Select this cell and click Copy to finalize.**
-- **Special Operations:**
-  - **Copy without Comma: Connects tags with only a space. Perfect for multi-word concepts like oversized tank top.**
+**5-1. The "Cockpit" Tab (Construction Zone) This tab contains the menus for building your prompt.**
 
-**6\. The "Weighting" Engine**
+- **5-1-1. Current Prompt: Your live workspace. Every copy action appends here. Since it's a text field, manual tweaks are also possible.**
+- **5-1-2. Search Box (Enter Keyword): Type a keyword and hit Enter or click Search to scan the main sheet. When found, the cell glows yellow and the cursor jumps to the prompt cell on its right. (If searching in English, the cursor stays in place.) Hit Enter repeatedly to loop through multiple matches.**
+- **5-1-3. "Set Positive Prompts" Button:This button automatically injects your quality-boosting prefix prompts (like masterpiece, best quality...) located in the "PositivePrompts" cell (A3) on the main sheet directly into your text field. You can also trigger this via the hotkey Ctrl + Shift + P. Sure, you _could_ manually select the cell and hit the "Copy" button mentioned later, but let's be real?that's a hassle, right? Nobody firing up an AI generator is looking for potato-quality art. We're here for masterpieces. If your preferred model/checkpoint requires a different set of quality tags, feel free to tweak the contents of cell A3. _Warning:_ Do NOT change the defined Name of the cell ("PositivePrompts"), or you'll break the macro's targeting system!**
+- **5-1-4. Copy Button: Click this on a prompt cell to send it to the clipboard. As you repeat this, prompts accumulate in the "Current Prompt" field, separated by , (comma + space).**
+- **5-1-5. Copy without comma Button: Connects tags with only a space. Perfect for compound concepts like oversized tank top. The macro defaults to adding a comma/space to the beginning of any copied word (except the first). For example: (positive prompt prefix), "1girl" "go to" "park" "with" "me". You would use Normal Copy for 1girl and go to, then use _Copy without comma_ for park and with... up until the point where a comma is needed again (me in this example). Using Normal Copy on the next prompt will resume adding the , separator. Note: Clicking this button for your very first prompt will not insert a leading space.**
+- **5-1-6. Undo Button: Roll back your last action. Stores up to 50 steps. Your clipboard contents will also revert simultaneously.**
+- **5-1-7. Clear Button: Wipes the clipboard and the "Current Prompt" field. (Undo is possible).**
+- **5-1-8. All Clear Button: Total wipeout. Clears the clipboard, the "Current Prompt" field, and purges the entire history. (Undo is NOT possible). _(The "Nuke" / Tactical Obliteration Button)_**
+- **5-1-9. Weighting Engine (Weight Checkbox & Wrap Block Button): Emphasize a prompt by weighting it from 1.1 to 1.3. Works for single words or multi-word blocks (e.g., (oversized tank top:1.1)). Clicking Wrap Block encloses everything up to the previous comma in parentheses and applies the weight. To prevent accidental double-weighting and reduce AI load, the checkbox auto-resets to OFF after one use. If you check the box again without adding a new prompt and click Wrap Block, the weighting will be removed.**
+- **5-1-10. Done! Button: Once you're fully satisfied with your manual tweaks, click Done! to copy the final text field content. Since the clipboard already accumulates prompts during the building phase, this button remains inactive unless you manually edit the field.**
+- **5-1-11. Send to Fav Button: Transfers your masterpiece prompt directly to the text field in the "Favorites" tab.**
 
-**Toggle the Weight checkbox in the floating window, select a value (1.1 - 1.3), and click Wrap Block. This wraps everything up to the previous comma in parentheses-e.g., (oversized tank top:1.1). _Safety Feature:_ To prevent accidental double-weighting and reduce AI compute load, the checkbox auto-resets to OFF after one use.**
+**5-2. The "My Favorite" Tab (The Fetish Vault) The management menu for the precious prompts you've painstakingly forged. Note: None of the buttons in this tab will work unless the "My Favorite" sheet is actively displayed.**
 
-**7\. Workflow Flowchart**
+- **5-2-1. Search Fav Field & Button: Enter a keyword and hit Enter/click Search Fav to scan the "My Favorite" sheet. It only searches within the "Description" field to prevent confusion. Matches glow and cycle just like the main search.**
+- **5-2-2. Pull From Cockpit Button: Instantly grabs the prompt currently sitting in the Cockpit tab's text field.**
+- **5-2-3. Send to Cockpit Button: The reverse of the above. Sends the contents of the Favorite Prompt text field to the Cockpit. Perfect for pulling up a base favorite and adding new elements from the main sheet to further refine it.**
+- **5-2-4. Fav Clear Button: Clears all fields in the "Favorites" tab.**
+- **5-2-5. Fav Copy Button: Copies your saved favorite from the sheet. After all, you want to cast your favorite spells over and over, right? The copied incantation (prompt) will be displayed in the text field along with its description. (Because let's face it, no one can remember what a massive wall of text actually does just by looking at it!)**
+- **5-2-6. Tweaked! Button: After you use "Fav Copy" and manually adjust the prompt in the text field, this button lights up. Clicking it copies your newly refined version.**
+- **5-2-7. Add to Fav! Button: Registers the prompt currently in the field to the "My Favorite" sheet. You cannot save it if the "Description" is blank. Maximum capacity is 50 slots.**
+- **5-2-8. Replace Fav Button (Keep your library clean): Overwrites the currently focused cell on the "My Favorite" sheet with the contents of the Favorite tab's text field (if the cell is blank, it just inputs it). Trying to click this on a non-prompt cell will throw an error. Use case: "I tweaked my favorite prompt and it's finally perfect! But I don't want near-identical clones cluttering my list."**
+- **5-2-9. Export Fav Button (Legacy of Fetishes: Preservation Protocol): Export your favorite list as a CSV file. We've all had that moment: "This generated image is amazing! Wait... what prompt did I use?!" Prompts are creative assets; this is your insurance policy to preserve them.**
+    - **5-2-9-1. Exporting Behavior: Saves as a UTF-8 encoded CSV. Default filename is MyFavorite_yyyymmdd_HHmm. If a file with the same name exists, it automatically adds a suffix like (1) or (2) to prevent accidental overwrites of existing backups.**
+- **5-2-10. Import Fav Button (Splicing Creative DNA): Import a favorite list from a CSV. Perfect for when you want to swap legendary prompts with your community.**
+    - **5-2-10-1. Importing Behavior: You can choose to "Append to existing data" or "Clear all and import as new".**
+        - **Automatic Allocation: If a row has 2+ values, the 1st becomes the "Description" and the 2nd becomes the "Prompt". If only 1 value exists, it is forcibly assigned to "Description" for searchability, regardless of its original column.**
+        - **Packing Logic: Skips empty rows or bad formatting, extracting only valid data and stacking it neatly from the top.**
+        - **Japanese Support: Fully supports Japanese descriptions.**
+        - **Error Logging: Generates an ImportLog_HHmmss.txt if any rows are skipped due to control characters/impurities, or if the imported data exceeds the 50-slot limit.**
+        - **_Note 1:_ The imported CSV must be UTF-8 encoded, or it will throw an error.**
+        - **_Note 2:_ By design, it skips headers and starts importing from Row 4. Anything above that is ignored.**
+- **5-2-11. Fav All Clear Button: Purges ALL data in the "My Favorite" sheet. This is irreversible, so use with extreme caution.**
 
-**Select cells from left to right to build a complete narrative:**
+**6\. The "Golden Flow" Workflow Simply select the light-green cells from left to right to construct a complete prompt: Character Count → Skin & Attributes → Body Type → Hair length → Bangs → Tying → Hair Color → Occupation → Underwear → Outfit → Outfit State → Headwear → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes. The hyperlinks at the top of the main sheet let you warp to specific categories. When clicked, the target cell automatically snaps to the far-left edge of the window. "Back to Legend" links are also provided at the end of each section.**
 
-**Character Count → Skin & Attributes → Hair length → Bangs → Tying → Hair Color → Body Type → Occupation → Underwear → Outfit → Outfit State → Footwear & Legwear→ Accessories → Location → Time & Surroundings → Position → Action & Movement → Means & Props → Body Parts → Interaction State → Expressions & Physical States → Misc Items → Camera Angle → Censorship Fixes**
+**7\. "Sample Prompts" Sheet Contains my personal favorite scenarios. Fetish disclosure alert! Copying a sample sends it straight to the "Cockpit" text box, allowing you to tweak it into your own original prompt. (Please handle any manual weighting yourself). _Tips: Negative Prompts_ Over-tightening chokes the AI and causes glitches. Keep it minimal or turn it off entirely (just enough to banish "unwanted males", for example).**
 
-**Hyperlinks at the start of the main sheet now come with an "Auto-Snap" feature! Click a link to jump, and the target cell will be whisked away to the far-left edge of your window for maximum visibility-it's like having a personal valet for your spreadsheet. Plus, every section includes a "Back to Legend" link, so you can return to base without breaking a sweat.**
+**8\. "Author's Notes (Tips and Rants)" Sheet Includes prompt tips and the struggle stories behind building this macro. Good for a break.**
 
-**8\. Mastering "Copy without Comma"**
+**9\. "CONTACT" Sheet Contains the author's contact info and blog address, as listed in this README.**
 
-**The macro defaults to adding a comma. For phrases where a comma would break the logic-e.g., 1girl, walking in park with me,-do the following:**
+**10\. Disclaimer & Contact Generation results are entirely at the mercy of the AI. The author takes no responsibility for any damages resulting from the use of this tool.**
 
-- **Copy 1girl (Normal).**
-- **Copy walking (Normal).**
-- **Copy in (Without Comma).**
-- **Copy park (Without Comma). ...and so on. Use Normal Copy only when you want the comma separator back.**
+- **AI results are unpredictable. I am not responsible for what you generate.**
+- **Tested Model:** [**RIN Anim8Draw Illustrious - Anime Drawing Model (v4.0A)**](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
+- **Tested LoRA：[Detailed anime style - Illustrious V2.0](https://www.seaart.ai/ja/models/detail/33ff0599ab0e8f9b66d7bee70551df23)**
+- **Contact/Blog:** [**dsblog.biz**](https://dsblog.biz/)
+- **Support the Dev: Bug reports are great, but** [**PayPal tips**](https://paypal.me/dst0508) **keep the lights on!**
+- **While bug reports are absolutely welcome, what I _really_ crave are your missing tag requests! Hit me with feedback like, "Hey, you forgot this location!" or "Where the hell is this specific outfit?!" Sure, you have the freedom to mod the code and add them yourself, but please share them with me?because _I too wish to gaze upon uncharted scenarios!_ Your collective wisdom is the fuel that makes this macro even more totally KENZEN (Wholesome(TM))!**
+- **Author: Tomohito Fujikawa (aka “Dst” or "Deeste" / Former Eroge (Visual Novels) Writer).**
+- **Bonus: Craving some Lore? Check out** [**my SeaArt page!**](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077) **I put my VN writing skills to work by posting original short stories alongside my generated art.**
 
-**9."Recall Me!" Button**
-
-**The "Wait, what was I doing?" Lifeline. Located on both the Main and Search windows, this button summons a floating window that reveals the current contents of your clipboard.**
-
-- **The Why: Let's be honest-the main sheet is wider than a horizontal skyscraper. When C2 scrolls out of sight, it's easy to think, "Wait, how much of this prompt did I actually build?"**
-- **The Wisdom: This feature was designed by an author in his 50s (because let's face it, at this age, our memory has more holes than a Swiss cheese!).**
-- **Note: The Recall window captures the clipboard exactly once the moment it appears. It doesn't "live-stream" your clipboard updates, so if you copy something new, just give the button another click to refresh your memory.**
-
-**10．Prompt Timeline & Undo (Update: v1.1.0)**
-
-**Rewrite your creative history with ease. The Undo feature acts as a 50-step time machine, ensuring your clipboard is always in perfect harmony with your restored text. Choose Clear to wipe your workspace while keeping your safety net intact, or opt for All Clear to purge the entire timeline-wiping every footprint for a truly blank canvas.**
-
-**11\. "Add to Fav" Button**
-
-**This button allows you to transfer your favorite prompts, along with a description, to the "My Favorite" sheet. When you click the button, an input screen for the description will appear. Simply write a note that is easy for you to understand and click "OK" to register the entry. You can store up to 50 items. Please note that you cannot register a prompt if the description field is left blank.**
-
-**12\. "Sample Prompts"Sheet**
-
-- **The "Fetish Reveal" (Samples): I've included my favorite scenarios in the "Sample Prompts" tab. Use them as a base or a source of... inspiration.**
-- **Seamless Integration & Creative Freedom**
-- **Bridge your inspiration: Any Sample Prompts you copy is instantly mirrored to the Main Sheet for seamless integration. From there, the creative alchemy is entirely yours-tweak, refine, and perfect it to your heart's content!**
-
-**Note: Manual weighting is required for custom samples.**
-
-- **Negative Prompting: Don't choke the AI. Over-tagging negatives causes "Prompt Bleed" or glitches. Keep it minimal (e.g., just enough to banish "unwanted males").**
-
-**13\. "My Favorite" Sheet**
-
-**This sheet allows you to manage up to 50 of your favorite prompts.**
-
-- **"Fav Copy" Button: Clicking this copies the prompt to your clipboard and simultaneously displays its description in the "Selected Prompt" cell. (After all, who can actually recall the details of a long, complex incantation just by glancing at it?)**
-- **"Fav Clear" Button: This clears only the current clipboard content and the "Selected Prompt" cell. (Think about it-you're working hard to build a new prompt on the main sheet; it would be a disaster if that got wiped out too, right?)**
-- **Search Function: Enter a keyword in the search box at the top right and click the "Fav Search" button to search through your favorites. The search is limited to the "Description" cells, a design choice made to prevent confusion even if the same words appear in both a prompt and its description.**
-
-**14，"Replace Fav" Button**
-
-**This button replaces the prompt in your currently focused cell on the "My Favorite" sheet with the contents of the Current Prompt (C2) from the main sheet.**
-
-- **The Use Case: "I tweaked my favorite prompt and it's finally perfect! But I don't want to clutter my list with near-identical clones." This is your go-to tool for refining your library.**
-- **The Guardrail: If you try to click this on a cell that isn't a designated prompt slot, the tool will throw an error to protect your sheet's structure**
-- **The "Don't Waste My Time" Logic I've added a high-precision Binary Comparison (DNA Scan) between your Clipboard and the Current Prompt (C2).**
-- **If they Mismatch: A dialog will pop up asking, "Something else is on your clipboard. Clear it and replace anyway?"**
-- **The Shortcut: If you click "Yes," the tool skips the second confirmation and executes the replacement immediately. Because let's be honest: the fewer dialog boxes we have to deal with, the better, YO!**
-
-**15\. Exporting and Importing Prompts**
-
-**Exporting Behavior**
-
-- **Format: Data is exported in CSV format with UTF-8 encoding.**
-- **Filename: The default name is automatically set as "MyFavorite_yyyymmdd_HHmm" (Date and Time).**
-- **Overwriting Protection: If a file with the same name already exists in the destination folder, a suffix like "(1)" or "(2)" is automatically added. This prevents accidental deletion of existing backups.**
-
-**Importing Behavior**
-
-- **Import Mode Selection: When executed, you can choose to either "Append to existing data" or "Clear all and import as new."**
-- **Automatic Data Allocation:**
-  - **If a row contains two or more values: The 1st value is assigned to "Description" and the 2nd value to "Prompt."**
-  - **If only one value is found: It is forcibly stored in "Description" regardless of its original column, ensuring it remains searchable.**
-- **Sliding (Packing) Logic: Even if the CSV contains invalid formats or empty rows, only valid data is extracted and imported sequentially from the top without leaving any gaps.**
-- **Japanese Language Support: Full support for prompts and descriptions containing Japanese characters (Double-byte characters).**
-- **Error Logging: If any rows are skipped due to invalid characters (e.g., control characters), a detailed error log (ImportLog_HHmmss.txt) will be generated in the same folder as the CSV.**
-
-**16．"Author's Notes (Tips and Rants) " Sheet**
-
-**Includes some tips and the "struggle stories" behind this macro. Good for a break.**
-
-**17\. "CONTACT" Sheet**
-
-**As also mentioned in this README, this sheet contains information such as the author's contact details and blog address.**
-
-**18\. Credits & Disclaimer**
-
-- **Disclaimer: Generation results are at the mercy of the AI. The author takes no responsibility for any damages (or lack of "nut") resulting from this tool.**
-- **Tested on: RIN Anim8Draw Illustrious - Anime Drawing Model (Ver.4.0A)**
-
-[**https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg**](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
-
-- **Author: Tomohito Fujikawa (aka "Dst" or "Deeste" / Former Eroge(Visual Novels) Writer).**
-- **Blog/Support:** [**https://dsblog.biz/**](https://dsblog.biz/)
-  - **Feedback and requests are welcome via the blog's mail form.**
-  - **Tips are greatly appreciated via PayPal:** [**https://paypal.me/dst0508**](https://paypal.me/dst0508)
-- **Bonus: Craving some Lore? Check out my SeaArt page! I put my VN writing skills to work by posting original short stories alongside my generated art.**
-
-[**https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077**](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077)
-
-**ENJOY! :)**
+**ENJOY your KENZEN AI Life! :)**
 
 ――――――――――――――――――――――――――――――――--
 
-**■KENZEN SeaArt Helper マニュアル**
+**■KENZEN SeaArt Helper マニュアル（v2.0.0）**
 
-オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v1.1.0.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.0.0.pdf)
 
-**要約：SeaArtでの、NSFW絵の生成プロンプト構築に特化したツールです。**
+**要約：SeaArt（＆Stable Diffusion）での、NSFW絵の生成プロンプト構築に特化したツールです。**
 
-**1\. はじめに**
+## **1.はじめに**
 
 **当Excelブックにはマクロを使用しております。**
 
-- **コーディング支援： Google Gemini（実質的な実装担当という名の丸投げ）**
-- **透明性の確保： Alt+F11 でVBAエディタを開き、\[標準モジュール\] 内の MainCode を参照・改変いただけます。**
-- **著作権： 放棄しませんが、改変および再配布は自由です。報告も不要です（あると作者が喜びます）。**
+**コーディング支援： Google Gemini（実質的な実装担当という名の丸投げ）**
 
-**2\. 作成目的**
+**透明性の確保： Alt+F11 でVBAエディタを開き、\[標準モジュール\] 内の MainCode を参照・改変いただけます。（※悪意あるバックドアは仕込んでいませんが、GoogleGeminiの言いなりで煮込まれたスパゲッティコードが内包されています）**
+
+**著作権： 放棄しませんが、改変および再配布は自由です。報告も不要です（あると作者が喜びます）。**
+
+## **2．作成目的**
 
 **SeaArtでの「NSFW絵に特化した」プロンプト作成を劇的に効率化するために開発しました。 AIへの意図を正確に伝えるための、英語プロンプト構築ツールです。「自分用に使いやすいものを！」という情熱と性癖を詰め込みました。「ダメ英語」の落とし穴を回避しつつ、最短ルートで理想の出力を目指します。……全き！　健全（KENZEN）ですよ！**
 
-**3\. マクロの主要機能（安全設計）**
+## **3.マクロの主要機能（安全設計）**
 
-- **全角チェック： 日本語（全角文字）が含まれている場合、コピーを停止し警告音で知らせます。**
-- **自動連結： 2回目以降のコピー時、自動的に ", "（カンマ＋半角スペース）を挿入して追記します。**
-- **リアルタイム表示： 構築中のプロンプトはC2セルに常時表示されます。**
-- **リセット機能： Clear ボタンでクリップボードとC2セルの内容を消去します。**
+### **3-1全角チェック**
 
-**4\. 使用準備**
+**日本語（全角文字）が含まれている場合、コピーを停止し警告音で知らせます。**
 
-- **ブロック解除： ダウンロードしたxlsmファイルを右クリック → プロパティ→ 「許可する」にチェックを入れて保存。**
-- **マクロ有効化： ファイルを開き、上部の「コンテンツの有効化」をクリック。**
+### **3-2.自動連結**
 
-**5\. 検索パネルと操作方法**
+**2回目以降のコピー時、自動的に “, “（カンマ＋半角スペース）を挿入して追記します。**
 
-- **高度な検索機能： 起動時に常に最前面に表示されます。**
-  - **言葉を入力して Search（またはEnter）をクリック。**
-  - **結果は一瞬点滅し、カーソルが移動します（全角検索なら右隣のプロンプトセルへ、半角ならその場に留まります）。**
-  - **連続ヒットする場合、Enterを押すごとに次の結果へループ移動します。**
-- **コピーと微調整：**
-  - **コピーを繰り返すとC2およびC4（サンプルシートはC3）セルにプロンプトが蓄積されます。**
-  - **C4セル： リストにないプロンプトを手入力するなどの調整後、このセルを選択して Copy を押せば反映されます。**
-- **特殊コピー：**
-  - **Copy without comma：カンマなし（半角スペースのみ）で連結します。oversized tank top 等、連結して一つの概念を指す場合に有効です。**
-- **重み付け機能**
-  - **Wrap Block：強調したいプロンプトを、1.1～1.3まで重み付けできます。一つの単語はもちろん、例えば、先ほどの「oversized + tank top」といった、2単語以上の組み合わせも、「(oversized tank top:1.1)」のようにできます。**
+### **3-3.リアルタイム表示**
 
-**6\. プロンプトの構築フロー**
+**構築中のプロンプトは「Current Prompt」フィールドに常時表示されます。**
 
-**薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。**
+### **3-4.リセット機能**
 
-**キャラ数(Character Count) → 肌の色・属性(Skin & Attributes) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体型(Body Type) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情・生理現象(Expressions & Physical States) → その他アイテム(Misc Items) → アングル(Camera Angle) → 修正(Censorship Fixes)**
+**Clear ボタンでクリップボードと画面表示内容を消去します。**
 
-**メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。また、各項目の末尾には、「凡例に戻る」リンクを設置しています。**
+## **4．使用準備**
 
-**7\. 「Copy without comma」の使い方**
+### **4-1ブロック解除**
 
-**マクロは、「最初を除き、コピーされる単語の頭に、カンマと半角スペースを付ける」挙動をします。なので、例えば、「（接頭句としてのポジティブプロンプト）, "1 girl" "go to"" park" "with" "me"」の場合は、まず、「1 girl」で通常コピー、次に「go to」でも通常コピー、次の「park」でカンマなしコピー、その次の「with」でも、カンマなしコピー……と、「次にカンマを入れるべき所」（例の場合は「me」）まで、カンマなしコピーをしてください。次のプロンプトを通常コピーすれば、区切りに「, 」が付きます。**
+**ダウンロードしたxlsmファイルを右クリック → プロパティ→ 「許可する」にチェックを入れて保存。**
 
-**8\. 重み付け（ウェイティング）機能の使い方**
+### **4-2マクロ有効化**
 
-**フロートウィンドウ（メイン、検索共通）の、「Weight（ウェイト）」のチェックボックスをオンにして、プルダウンメニューから度合い（1.1～1.3）を選び、「Wrap Block（ブロックをくくる）」をクリックすると、「その前のカンマまでの単語全て」が、まとめてカッコでくくられて、重み付けされます。もちろん、1つのプロンプトにも有効です。誤操作防止と、AIへの負荷軽減のために、一度「Weight」ボタンをクリックすると、チェックボックスはオフになります。**
+**ファイルを開き、上部の「コンテンツの有効化」をクリック。**
 
-**9．アンドゥ機能について(Update:v1.1.0)**
+## **5．検索パネルと操作方法**
 
-**「Undo」ボタンをクリックすると、1回前の状態に戻ります。最大50回まで可能です。アンドゥすると同時に、クリップボードの内容も同期されます。「Clear」をクリックすると、履歴を残して現在のセルを消し、「All Clear」をクリックすると、これまでの履歴が全て消えます。**
+**起動する（マクロを有効化する）と、メインウィンドウが開きます。**
 
-**10．Recall Me! ボタン**
+**右上の×で閉じてしまっても、Open Main Window、あるいは、ショートカットキー Ctrl + Shift + O から、いつでも開けます。**
 
-**メインウィンドウと、検索ウィンドウの両方に、共通して付いています。クリックすると、専用のフロートウィンドウが現れ、現在のクリップボードの内容が表示されます。メインシートが横方向に非常に長いため、C2セルの中が視認できなくなり、「今どこまでプロンプトを作ったっけ？」という、失念防止の機能です。（さすが、作者の年齢が50代なだけはあるな！）注意点としては、Recallウィンドウの挙動として、出現時にクリップボードの内容を1回取得するだけなので、その後追記していっても、リアルタイムでは反映されないということです。**
+**ウィンドウは、「Cockpit」と「Favorite」の2つのタブ（パネル）で構成されています。**
 
-**11.** **Add to Favボタン**
+### **5-1「Cockpit」パネル**
 
-**気に入ったプロンプトを、説明と共に、「My Favorite」シートに転送することができます。ボタンをクリックすると、説明書きの入力画面になるので、自分が分かりやすいような説明を書いて、「OK」をクリックすると、登録されます。最大50件までです。説明が空欄だと、登録できません。**
+**プロンプトを構築していくためのメニューがあるタブです。**
 
-**12\. 「Sample Prompts」（サンプルプロンプト）シート**
+#### **5-1-1.「Current Prompt」**
 
-- **サンプル： 「サンプルプロンプト」タブに作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、メインシートにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。ただし、その場合の重み付けなどは、ご自身でお願いします。**
-- **ネガティブプロンプト： 縛りすぎはAIのバグを誘発します。最小限に留めるか、いっそオフにするのがコツです（「野郎の出演」等、絶許な結果を防ぐ程度に）。**
+**ここに、現在のクリップボードの内容が表示されます。プロンプトをコピーするたびに、追記されていきます。テキストフィールドなので、手動での微調整も可能です。**
 
-**13．「My Favorite」シート**
+#### **5-1-2．検索ボックス（Enter Keyword）**
 
-**50件までの、お気に入りプロンプトの管理シートです。「Fav Copy」をクリックすると、プロンプトがクリップボードにコピーされると共に、「説明書きが」「Selected Prompt」のセルに表示されます。（長々とした呪文だけ見て、詳細をすぐに思い出せる人も、そうはいないでしょう？）「Fav Clear」ボタンは、現在のクリップボードの内容と、「Selected Prompt」のセルのみを消去します。（いや、せっかくメインシートで新たなプロンプトを構築しているのに、それまで消えたら台無しじゃないですか？）右上の検索ボックスにキーワードを入力し、「Fav Search」ボタンをクリックすると、「My Favorite」内を検索できます。検索対象は「Description」セルのみですので、プロンプトと説明に同じ単語があっても、混乱しないような設計にしています。**
+**フィールドにキーワードを入力し、エンターキー、ないしは「Search」ボタンをクリックすると、メインシート内を検索できます。ヒットすると、セルが黄色く光り、右隣のプロンプトのセルに移動します。英語で検索した場合は、その場にとどまり、移動しません。連続ヒットする場合、Enterを押すごとに次の結果へループ移動します。**
 
-**14．Replace Fav ボタン**
+#### **5-1-3.「Set Positive Prompts」ボタン**
 
-**「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、メインシートのC2セル（Current Prompt）の内容と置換します（セルが空欄ならば、そのまま入力されます）。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。
-クリップボードの内容と、メインシートのC2セルの値をバイナリ比較し、不一致（別のプロンプトが入っているなど）の場合は、消していいかどうか、確認ダイアログを出します。そこで「はい」を選択すると、直ちに置換処理を実行します。ダイアログなんか、少ない方がいいんですYO!**
+**メインシート上の「PositivePrompts」（A3）セルにある、「masterpiece…」から始まる接頭句としてのポジティブプロンプトを、テキストフィールドに自動入力します。この機能は、ショートカットキー Ctrl + Shift + Pでも実行できます。もちろん、シート上のセルを選択して、後述する「Copy」ボタンを押してもいいのですが、ぶっちゃけ面倒くさいじゃないですか？　AIに絵を描かせようって人間が、雑な絵を見たいはずがないですし。使用するモデルによって、ポジティブプロンプトの内容が違う場合は、各々適宜修正してください。ただし、「PositivePrompts」のセル名を変えると、機能しなくなります。**
 
-**15．プロンプトのエクスポートとインポート**
+#### **5-1-4.「Copy」ボタン**
 
-**「Export as CSV」及び、「Import from CSV」で、お気に入りリストのエクスポートとインポートができます。**
+**コピーしたいプロンプトのセル上でクリックすると、クリップボードに転送されます。コピーを繰り返すと「Current Prompt」フィールドに、「, 」（カンマと半角スペース）を付けて、プロンプトが蓄積されます。**
 
-**・エクスポート（書き出し）の挙動**
+#### **5-1-5.「Copy without comma」ボタン**
+
+**カンマなし（半角スペースのみ）で連結します。oversized tank top 等、連結して一つの概念を指す場合に有効です。マクロは、「最初を除き、コピーされる単語の頭に、カンマと半角スペースを付ける」挙動をします。なので、例えば、「（接頭句としてのポジティブプロンプト）, ”1 girl” ”go to”“ park” ”with” “me”」の場合は、まず、「1 girl」で通常コピー、次に「go to」でも通常コピー、次の「park」でカンマなしコピー、その次の「with」でも、カンマなしコピー……と、「次にカンマを入れるべき所」（例の場合は「me」）まで、カンマなしコピーをしてください。次のプロンプトを通常コピーすれば、区切りに「, 」が付きます。なお、一番最初のプロンプトを、このボタンでクリックしても、先頭にスペースは入りません。**
+
+#### **5-1-6.「Undo」ボタン**
+
+**操作を戻せます。50回まで可能です。クリップボードの内容も、元に戻ります。**
+
+#### **5-1-7.「Clear」ボタン**
+
+**クリップボードと「Current Prompt」フィールドを消去します。アンドゥは可能です。**
+
+#### **5-1-8．「All Clear」ボタン**
+
+**クリップボード、「Current Prompt」フィールド、及び全ての履歴完全に消去し、リセットします。アンドゥはできません。（通称：Nuke / 物理的更地化ボタン）**
+
+#### **5-1-9．重み付け機能（「Weight」チェックボックス＆「Wrap Block」ボタン）**
+
+**強調したいプロンプトを、1.1～1.3まで重み付けできます。一つの単語はもちろん、例えば、先ほどの「oversized + tank top」といった、2単語以上の組み合わせも、「(oversized tank top:1.1)」のようにできます。「Wrap Block」を押すと、その前のカンマまでのブロックを「()」でくくって、重み付けします。もちろん、1つのプロンプトにも有効です。誤操作防止と、AIへの負荷軽減のために、一度「Weight」ボタンをクリックすると、チェックボックスはオフになります。また、プロンプトを追加しないで、もう一度チェックをオンにして「Wrap Block」をクリックすると、重み付けが解除されます。**
+
+#### **5-1-10.「Done!」ボタン**
+
+**気が済むまで（？）手動での調整が終わったら、「Done!」をクリックすれば、現在のテキストフィードの内容がコピーできます。クリップボード内には、既にプロンプトが蓄積されていますから、編集をしない限り、このボタンはクリックできません。**
+
+#### **5-1-11. Send to Favボタン**
+
+**気に入ったプロンプトを、「Favorite」タブウィンドウのテキストフィールドに転送します。**
+
+### **5-2.「My Favorite」タブ（性癖の金庫室）**
+
+**苦心の末に（？）作り上げた、大切なプロンプトを管理するためのメニュー類があるタブです。なお、このタブのボタンは全て、「My Favorite」タブがアクティブになっていないと、動作しません。**
+
+#### **5-2-1.「Search Fav」フィールド＆「Search Fav」ボタン**
+
+**フィールドにキーワードを入力して、エンターか「Search Fav」ボタンのクリックで、「My Favorite」シート内を検索できます。検索されるのは「Description」のフィールドのみで、メインシートでのそれ同様、ヒットしたセルが光り、複数ヒットした場合は、ループします。**
+
+#### **5-2-2.「Pull From Cockpit」ボタン**
+
+**「Cockpit」タブのテキストフィールドに入力されているプロンプトを転写します。**
+
+#### **5-2-3.「Send to Cockpit」ボタン**
+
+#### **上記とは逆に、Favorite Promptのテキストフィールドの内容を、Cockpitのフィールドへ送ります。お気に入りを、メインシート内のプロンプトを加えることで、更にブラッシュアップするときに。**
+
+#### **5-2-4.「Fav Clear」ボタン**
+
+**「Favorite」タブのフィールドを、全てクリアします。**
+
+#### **5-2-5.「Fav Copy」ボタン**
+
+**「My Favorite」シート上のお気に入りをコピーします。やっぱりね、気に入った呪文は、何度でも使いたいですよね。「コピーされた呪文（プロンプト）は、説明と共にテキストフィールドに表示されます。（説明なしで呪文だけ見て、すぐに思い出せる人も、まずいないでしょう？）**
+
+#### **5-2-6.「Tweaked!」ボタン**
+
+**コピーしたお気に入りプロンプトを、テキストフィールド内にて、さらに手動で調整した後、クリック可能になり、クリックすると、テキストフィールドの内容がコピーされます。**
+
+#### **5-2-7.「Add to Fav!」ボタン**
+
+**フィールド内のプロンプトを、「My Favorite」シートに登録します。「Description」が空欄だと、登録できません。最大50件まで登録できます。**
+
+#### **5-2-8.「Replace Fav」ボタン（コレクションは整理しましょう）**
+
+**「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、（「Favorite」タブの）テキストフィールドの内容と置換します（セルが空欄ならば、そのまま入力されます）。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。**
+
+#### **5-2-9.「Export Fav」ボタン（性癖の遺産と、その保全）**
+
+**お気に入りリストを、CSVファイルでエクスポートできます。「ナイスな絵が出た！　しかし、あの時のプロンプトって、何だったっけ！？」ということ、よくありますよね？　プロンプトは、ある意味「資産」ですから、それを保全するための機能です。**
+
+##### **5-2-9-1.エクスポート（書き出し）の挙動**
 
 **保存形式: 文字コード UTF-8 のCSV形式で出力されます。**
 
-**ファイル名: デフォルトで「MyFavorite_yyyymmdd_HHmm（日付と時刻）」が設定されます。**
+**ファイル名：デフォルトで「MyFavorite_yyyymmdd_HHmm（日付と時刻）」が設定されます。**
 
-**上書き防止: 保存先に同名のファイルが存在する場合、自動的に「(1)」「(2)」といった枝番が付与されます。既存のバックアップを誤って消去することはありません。**
+**上書き防止：保存先に同名のファイルが存在する場合、自動的に「(1)」「(2)」といった枝番が付与されます。既存のバックアップを誤って消去することはありません。**
 
-**・インポート（取り込み）の挙動**
+#### **5-2-10「Import Fav」ボタン**
+
+**CSVファイルから、お気に入りリストをインポートできます。ほら、仲間内で「俺はこんなすごいプロンプトを作ったぜ！」とか、交換したいじゃ名ですか？　そう言うときのための機能です。**
+
+##### **5-2-10-1.インポート（取り込み）の挙動**
 
 **取り込みモードの選択: 実行時に「既存のデータに追記」するか、「全クリアして新しく取り込む」かを選択できます。**
 
@@ -264,35 +255,52 @@ Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtd
 
 **日本語のサポート: 日本語（全角文字）を含む説明も完全にサポートしています。**
 
-**エラーログ: 制御文字などの不純物により取り込めなかった行がある場合、CSVと同じフォルダに詳細なエラーログ（ImportLog\_時刻.txt）が生成されます。既存のリストに追加した結果が50件を超える場合、あふれたデータは、エラーログに記録されます。**
+**エラーログ: 制御文字などの不純物により取り込めなかった行がある場合、CSVと同じフォルダに詳細なエラーログ（ImportLog_時刻.txt）が生成されます。既存のリストに追加した結果が50件を超える場合、あふれたデータは、エラーログに記録されます。**
 
-**「Fav All Clear」ボタンをクリックすると、現在のクリップボードの内容、お気に入りリスト、「Selected Prompt」のセル全てを消去します。**
+**注意：インポート元のファイルも、文字コードがUTF-8である必要があります。違っていた場合は、エラーが出て処理されません。**
 
-**16．「作者覚え書き(ja) / Author's Notes (Tips and Rants)」シート**
+**注意2：仕様上、「データのヘッダを飛ばして4行目から取得を開始する」挙動をします。それより上にあるデータは、取り込めません。**
 
-**ちょっとしたTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）**
+#### **5-2-11.「Fav All Clear」ボタン**
 
-**17．「CONTACT」シート**
+**「My Favorite」シート内のデータを、全て消去します。元には戻せませんので、くれぐれもご注意を。**
+
+## **6\. プロンプトの構築フロー**
+
+**薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。**
+
+**キャラ数(Character Count) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → ヘッドウェア(Headwear) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情・生理現象(Expressions & Physical States) → その他アイテム(Misc Items) → アングル(Camera Angle) → 修正(Censorship Fixes)**
+
+**メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。また、各項目の末尾には、「凡例に戻る」リンクを設置しています。**
+
+## **7,「Sample Prompts」（サンプルプロンプト）シート**
+
+**作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。ただし、その場合の重み付けなどは、ご自身でお願いします。**
+
+### **Tips：ネガティブプロンプトについて**
+
+**縛りすぎはAIのバグを誘発します。最小限に留めるか、いっそオフにするのがコツです（「野郎の出演」等、絶許な結果を防ぐ程度に）。**
+
+## **8.「作者覚え書き(ja) / Author's Notes (Tips and Rants)」シート**
+
+**プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）**
+
+## **9.「CONTACT」シート**
 
 **このREADMEにも書いていますが、作者の連絡先ブログなどを記載しています。**
 
-**18\. 免責事項・連絡先**
+## **10\. 免責事項・連絡先**
 
 - **生成結果はAI次第です。当ツールの使用による損害について、作者は一切の責任を負いません。**
-- **検証モデル：RIN Anim8Draw Illustrious - Anime Drawing Model(Ver.4.0A)**
-
-[**https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg**](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
-
-- **作者：不二川巴人（ふじかわ ともひと）（「でぇすて」とか、「不二川"でぇすて"巴人」名義で、エロゲーライターをやっていました）**
-- **連絡先・ブログ：** [**https://dsblog.biz/**](https://dsblog.biz/)
-  - **リクエストや感想はブログのメールフォームまで。投げ銭（PayPal）も歓迎です！**
-
-[**https://paypal.me/dst0508**](https://paypal.me/dst0508)
+- **検証モデル：[RIN Anim8Draw Illustrious - Anime Drawing Model(Ver.4.0A)](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)**
+- **同・併用したLoRA：**[**Detailed anime style - Illustrious V2.0**](https://www.seaart.ai/ja/models/detail/33ff0599ab0e8f9b66d7bee70551df23)
+- **作者：不二川巴人（ふじかわ ともひと）（「でぇすて」とか、「不二川“でぇすて”巴人」名義で、エロゲーライターをやっていました）**
+- [**連絡先・ブログはこちら。**](https://dsblog.biz/)
+- **リクエストや感想、あるいはバグレポートは、ブログのメールフォームまで。**[**投げ銭（PayPal）**](https://paypal.me/dst0508https:/paypal.me/dst0508)**も歓迎です！**
+- **バグレポートももちろんですが、「こんなロケーションが抜けてるぜ！」とか、「この服がないぞ！」というフィードバックは、是非ともお寄せください。自分好みに自由に改変できるとは言え、「未知のシチュエーションを、俺も見たい！」からです！　あなたの意見が、このマクロをよりKENZENにします！**
 
 **（おまけ）**
 
-- 　**SeaArtの個人ページでは、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。**
+- [**SeaArtの個人ページ**](https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI)**では、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。**
 
-<https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI>
-
-**健やかなる()AIライフを！**
+**さあ！　健やかなる()AIライフを！**
