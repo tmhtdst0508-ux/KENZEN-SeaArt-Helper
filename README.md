@@ -1,3 +1,22 @@
+> # Welcome to the KENZEN SeaArt Helper! 🤝
+> 
+> **Greetings, my fellow People of Culture around the world!**
+> 
+> I am Tomohito Fujikawa (aka "Deesute"), a Japanese scenario writer. For about 15 years, I have crafted stories and situations for over 60 PC Visual Novels. In my pursuit of the ultimate "KENZEN" (Cultured/NSFW) AI art, I realized we needed a better way to manage our deepest desires and complex prompts. 
+> 
+> So, I built this tool for us. 
+> 
+> **KENZEN SeaArt Helper** is your ultimate cockpit for SeaArt and Stable Diffusion. 
+> 
+> 🚧 **[COMING SOON: v2.1.0 Major Update!]** 🚧
+> I am currently doing final checks on version 2.1.0, which will introduce a highly requested **LoRA Management System**! Very soon, you will be able to set custom aliases, save recommended weights, stack multiple LoRAs, and save your favorite combinations as presets. Stay tuned!
+> 
+> Although I am primarily a writer, I poured my soul into coding this environment using AI, just so we can all break through our creative limits. 
+> 
+> Please use this tool to your heart's content, explore your fetishes, and create absolute masterpieces! 🎨
+> 
+> **If this tool helps you on your glorious journey, dropping a ⭐ Star on this repository would mean the world to me (and you'll be notified of the v2.1.0 release)!** Let's spread the culture together!
+
 **(日本語は下にあります)**
 
 **KENZEN SeaArt Helper Manual (v2.0.0)**
