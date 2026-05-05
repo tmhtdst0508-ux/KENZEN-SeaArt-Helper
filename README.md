@@ -21,6 +21,7 @@ Please use this tool to your heart's content, explore your fetishes, and create 
 # **KENZEN SeaArt Helper Manual (v2.1.0)**
 
 Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.1.0.pdf)
+
 **TL;DR: A specialized prompt builder tailored for generating NSFW content in SeaArt (and Stable Diffusion).**
 
 ## **1\. Introduction**
