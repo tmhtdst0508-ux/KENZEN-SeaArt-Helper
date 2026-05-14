@@ -10,7 +10,7 @@ So, I built this tool for us.
 
 KENZEN SeaArt Helper is your ultimate cockpit for SeaArt and Stable Diffusion.
 
-**🚀 \[v2.2.0 Fully Released!\] 🚀**
+**🚀 \[v2.2.1 Fully Released!\] 🚀**
 
 The forbidden door has finally been flung wide open. With the latest v2.2.0 update, the AI-powered prompt alchemy engine "Gacha!" — fueled by the Google Gemini API — is now fully operational!
 
@@ -458,7 +458,7 @@ Generation results are entirely at the mercy of the AI. The author takes no resp
 
 だからこそ、同志たち（と書いて「お前等」と読む）のためにこのツールを錬成しました。**KENZEN SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のための究極のコックピットです。
 
-🚀 **【v2.2.0 完全リリース！】** 🚀
+🚀 **【v2.2.1 完全リリース！】** 🚀
 
 ついに禁断の扉が開かれてしまいました。最新のv2.2.0アップデートでは、Google Gemini APIを心臓部に据えた、AIプロンプト錬成エンジン「Gacha!」が完全実装されました！
 
