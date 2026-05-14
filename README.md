@@ -28,7 +28,7 @@ If this tool helps you on your glorious journey, dropping a ⭐ Star on this rep
 
 # KENZEN SeaArt Helper Manual (v2.2.0)
 
-Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.2.0.pdf)
+Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.2.1.pdf)
 
 **TL;DR: A specialized prompt builder tailored for generating NSFW content in SeaArt (and Stable Diffusion).**
 
@@ -474,9 +474,9 @@ Generation results are entirely at the mercy of the AI. The author takes no resp
 
 **もしこのツールが、あなたの素晴らしき創作の旅の役に立ったなら、このリポジトリに ⭐Star を押していただけると、作者にとってこの上ない励みになります！** 共に「KENZEN」な文化を広めていきましょう！
 
-# ■KENZEN SeaArt Helper マニュアル（v2.2.0）
+# ■KENZEN SeaArt Helper マニュアル（v2.2.1）
 
-オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.2.0.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v2.2.1.pdf)
 
 **要約：SeaArt（＆Stable Diffusion）での、NSFW絵の生成プロンプト構築に特化したツールです。**
 
@@ -625,8 +625,8 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 ##### 5-2-9-1.エクスポート（書き出し）の挙動
 
 - **保存形式:** 文字コード UTF-8 のCSV形式で出力されます。
-- **ファイル名：**デフォルトで「MyFavorite_yyyymmdd_HHmm（日付と時刻）」が設定されます。
-- **上書き防止：**保存先に同名のファイルが存在する場合、自動的に「(1)」「(2)」といった枝番が付与されます。既存のバックアップを誤って消去することはありません。
+- **ファイル名：** デフォルトで「MyFavorite_yyyymmdd_HHmm（日付と時刻）」が設定されます。
+- **上書き防止：** 保存先に同名のファイルが存在する場合、自動的に「(1)」「(2)」といった枝番が付与されます。既存のバックアップを誤って消去することはありません。
 
 #### 5-2-10「Import Fav」ボタン
 
@@ -852,15 +852,15 @@ AIが錬成したプロンプトが表示されます。
 
 メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。
 
-## 7,「Sample Prompts」（サンプルプロンプト）シート
+## 7\.「Sample Prompts」（サンプルプロンプト）シート
 
 作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。ただし、その場合の重み付けなどは、ご自身でお願いします。
 
-## 8.「作者覚え書き(ja)v2 / Author's Notes (Tips and Rants)」シート
+## 8\.「作者覚え書き(ja)v2 / Author's Notes (Tips and Rants)」シート
 
 プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）
 
-## 9.「CONTACT」シート
+## 9\.「CONTACT」シート
 
 このREADMEにも書いていますが、作者の連絡先ブログなどを記載しています。
 
@@ -877,4 +877,4 @@ AIが錬成したプロンプトが表示されます。
 
 **さあ！　健やかなる()AIライフを！**
 
-![FLUG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
+![FLAG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
