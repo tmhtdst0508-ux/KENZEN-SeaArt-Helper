@@ -27,7 +27,7 @@ If this tool aids you on your glorious creative journey, hitting that ⭐Star bu
 
 # ■ KENZEN SeaArt Helper Manual (v2.3.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN%20SeaArt%20Helper_Manual_v.2.3.0.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.3.0.pdf)_
 
 **TL;DR:** A specialized tool for building NSFW generation prompts for SeaArt (& Stable Diffusion). Using an API key, you can also make Gemini brainwash... I mean, brainstorm NSFW prompts for you.
 
@@ -503,7 +503,7 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
 
 # ■KENZEN SeaArt Helper マニュアル（v2.3.0）
 
-オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN%20SeaArt%20Helper_Manual_v.2.3.0.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.3.0.pdf)
 
 **要約：SeaArt（＆Stable Diffusion）での、NSFW絵の生成プロンプト構築に特化したツールです。APIキーを使って、GeminiにNSFW絵のプロンプトを考えさせることもできます。**
 
