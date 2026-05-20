@@ -1,6 +1,6 @@
   **[(日本語は下にあります)](#kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D)**
 
-**\[Notice / 注意\]** This tool runs on **Excel Macro (VBA)**. It requires a **Windows/Mac PC environment** to unleash its full power. Sorry, prompt mages on mobile, this "forbidden door" requires a desktop key! 💻
+**\[Notice\]** This tool runs on **Excel Macro (VBA)**. It requires a **Windows/Mac PC environment** to unleash its full power. Sorry, prompt mages on mobile, this "forbidden door" requires a desktop key! 💻
 
   **\[注意\]** 本ツールは、**Excelマクロ(VBA)です。** 動作のためには、Windows/Mac PCが必要です。モバイル術士の皆様には申し訳ないのですが、「禁断の扉」を開けるには、「デスクトップ環境」というキーを入手してください。 💻
 * * *
