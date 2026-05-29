@@ -1,10 +1,9 @@
-  **[(日本語は下にあります)](#kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D)**
+**[(日本語は下にあります)](kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D)**
 
 **\[Notice\]** This tool runs on **Excel Macro (VBA)**. It requires a **Windows/Mac PC environment** to unleash its full power. Sorry, prompt mages on mobile, this "forbidden door" requires a desktop key! 💻
 
   **\[注意\]** 本ツールは、**Excelマクロ(VBA)です。** 動作のためには、Windows/Mac PCが必要です。モバイル術士の皆様には申し訳ないのですが、「禁断の扉」を開けるには、「デスクトップ環境」というキーを入手してください。 💻
 * * *
-
 # Welcome to the KENZEN SeaArt Helper! 🤝
 
 **Greetings to all fellow AI Mages in Japan and across the world who strive for "KENZEN" (Wholesome™/NSFW) art!**
@@ -13,21 +12,60 @@ I am Tomohito Fujikawa (aka "Dst" or "Deesute"). I am a writer who has spent app
 
 That is exactly why I forged this tool for my comrades (read: you degenerates). The KENZEN SeaArt Helper is the ultimate cockpit for AI mages wielding SeaArt and Stable Diffusion.
 
-**🚀 【v2.3.0 Release!】 🚀**
+**How to Download**
 
-**Positive Prompt Management feature added!**
 
-The author has _finally_ built a local Stable Diffusion environment. The knowledge and insights gained from using it have been fully reflected in this version.
+![How to Download](images/How_to_Download_20260529.jpg)
 
-Both Positive and Negative prompts vary wildly depending on the model (checkpoint) you use. While browsing Civitai, I realized that when applying them to Stable Diffusion, it’s standard practice to copy and paste them directly from the browser.
+**How to Unlock** `.xlsm` 
 
-By the way, I personally despise the word "standard," but putting that aside: since both Positive and Negative prompts are handled in bulk, I’ve enhanced the Negative prompt addition feature (which was incomplete in the previous version). You can now split and register comma-separated strings effortlessly. Furthermore, I’ve introduced a default registration and preset feature. Symmetrically, I’ve also added a Positive Prompt management tab to drastically improve the UX.
+
+![How to Unlock xlsm](images/How_to_Unlock_xlsm_20260529.jpg)
+
+**Screenshot**
+
+
+![Screenshot](images/Screenshot_20260529.jpg)
+
+ 🚀 **【v2.4.0 Released!】** 🚀
+
+**No More Auto-Resetting to Legend! (Pure QoL Update)**
+
+Previously, the screen snapped back to the Legend every single time you copied a cell. But let’s be real—when you're cooking prompts, you often want to grab multiple words from the same column. Since the Cockpit already has a Category Jump ComboBox and a "Back to Legend" button, having it force-reset every time was honestly a massive pain in the ass and total eye strain. We killed that behavior entirely. Enjoy the smooth UX!
+
+**Instant Prompt Sorter (Stop Forgetting Your Tags!)**
+
+When you're building massive, complex prompt spells, it’s incredibly easy to forget to insert crucial tags. (Source: Trust me, I'm the dev and I do this daily). While AI can sometimes understand a messy prompt, it always performs better when the tags are beautifully ordered. That's why we added a feature that lets you sort the spells in the Cockpit’s main field with just a single click!
+
+ **New "Wrap \[ \]" Feature for Multi-Character Cooking!**
+
+Want two characters in one frame with different outfits and actions? I’ve been experimenting with the `BREAK` syntax myself, and noticed that enclosing each character's traits within `[ ]` dramatically increases your generation gacha win-rate. So, I built it right in! Along with this, `BREAK` has been officially added to the database, ensuring clean line breaks before and after whenever you copy it.
+
+**LoRA Overhaul: Space Separation & Individual Weights!**
+
+After the v2.3.0 release, I did some deep diving into the prompt meta. Turns out, forcing LoRA tags to the very front isn't necessary, and using commas to link them is actually an anti-pattern. So, I abolished the old "insert LoRA at the front" behavior. LoRAs are now cleanly linked with standard half-width spaces instead of commas. Furthermore, when stacking multiple LoRAs, you are no longer forced to apply the same uniform weight—you can now customize the weight for each trigger word individually!
+
+**"Surprise Me!" – Let Gemini Take the Wheel!**
+
+Pure gacha mode for fun! We already have the god-defying feature of letting Google Gemini engineer NSFW prompts for you, but I thought: "What if we just let the AI go wild?" Check this option, and Gemini will craft a mind-blowing prompt based on words randomly pulled from your database.
+
+**Civitai-Friendly Prompt Import & Cleaning!**
+
+Look, my bad on this one. When browsing Civitai, model descriptions often come with recommended positive and negative prompts already heavily weighted. In previous versions, copy-pasting them directly would import the raw `()` brackets, messing up your database records. I fixed that! Plus, the Positive Prompt management screen now supports bulk copy-paste registration straight from your browser.
+
+**Dynamic Prompt & Wildcard Support!**
+
+For the local Stable Diffusion Web UI gigachads: We’ve bundled wildcard files compatible with the "Dynamic Prompts" extension inside the release ZIP! These cover hairstyles, facial expressions, and camera angles. A dedicated "Dynamic Prompt Wildcard" category has also been added to the database.
+
+**Other Bug Fixes**
+
+Forgive me, standard dogeza applied. m(_ \_)m
 
 If this tool aids you on your glorious creative journey, hitting that ⭐Star button on this repository would be the ultimate encouragement for the author! Let us spread the "KENZEN" culture together!
 
-# ■ KENZEN SeaArt Helper Manual (v2.3.0)
+# ■ KENZEN SeaArt Helper Manual (v2.4.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.3.0.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.4.0.pdf)_
 
 **TL;DR:** A specialized tool for building NSFW generation prompts for SeaArt (& Stable Diffusion). Using an API key, you can also make Gemini brainwash... I mean, brainstorm NSFW prompts for you.
 
@@ -98,7 +136,7 @@ The tab containing menus for building your prompt.
 
 ### 5-1-4. "Copy" Button
 
-- Click on the cell of the prompt you want to copy, and it transfers to the clipboard. Repeated copying accumulates prompts in the "Current Prompt" field, appending with ", ".
+ - Clicking on a prompt cell instantly transfers it to your clipboard. As you keep copying, words accumulate in the "Current Prompt" field, automatically joined by a comma and a space (`,` ). The `BREAK` tag is handled with special care, inserting clean line breaks before and after.
 
 ### 5-1-5. "Copy without comma" Button
 
@@ -121,11 +159,19 @@ The tab containing menus for building your prompt.
 
 - You can weight prompts you want to emphasize (or weaken) from 0.5 to 1.3. Not just single words, but combinations like the aforementioned oversized tank top can become (oversized tank top:1.1). Clicking "Wrap Block" encloses the block up to the preceding comma in () and applies the weight. Naturally, this works for single prompts too. To prevent misclicks and reduce AI load, the checkbox turns off once you click "Wrap Block". Also, if you turn the check back on without adding a new prompt and click "Wrap Block", it removes the weighting.
 
-### 5-1-10. "Done!" Button
+### 5-1-10. "Wrap \[ \]" Button
+
+When using the `BREAK` syntax, wrapping the entirety of each character's traits in `[ ]` helps the AI understand the prompt layers much better (depending on the model you use). Simply select a block of text inside the textbox and click this button to instantly enclose it in `[ ]`.
+
+### 5-1-11. "Done!" Button
 
 - Once you're satisfied (or tired) of manual tweaking, click "Done!" to copy the current contents of the text field.
 
-### 5-1-11. Send to Fav Button
+### 5-1-12. "Everyone, Fall in! (Sort Prompt)" Button
+
+ - Building long prompt chains often leads to "forgotten tags." While the AI can read disorganized prompts, keeping them tidy yields the best results. Click this button to instantly sort your prompts according to the order of the database. *Note: If you use the BREAK syntax, this will only apply to the final paragraph.*
+
+### 5-1-13. Send to Fav Button
 
 - Sends your favorite prompts to the text field in the "Favorite" tab window.
 
@@ -272,8 +318,7 @@ List of currently set LoRAs. To stack multiple, select another LoRA and press "S
 
 #### 5-5-7. Wrap LoRA! Button & Weight (Prompt Alchemy)
 
-Formats the LoRAs and trigger words in the cart into &lt;lora:Hash:strength&gt;, (Trigger word:1.1) and outputs to the Preview field. If a trigger word's weight is 1.0, it won't be wrapped in ().
-
+Formats the trigger words of the LoRA currently in your cart into the `<lora:Hash:strength>, (Trigger word:1.1)` format and outputs it to the Preview field. If the trigger word weight is exactly 1.0, the `()` brackets are automatically omitted. *Note: If you want to apply different weights to multiple trigger words within the same LoRA, the current UI doesn't support it out of the box—please manually edit the Preview textbox.*
 _Safety Feature:_ In the unlikely event a "Ghost LoRA" (deleted from the main management data) remains in the cart, pressing this button automatically detects and exorcises (deletes) it from the cart.
 
 #### 5-5-8. Remove / Forget LoRA Buttons
@@ -444,13 +489,21 @@ Shows your remaining daily gacha rolls.
 - _**Reset:**_ Resets at 0:00 Pacific Time (PT).
 - _**Limit Adjustment (Hidden Feature):**_ For heavy users paying for the API who want to change the cap, double-click the counter number. A box will appear to freely adjust your daily limit.
 
+### 5-8-6. "Surprise Me!" Checkbox / SFW, NSFW & Hardcore Options
+
+Checking this box reveals three option buttons. Select your desired vibe and hit "Feeling Lucky?" to let Google Gemini engineer a creative prompt based on words randomly selected from your database.
+
 _**Tips: Gacha Tricks:**_ When speaking your desires, _you_ don't need to be "well-mannered." During debugging, I found that if you show weird hesitation, Gemini senses it and triggers its (cheeky) safety filters. That's right. If you mean female genitalia, don't sugarcoat it with "crotch." Just write "p\*ssy" straight up.
 
 ## 6\. Prompt Building Flow
 
 Simply select the light green cells from left to right to complete a single prompt.
 
-Character Count → Skin & Attributes → Body Type → Hair length → Bangs → Tying → Hair Color → Body Hair → Occupation → Underwear → Outfit → Outfit State → Headwear → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Bondage Action & Movement → Means & Props → Body Parts → Interaction State → Expressions → Body fluids → Misc Items → Camera Angle → Censorship Fixes
+Character Count → Character Placement → Skin & Attributes → Body Type → Wildcard for Hair → Hair length → Bangs → Tying → Hair Color → Body Hair → Occupation → Underwear → Outfit → Outfit State → Headwear → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Bondage Action & Movement→ Means & Props → Body Parts → Interaction State → Expressions → Body fluids → Misc Items → Camera Angle → Censorship Fix, Others
+
+If you are using the Dynamic Prompt extension in a local Stable Diffusion environment, I have prepared wildcards for hair,expressions, and angles. These are included in the ZIP file, so please feel free to use them.
+
+At the top of the main sheet, there are hyperlinks to jump to each category cell. Clicking one automatically aligns the focused cell to the left edge of the window.
 
 At the top of the main sheet, there are hyperlinks to jump to each category cell. Clicking one automatically aligns the focused cell to the left edge of the window.
 
@@ -470,7 +523,7 @@ As written in this README, contains the author's contact blog, etc.
 
 Generation results are entirely up to the AI. The author assumes ZERO responsibility for any damages caused by using this tool. Likewise, the "Gacha!" feature does not guarantee a successful NSFW output.AI results are unpredictable. I am not responsible for what you generate.
 
-- Tested Model: [RIN Anim8Draw Illustrious - Anime Drawing Model (v4.0A)](https://www.seaart.ai/models/detail/d158n1te878c73atvtdg)
+- Tested Model: - [REED_XXX_illustrious_SDXL V14.0](https://civitai.red/models/1717562/reedxxxillustrioussdxl)
 - Contact/Blog: [dsblog.biz](https://dsblog.biz/)
 - Support the Dev: Bug reports are great, but [PayPal tips](https://paypal.me/dst0508) keep the lights on!
 - While bug reports are absolutely welcome, what I _really_ crave are your missing tag requests! Hit me with feedback like, "Hey, you forgot this location!" or "Where the hell is this specific outfit?!" Sure, you have the freedom to mod the code and add them yourself, but please share them with me—because _I too wish to gaze upon uncharted scenarios!_ Your collective wisdom is the fuel that makes this macro even more totally KENZEN (Wholesome™)!
@@ -489,21 +542,53 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
 
 だからこそ、同志たち（と書いて「お前等」と読む）のためにこのツールを錬成しました。**KENZEN SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のための究極のコックピットです。
 
-🚀 **【v2.3.0 リリース！】** 🚀
+**ダウンロード方法**
 
-**ポジティブプロンプト管理機能搭載！**
 
-作者もついに、Stable Diffusionのローカル環境を構築しました。そして使って行く中で得た知見を、今回のバージョンに反映させました。
+![How to Download](images/How_to_Download_20260529.jpg)
 
-ポジティブプロンプトも、ネガティブプロンプトも、使うモデル（チェックポイント）によって、ばらばらです。Civitaiを見ていて気付いたのですが、Stable Diffusionに適用する際、ブラウザからコピペするのが普通だと思われます。
+ `.xlsm`**ファイルのロック解除方法**
 
-ちなみに作者は「普通」という言葉が好きではないのですが、それはさておき、ポジティブプロンプトも、ネガティブプロンプトも、一括で扱うものであるので、前バージョンでは不完全だった、ネガティブプロンプトの新規追加機能を強化し、カンマ等で区切られた文字列も、分割して登録できるようにしました。さらに、デフォルト登録、プリセット機能を新設。それとシンメトリーに、ポジティブプロンプト管理タブも設け、UXの向上を図りました。
+ 
+![How to Unlock xlsm](images/How_to_Unlock_xlsm_20260529.jpg)
+
+**スクリーンショット**
+
+
+![Screenshot](images/Screenshot_20260529.jpg)
+
+🚀 **【v2.4.0 リリース！】** 🚀
+
+**コピー後の挙動変更！**
+今までは、セルをコピーするたびに、凡例へ戻っていました。しかし、同一の列から複数の単語をコピーしたいことも多々あります。Cockpitにカテゴリジャンプのコンボボックスと「Back to Legend」ボタンがありますから、いちいち戻っていては、目が滑ってぶっちゃけうっとうしい！　なので、戻る挙動そのものを廃止し、UXの向上を図りました。
+
+**プロンプトソート機能搭載！**
+長大な呪文を構築していると、「タグ（要素）の入れ忘れ」というケースが、頻繁に発生します。ソースは作者です。順番が乱れていても、いいと言えばそうなのですが、AIにより正しく理解させるためには、やはり順番通りであった方がいい。そんなわけで、Cockpit内のメインフィールドの呪文を、ボタン一発でソートする機能を実装しました。
+
+**「Wrap[ ]」機能追加！**
+「画面内に人物が2人いる場合、それぞれに違う服装や行動をさせたい」という状況のために、作者も「BREAK」構文を覚え、その際、各人物にまつわる要素全体を、”[ ]”で括った方が、打率が上がることに気付きました。じゃあ追加してやれ！　ってことで。それに関連して、データベースにも「BREAK」を追加し、それをコピーしたときには、前後に改行が入るようにしました。
+
+**LoRA関連のUX変更！**
+v2.3.0のリリース後、作者も色々調べました。それによると、LoRAに関するタグは、必ずしも先頭に挿入する必要はなく、むしろカンマで連結する方が非推奨らしい。じゃあってことで、前バージョンまでの、「LoRAのタグを先頭に挿入する」挙動を廃止し、カンマの代わりに半角スペースで連結するようにしました。また、LoRAを重ねがけする際、これまでは、選択したLoRAのトリガーワードに重み付けをする際、全てのLoRAに同じ重み付けがされていた挙動を改善し、個別に設定できるようにしました。
+
+**「Surprise Me!」機能追加！**
+純粋なお遊び機能です。「Google GeminiにNSFW絵のプロンプトを考えさせる」という、神をも恐れぬ機能を搭載しているわけですが、「任せっきりにしたら、面白いんじゃないか？」と思って、追加しました。データベース内からランダムに抽出された単語を元に、Google Geminiがプロンプトを考えてくれます。
+
+**ポジティブ＆ネガティブプロンプト管理機能強化！**
+これはもう、作者が完全に悪いのですが、Civitaiなどを見ていると、各モデルの概要欄に、推奨されるポジティブ＆ネガティブプロンプトが、既に重み付けされている状態で記載されていることが、多々あります。前バージョンまでは、そのまま（カッコ付きのまま）コピペすると、「`()`」等が入ったままの、誤った形で記録されてしまっていました。そこを直したのと、ポジティブプロンプトの管理画面についても、ブラウザからの一括コピペ登録ができるようにしました。
+
+**Dynamic Prompt対応！**
+Stable Diffusion Web UIのローカル環境限定機能ですが、拡張機能の「Dynamic Prompt」に対応したワイルドカードファイルを、配布ZIPの中に同梱しました。具体的には、ヘアセット、表情、アングルに関するものです。それに併せて、データベースにも、「Dynamic Prompt用ワイルドカード」の項目を追加しました。
+
+**その他バグフィクス**
+なんか、ごめん（土下座）
+
 
 **もしこのツールが、あなたの素晴らしき創作の旅の役に立ったなら、このリポジトリに ⭐Star を押していただけると、作者にとってこの上ない励みになります！** 共に「KENZEN」な文化を広めていきましょう！
 
-# ■KENZEN SeaArt Helper マニュアル（v2.3.0）
+# ■KENZEN SeaArt Helper マニュアル（v2.4.0）
 
-オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.3.0.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/blob/main/KENZEN_SeaArt_Helper_Manual_v.2.4.0.pdf)
 
 **要約：SeaArt（＆Stable Diffusion）での、NSFW絵の生成プロンプト構築に特化したツールです。APIキーを使って、GeminiにNSFW絵のプロンプトを考えさせることもできます。**
 
@@ -575,7 +660,7 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 
 #### 5-1-4.「Copy」ボタン
 
-コピーしたいプロンプトのセル上でクリックすると、クリップボードに転送されます。コピーを繰り返すと「Current Prompt」フィールドに、「, 」（カンマと半角スペース）を付けて、プロンプトが蓄積されます。
+コピーしたいプロンプトのセル上でクリックすると、クリップボードに転送されます。コピーを繰り返すと「Current Prompt」フィールドに、「, 」（カンマと半角スペース）を付けて、プロンプトが蓄積されます。「`BREAK`」に関しては特殊で、前後に改行が入ります。
 
 #### 5-1-5.「Copy without comma」ボタン
 
@@ -597,9 +682,14 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 
 強調したい（あるいは弱めたい）プロンプトを、0.5～1.3まで重み付けできます。一つの単語はもちろん、例えば、先ほどの「oversized + tank top」といった、2単語以上の組み合わせも、「(oversized tank top:1.1)」のようにできます。「Wrap Block」を押すと、その前のカンマまでのブロックを「()」でくくって、重み付けします。もちろん、1つのプロンプトにも有効です。誤操作防止と、AIへの負荷軽減のために、一度「Weight」ボタンをクリックすると、チェックボックスはオフになります。また、プロンプトを追加しないで、もう一度チェックをオンにして「Wrap Block」をクリックすると、重み付けが解除されます。
 
-#### 5-1-10.「Done!」ボタン
+#### 5-1-10.「Wrap [ ]」ボタン
+BREAK構文を使う際、人物ごとの要素丸ごとを”`[ ]`”でくくると、AIの理解がよくなります。（使用するモデルによるかもしれません）そんな時、テキストボックス内の範囲を選択し、このボタンを押すと、そのブロックが”`[ ]`”でくくられます。
 
+#### 5-1-11.「Done!」ボタン
 気が済むまで（？）手動での調整が終わったら、「Done!」をクリックすれば、現在のテキストフィードの内容がコピーできます。
+
+#### 5-1-12.「Everyone, Fall in! (Sort Prompt)」ボタン
+長大な呪文を構築していると、「要素を入れ忘れる」ことがよくあります。順番がバラバラでも、AIは理解してくれますが、やはり揃っていた方がいい。このボタンを押すと、データベースの項目順に、プロンプトがソートされます。*ただし、`BREAK`構文を使った際は、最後の段落に対してのみ適用される仕様なので、そこはご注意を。*
 
 #### 5-1-11. Send to Favボタン
 
@@ -749,7 +839,7 @@ LoRAのシステムハッシュやトリガーワードを登録・管理する�
 
 ##### 5-5-7. Wrap LoRA! ボタン & Weight (プロンプトの錬成)
 
-カートに入れたLoRAとトリガーワードを、&lt;lora:Hash:strength&gt;,(Trigger word:1.1)の形式に整形し、Preview欄に出力します。トリガーワードの重み（Weight）が1.0の場合は、「()」でくくられません。
+カートに入っている「選択されたLoRAの」トリガーワードを、`&lt;lora:Hash:strength&gt;`,`(Trigger word:1.1)`の形式に整形し、Preview欄に出力します。トリガーワードの重み（Weight）が1.0の場合は、「()」でくくられません。ただし、「同じLoRAの、複数あるトリガーワードに、それぞれ違う重み付けをしたい」場合には、現状の仕様ではできませんので、Previewテキストボックスを手動で編集してください。
 
 - _**Safety Feature:**_ 万が一、大元の管理データから削除された「幽霊LoRA」がカートに残っていた場合、このボタンを押した瞬間に自動検知してカートから除霊（削除）します。
 
@@ -923,6 +1013,9 @@ AIが錬成したプロンプトが表示されます。
 - **リセット**: カウントは太平洋時間（PT）の0時に合わせてリセットされます。
 - **リミット調整（隠し機能）**: APIに課金しているヘビーユーザーが、上限設定を変更したい場合は、カウンターの数字部分をダブルクリックしてください。1日の上限回数を自由に調整できる入力ボックスが表示されます。
 
+#### 5-8-6.「Surprise Me!」チェックボックス / SFW & NSFW & Hardcoreオプションボタン
+ - チェックを入れると、3つのオプションボタンが出てきます。どれかを選んでから「Feeling Lucky?」を押すと、データベース内からランダムに抽出された単語を元に、Google Geminiがプロンプトを考えてくれます。
+
 #### Tips：ガチャのコツ
 
 欲望を語るときには、あなたまで「お行儀よく」する必要はないです。変な照れがあると、Geminiがそれを察知して、（小賢しい）安全フィルターを発動させるケースが、デバッグ中にありました。そうです。女性器を指す場合は、「股間」とか、オブラートに包まなくていいんです。素直に「ま○こ」と書きましょう。
@@ -931,7 +1024,9 @@ AIが錬成したプロンプトが表示されます。
 
 薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。
 
-キャラ数(Character Count) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体毛(Body Hair) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → ヘッドウェア(Headwear) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → ボンデージ行為(Bondage Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情(Expressions) → 体液(Body fluids) → その他アイテム(Misc Items) → アングル(Camera Angle) → 修正(Censorship Fixes)
+キャラ数(Character Count) → キャラの配置(Character Placement) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の毛に関するワイルドカード(Wildcard For Hair) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体毛(Body Hair) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → ヘッドウェア(Headwear) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → ボンデージ行為(Bondage Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情(Expressions) → 体液(Body fluids) → その他アイテム(Misc Items) → アングル(Camera Angle) → 修正その他(Censorship Fixes & Others)
+
+Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使用している場合、髪の毛、表情、アングルについては、ワイルドカードを用意しています。ZIPファイル内に同梱していますので、ご活用下さい。
 
 メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。
 
@@ -951,7 +1046,7 @@ AIが錬成したプロンプトが表示されます。
 
 - 生成結果はAI次第です。当ツールの使用によるいかなる損害についても、作者は一切の責任を負いません。
 - 同じく、「Gacha!」の機能についても、NSFWなプロントの、確実な出力を保証するものではありません。
-- 検証モデル：[RIN Anim8Draw Illustrious - Anime Drawing Model(Ver.4.0A)](https://www.seaart.ai/ja/models/detail/d158n1te878c73atvtdg)
+- 検証モデル：[REED_XXX_illustrious_SDXL V14.0](https://civitai.red/models/1717562/reedxxxillustrioussdxl)
 - 作者：不二川巴人（ふじかわ ともひと）（「でぇすて」とか、「不二川“でぇすて”巴人」名義で、エロゲーライターをやっていました）
 - [連絡先・ブログはこちら。](https://dsblog.biz/)
 - リクエストや感想、あるいはバグレポートは、ブログのメールフォームまで。[投げ銭（PayPal）](https://paypal.me/dst0508https:/paypal.me/dst0508)も歓迎です！
@@ -959,6 +1054,5 @@ AIが錬成したプロンプトが表示されます。
 - （おまけ）[SeaArtの個人ページ](https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI)では、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。
 
 **さあ！　健やかなる()AIライフを！**
-
 
 ![FLAG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
