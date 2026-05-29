@@ -1,4 +1,4 @@
-**[(日本語は下にあります)]([kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper#kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D))**
+**[(日本語は下にあります)](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper#kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D)**
 
 **\[Notice\]** This tool runs on **Excel Macro (VBA)**. It requires a **Windows/Mac PC environment** to unleash its full power. Sorry, prompt mages on mobile, this "forbidden door" requires a desktop key! 💻
 
