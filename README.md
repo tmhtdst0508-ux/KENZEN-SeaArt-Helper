@@ -27,38 +27,7 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 ![Screenshot](images/Screenshot_20260604.jpg)
 
 
-## 🚀 【v3.0.0 Released!】:Goodbye CSV, Hello JSON!🚀
-
-## Sorry to keep you waiting! (?) This time, it's a MAJOR update!
-
-• **Migrating data management to JSON files!**  
-Up until now, various data was managed using hidden Excel sheets (ghost sheets), and importing/exporting was done via CSV files. But now, everything has been integrated into JSON files! To be brutally honest, I initially thought, "JSON? What's that? The dude with the hockey mask from Friday the 13th?" But following Google Gemini's advice to switch to JSON resulted in a dramatic improvement—not only did it lighten the macro itself, but it made management a breeze for the dev side. Looking back, why didn't I do this from the start? (Answer: Because I didn't know squat about JSON files.)
-
-・**New "I/O" Tab!**  
-Thanks to the JSON migration, you can now easily export/import exactly what you need in JSON format for the following six categories:  
-- Positive & Negative Prompt Presets (Casually implemented for the first time)  
-- Negative Prompt Stock  
-- LoRA Base Data  
-- LoRA Presets  
-- Favorites
-
-Of course, you can choose whether to merge them into your existing data or overwrite them completely! As a bonus for those migrating from V2.x, I’ve included a feature to convert your old CSV files for LoRAs and Favorites into JSON! All these features are now centralized in the shiny new "I/O" tab!
-
-**• Enhanced Favorites Management!**  
-In V2.x, there was a quietly massive problem: "You could replace Favorites, but you couldn't delete them individually." We revamped the UI and built a dedicated Favorites Management window! Now, Favorites are displayed in a list box, allowing for individual deletion, nuking them all, and sending them directly to the Favorite field by simply double-clicking!
-
-**• Revamped LoRA Management Screen!**  
-The LoRA management screen got an overhaul too! In V2.x, the hassle of "Register Alias & Hash -> Input Trigger Words -> Final Registration" has been simplified to be much more intuitive! Also, for the local Stable Diffusion users out there, if you load your own LoRA .safetensors files, the tool can now automatically fetch the AUTO V2 format hash and the system name! I mean, if you have .safetensors files in your storage, you might rename them for management purposes, right? But if you input that custom file name into the WebUI, the AI won't understand it. Now, you can also register the LoRA's inherent Negative Prompts at the same time, making them instantly callable from the main window's LoRA tab!
-
-**• "Wrap with Hash" or "Wrap with Name" Options!**  
-Using both Stable Diffusion WebUI and SeaArt myself, I realized something: When including a LoRA in a prompt, it's better to use the Hash value for SeaArt, but for the SD WebUI, you should use the system name for the &lt;`lora:`&gt; tag. So, I added a toggle to let you choose "Which one to wrap with?" depending on your environment!
-
-**• "Cleanup Prompt" Button Implemented!**  
-When you build long incantations, you tend to accumulate extra commas. Source: Me. Even in that state, the AI won't spit out a fatal bug, but it feels so much better when it's neat and tidy (it's a Japanese thing). So, I added a button to scrub your entire prompt clean!
-
-**• Other minor bug fixes**  
-Honestly, my bad. \*Dogeza\*
-
+# 🚀 【v3.0.0 Released!】 🚀
 
 • **Migrating data management to JSON files!**  
 Up until now, various data was managed using hidden Excel sheets (ghost sheets), and importing/exporting was done via CSV files. But now, everything has been integrated into JSON files! To be brutally honest, I initially thought, "JSON? What's that? The dude with the hockey mask from Friday the 13th?" But following Google Gemini's advice to switch to JSON resulted in a dramatic improvement—not only did it lighten the macro itself, but it made management a breeze for the dev side. Looking back, why didn't I do this from the start? (Answer: Because I didn't know squat about JSON files.)
@@ -134,18 +103,20 @@ Make absolutely sure the included `KENZEN_Config.json` is placed in the exact sa
 
 ## 5\. Search Panel & Operation
 
-When you boot it up (enable macros), the main window opens. If KENZEN_Config.json is missing from the folder or corrupted, a new one will be generated. Even if you close the main window with the X in the top right, you can always reopen it via "Open Main Window" shortcut `Ctrl + Shift + O`. You can also minimize it and banish it to the bottom-left corner of your desktop. Because when you're browsing a massive database, the window gets in the way, right?
+When you boot it up (enable macros), the main window opens. If KENZEN_Config.json is missing from the folder or corrupted, a new one will be generated. Even if you close the main window with the X in the top right, you can always reopen it via "Open Main Window" or the shortcut `Ctrl + Shift + O`. You can also minimize it and banish it to the bottom-left corner of your desktop. Because when you're browsing a massive database, the window gets in the way, right?
 
 The window consists of 7 tabs (panels): Cockpit, Positive, Negative, LoRA, Favorite, Gacha!, and I/O.
 
 ### 5-1 "Cockpit" Tab
+
+![Cockpit](images/Cockpit_Tab_2026-06-09_171554.jpg)
 
 The tab containing the menu to build your prompts.  
 **5-1-1. "Current Prompt"**: Displays the current contents of the clipboard. Every time you copy a prompt, it gets appended here. Since it's a text field, manual tweaks are possible.  
 **5-1-2. Search Box (Enter Keyword)**: Input a keyword and hit Enter or click "Search" to search the main sheet. Upon a hit, the cell glows yellow and jumps to the prompt cell on its right. If you search in English, it stays put. On consecutive hits, press Enter to loop to the next result.  
 **5-1-3. "Jump to Category" Combo Box & "Back to Legend" Button**: A dropdown to jump to the heading cell of each category. At the end of the item columns, there's a "Return to Legend" hyperlink, but if you think "Scrolling down is a pain!", just hit "Back to Legend" to return to the legend.  
 **5-1-4. "Copy" Button**: Click on a prompt cell you want to copy, and it gets sent to the clipboard. Repeated copying accumulates prompts in the "Current Prompt" field, separated by ", ". "BREAK" is special and gets line breaks before and after. Plus, if the clipboard gets locked for some reason, it's designed to retry.  
-**5-1-5. "Copy without comma" Button**: Concatenates without a comma (just a space). Useful for combining concepts like "oversized tank top". The macro adds a comma and space to the start of copied words (except the first one). So for "`1 girl is going to the park with me`", you'd normal copy "`1 girl`", comma-less copy "`is going to`", comma-less copy "`park`", comma-less copy "`with`"... until the word where you actually want a comma next. Then just normal copy the next prompt. Note: even if you click this for the very first prompt, it won't add a space at the start.   
+**5-1-5. "Copy without comma" Button**: Concatenates without a comma (just a space). Useful for combining concepts like "oversized tank top". The macro adds a comma and space to the start of copied words (except the first one). So for "`1 girl is going to the park with me`", you'd normal copy "`1 girl`", comma-less copy "`is going to`", comma-less copy "`park`", comma-less copy "`with`"... until the word where you actually want a comma next. Then just normal copy the next prompt. Note: even if you click this for the very first prompt, it won't add a space at the start.  
 **5-1-6. "Undo" Button**: Reverts the operation. Up to 50 times. The clipboard contents revert too.  
 **5-1-7. "Clear" Button**: Wipes the clipboard and "Current Prompt" field. Undo is possible.  
 **5-1-8. "All Clear" Button**: Completely wipes the clipboard, "Current Prompt" field, and ALL history, resetting everything. Undo is NOT possible. (Aka: The Nuke button)  
@@ -157,6 +128,8 @@ The tab containing the menu to build your prompts.
 **5-1-14. Send to Fav Button**: Sends a prompt you like to the text field in the "Favorite" tab window.
 
 ### 5-2. "Positive" Tab (The AI only does what it's told)
+
+![Positive_Tab](images/Positive_Tab_2026-06-09_171642.jpg)
 
 A dedicated screen to efficiently manage and deploy Positive Prompts to make the fundamentally lazy AI actually work.  
 **5-2-1. Your Positive Stock**: The list box on the left. Lists currently registered positive prompts. Comes with a default set. You add, subtract, divide, and multiply(?) these. Multi-selection via Ctrl/Shift or mouse drag is supported.  
@@ -177,6 +150,8 @@ A dedicated screen to efficiently manage and deploy Positive Prompts to make the
 
 ### 5-3. "Negative" Tab (The Absolute Blacklist)
 
+![Negative_Tab](images/Negative_Tab_2026-06-09_171642.jpg)
+
 A dedicated screen to manage and deploy Negative Prompts to halt the AI's "rampage." Basically symmetrical to the Positive prompt screen, but with minor differences.  
 **5-3-1. Your Negative Stock**: The list box on the left. Lists currently registered negative prompts. Comes with a default set.  
 **5-3-1-1. Selected Delete Button**: Deletes selected items from the stock. Source data dies too.  
@@ -193,6 +168,8 @@ A dedicated screen to manage and deploy Negative Prompts to halt the AI's "rampa
 **5-3-10. Negative Preset Combo Box / Call Nega Preset Button / Delete Nega Preset Button**: Same as the positive side.
 
 ### 5-4. "LoRA" Tab (The LoRA Forge)
+
+![LoRA_Tab](images/LoRA_Tab_2026-06-09_171712.jpg)
 
 Visually and intuitively builds and manages the combination of &lt;lora:hash(sys name):strength&gt; prompts and their accompanying trigger words, which are essential for quality improvement. (If no LoRA is registered, the UI is locked for safety. Please register LoRAs from the "Open LoRA Manage Window".)  
 **5-4-1. Use LoRA Checkbox**: Toggles the functionality of this tab on/off.  
@@ -211,10 +188,12 @@ Visually and intuitively builds and manages the combination of &lt;lora:hash(sys
 
 ### 5-5. "LoRA Register & Manage" Tab (The LoRA Vault)
 
+![LoRA_Manage_Window](images/LoRA_Manage_Window_2026-06-09_171724.jpg)
+
 The heart of the operation where you register and manage actual LoRA data (hash values, trigger words, inherent negative prompts). Accessed via "Open LoRA Manage Window" from the "LoRA" tab.  
 **5-5-1. LoRA Alias / Model Name / System Hash / Recommended Strength**:  
 \- Alias: Any name you can easily identify (e.g., JK Uniform, Watercolor Style).  
-\- Model Name: The official system name of that LoRA, fetched from the file when you load a `.safetensors` file. Auto-populated, cannot be edited.  
+\- Model Name: The official system name of that LoRA, fetched from the file when you load a .safetensors file. Auto-populated, cannot be edited.  
 \- System Hash: The actual hash value used in SeaArt, etc. Double-clicking the field opens a `.safetensors` file reference window; specifying the LoRA file auto-fetches the AUTO V2 format hash value!  
 \- Note: What's a hash value in SeaArt? When you open the detail page for a LoRA on the SeaArt site, look at the URL: https://www.seaart.ai/models/detail/40095be8759dde4285ccf683b24e8852.
 
@@ -230,6 +209,8 @@ Note: Max 10 trigger words. A case-insensitive duplication check is performed, a
 
 ### 5-6. "My Favorite" Tab (The Fetish Vault)
 
+![Favorite_Tab](images/Favorite_Tab_2026-06-09_171738.jpg)
+
 The tab housing menus to manage your precious prompts, forged after much painstaking effort(?). Note: None of the buttons on this tab will work unless the "My Favorite" tab is active.  
 **5-6-1. "Search Fav" Field, "Search Fav" Button & "Clear Search" Button**: Input a keyword and hit Enter or click "Search Fav" to search within the "My Favorite" sheet. It only searches the "Description" field, glowing the hit cell like the main sheet, and looping on multiple hits. Clear Search simply wipes the search box.  
 **5-6-2. "Pull From Cockpit" Button**: Transcribes the prompt inputted in the "Cockpit" tab's text field.  
@@ -244,6 +225,8 @@ The tab housing menus to manage your precious prompts, forged after much painsta
 
 ### 5-7. Favorite Manage Window (Organize your collection)
 
+![Fav_Manage_Window](images/Favorite_Manage_Window_2026-06-09_171755.jpg)
+
 The window to manage your registered favorites.  
 **5-7-1. Your All Favorites List Box / ▲▼ Buttons**: All favorites are listed. Sort them with the ▲▼ buttons.  
 **5-7-2. Full Description Box**: Displays the full description of the favorite selected in the list.  
@@ -252,6 +235,8 @@ The window to manage your registered favorites.
 **5-7-5. "All Delete Fav" Button**: Deletes all favorites. Point of no return, so be extremely careful.
 
 ### 5-8. "Gacha!" Tab (AI Auto-Pilot Prompt Alchemy)
+
+![Gacha! Tab](images/Gacha_Tab_2026-06-09_171825.jpg)
 
 An automated prompt generation feature powered by the Google Gemini API. When you are absolutely sick of building dense and complex spells (prompts), surrender yourself to the AI's imagination as a "pure breather." It's literally a "Gacha" of "What will pop out?". By the way, I've cast some magic (exaggeration) on Gemini, so it will reliably forge NSFW prompts for you. However, there are some "instant death" landmine words. See the "Author's Notes v3.0.0" sheet in the workbook for details.  
 **5-8-1. Google Gemini API Key**: To use the AI generation feature, you must acquire an API key from Google AI Studio and input it here.  
@@ -275,6 +260,8 @@ Just an Estimate: The displayed count is an "estimate" based on typical Google f
 ***Tips:*** Gacha Tricks: When describing your desires, there's no need for you to be "well-mannered". During debugging, there were cases where if you showed weird bashfulness, Gemini sensed it and activated its (smart-ass) safety filter. That's right. If you mean female genitalia, you don't need to sugarcoat it as "crotch". Just be honest and write "p\*\*\*y".
 
 ### 5-9. "I/O" Tab (Safeguard your assets properly)
+
+![IO_Tab](images/IO_Tab_2026-06-09_171835.jpg)
 
 A centralized tab bringing together features to backup (Export) or restore (Import) your painstakingly amassed prompt assets in JSON format.  
 - Positive Preset  
@@ -340,7 +327,7 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
 **スクリーンショット**
 
 
-![Screenshot](images/Screenshot_20260604.jpg)
+![Screenshot](images/Screenshot_20260529.jpg)
 
 🚀 **【****v3.0.0** **リリース！】** 🚀
 
@@ -439,8 +426,6 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 
 同梱されている「`KENZEN_Config.json`」は、必ず、.xlsmファイルと同じフォルダに置いて下さい。
 
-&nbsp;
-
 ## 5．検索パネルと操作方法
 
 起動する（マクロを有効化する）と、メインウィンドウが開きます。もし、KENZEN_Config.jsonが同一フォルダにない、あるいは壊れている場合は、新たに生成されます。メインウィドウは、右上の×で閉じてしまっても、Open Main Window、あるいは、ショートカットキー Ctrl + Shift + O から、いつでも開けます。また、最小化して、デスクトップの左下隅に追いやる（？）こともできます。だって、ヴァチクソに広大なデータベースの一覧見る時に、ウィンドウが邪魔でしょう？
@@ -448,6 +433,8 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 ウィンドウは、「Cockpit」、「Positive」、「Negative」、「LoRA」、「Favorite」、「Gacha!」、「I/O」の7つのタブ（パネル）で構成されています。
 
 ### 5-1「Cockpit」タブ
+
+![Cockpit](images/Cockpit_Tab_2026-06-09_171554.jpg)
 
 プロンプトを構築していくためのメニューがあるタブです。
 
@@ -469,7 +456,7 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 
 #### 5-1-5.「Copy without comma」ボタン
 
-カンマなし（半角スペースのみ）で連結します。oversized tank top 等、連結して一つの概念を指す場合に有効です。マクロは、「最初を除き、コピーされる単語の頭に、カンマと半角スペースを付ける」挙動をします。なので、例えば、「`1 girl is going to the park with me`」の場合は、まず、「`1 girl`」で通常コピー、次に「`is going to`」でカンマなしコピー、次の「`park`」でカンマなしコピー、その次の「`with`」でも、カンマなしコピー……と、「次にカンマを入れるべき所」（例の場合は「me」）まで、カンマなしコピーをしてください。次のプロンプトを通常コピーすれば、区切りに「, 」が付きます。なお、最初のプロンプトを、このボタンでクリックしても、先頭にスペースは入りません。
+カンマなし（半角スペースのみ）で連結します。oversized tank top 等、連結して一つの概念を指す場合に有効です。マクロは、「最初を除き、コピーされる単語の頭に、カンマと半角スペースを付ける」挙動をします。なので、例えば、「”1 girl”  “is going to” “the park”“with” “me”」の場合は、まず、「1 girl」で通常コピー、次に「is going to」でカンマなしコピー、次の「park」でカンマなしコピー、その次の「with」でも、カンマなしコピー……と、「次にカンマを入れるべき所」（例の場合は「me」）まで、カンマなしコピーをしてください。次のプロンプトを通常コピーすれば、区切りに「, 」が付きます。なお、最初のプロンプトを、このボタンでクリックしても、先頭にスペースは入りません。
 
 #### 5-1-6.「Undo」ボタン
 
@@ -508,6 +495,8 @@ BREAK構文を使う際、人物ごとの要素丸ごとを”\[\]”でくく�
 気に入ったプロンプトを、「Favorite」タブウィンドウのテキストフィールドに転送します。
 
 ### 5-2.「Positive」タブ (AIは言われたことしかしない)
+
+![Positive_Tab](images/Positive_Tab_2026-06-09_171642.jpg)
 
 基本的に怠け者であるAIを、きちんと働かせるためのポジティブプロンプトを、効率的に管理・運用するための専用画面です。
 
@@ -573,6 +562,8 @@ Previewに表示されているポジティブプロンプトを、Cockpitのメ
 
 ### 5-3.「Negative」タブ (絶許ブラックリスト)
 
+![Negative_Tab](images/Negative_Tab_2026-06-09_171642.jpg)
+
 AIの「暴走」を食い止めるためのネガティブプロンプトを、効率的に管理・運用するための専用画面です。基本的に、ポジティブプロンプトの管理画面とシンメトリーになっていますが、細かくは違います。
 
 ##### 5-3-1.Your Negative Stock / ネガティブプロンプト貯蔵庫
@@ -599,101 +590,105 @@ AIの「暴走」を食い止めるためのネガティブプロンプトを、
 
 ポジティブプロンプトの管理（以下略）
 
-##### 5-4-4.→/←ボタン
+##### 5-3-4.→/←ボタン
 
 ポジティブ（略）
 
-##### 5-4-5.Add to Negative Previewボタン
+##### 5-3-5.Add to Negative Previewボタン
 
 ポジ（略）
 
-##### 5-4-6.Weighting チェックボックス、コンボボックス、Weighten and Add to Nega Previewボタン
+##### 5-3-6.Weighting チェックボックス、コンボボックス、Weighten and Add to Nega Previewボタン
 
 Cockpit画面同様に、チェックボックスをオンにするとコンボボックスが開くようになり、ネガティブプロンプトを重み付けできます。やはり、0.5～1.3までです。
 
-##### 5-4-7.Add New Negative Stock? テキストボックス/ Add New Negative Stockボタン/Clear New Negative Stock Inputボタン
+##### 5-3-7.Add New Negative Stock? テキストボックス/ Add New Negative Stockボタン/Clear New Negative Stock Inputボタン
 
 同じ事を説明させるな！（突然の逆ギレ）
 
-##### 5-4-8.Previewボックス
+##### 5-3-8.Previewボックス
 
 特に説明はいらないかと。
 
-##### 5-4-9.Copy Negative Preview/Clear Negative Previewボタン
+##### 5-3-9.Copy Negative Preview/Clear Negative Previewボタン
 
 テキストボックスのネガティブプロンプトを、クリップボードにコピー、あるいは、Previewボックス内を消去します。
 
-##### 5-4-10.Negative Presetコンボボックス/ Call Nega Presetボタン/ Delete Nega Presetボタン
+##### 5-3-10.Negative Presetコンボボックス/ Call Nega Presetボタン/ Delete Nega Presetボタン
 
 ポジティブプロンプトの同機能と同じです。
 
-### 5-5.「LoRA」 タブ（LoRAの鍛冶場）
+### 5-4.「LoRA」 タブ（LoRAの鍛冶場）
+
+![LoRA_Tab](images/LoRA_Tab_2026-06-09_171712.jpg)
 
 品質向上に必須となる &lt;lora:hash(sys name):strength&gt; 形式のプロンプトと、それに付随するトリガーワードの組み合わせを視覚的かつ直感的に構築・管理します。
 
 （LoRAが一つも登録されていない場合は、安全のためUIがロックされています。「Open LoRA Manage Window」からLoRAを登録してください）
 
-##### 5-5-1. Use LoRA チェックボックス
+##### 5-4-1. Use LoRA チェックボックス
 
 このタブの機能の有効/無効を切り替えます。
 
-##### 5-5-2. Open LoRA Manage Window ボタン
+##### 5-4-2. Open LoRA Manage Window ボタン
 
 LoRAのシステムハッシュやトリガーワードを登録・管理する専用ウィンドウ（後述）を開きます。
 
-##### 5-5-3. LoRA Selection & Strength (LoRAの選択と強度)
+##### 5-4-3. LoRA Selection & Strength (LoRAの選択と強度)
 
 登録済みのLoRAをプルダウンから選択します。選択すると、推奨の強さ（Strength）と登録されたトリガーワードが自動的に展開されます。
 
-##### 5-5-4. Trigger Words チェックボックス
+##### 5-4-4. Trigger Words チェックボックス
 
 展開されたトリガーワードから、今回使いたいものだけにチェックを入れます（デフォルトで全てONになる親切設計です）。トリガーワードがないLoRAに関しては、出てきません。
 
-##### 5-5-5. Set! & Cancel ボタン
+##### 5-4-5. Set! & Cancel ボタン
 
 「Set!」を押すと、選択したLoRAとトリガーワードが右側のリストボックス（カート）に入ります。「Cancel」は選択状態を白紙に戻します。
 
-##### 5-5-6. Your Selected LoRA (Cart)
+##### 5-4-6. Your Selected LoRA (Cart)
 
 現在セットされているLoRAのリストです。複数重ね掛けしたい場合は、さらに別のLoRAを選択して「Set!」を押すことでどんどん追加できます。
 
-##### 5-5-7. Wrap LoRA! ボタン & Weight (プロンプトの錬成)
+##### 5-4-7. Wrap LoRA! ボタン & Weight (プロンプトの錬成)
 
 カートに入っている「選択されたLoRAの」トリガーワードを、&lt;lora:Hash(sys name):strength&gt;,(Trigger word:1.x)の形式に整形し、Preview欄に出力します。トリガーワードの重み（Weight）が1.0の場合は、「()」でくくられません。ただし、「同じLoRAの、複数あるトリガーワードに、それぞれ違う重み付けをしたい」場合には、Previewテキストボックスを手動で編集してください。
 
- - *Safety Feature:* 万が一、大元の管理データから削除された「幽霊LoRA」がカートに残っていた場合、このボタンを押した瞬間に自動検知してカートから除霊（削除）します。
+   *Safety Feature:* 万が一、大元の管理データから削除された「幽霊LoRA」がカートに残っていた場合、このボタンを押した瞬間に自動検知してカートから除霊（削除）します。
 
-##### 5-5-7-1.Wrap with Hash / Wrap with Nameオプションボタン
+##### 5-4-7-1.Wrap with Hash / Wrap with Nameオプションボタン
 
 選択したLoRAを&lt;lora:…&gt;の形で成形する際、ハッシュ値で括るか、システム名で括るかを選択できます。SeaArtはハッシュ値で、Stable DiffusionのWebUIでは、名前で括った方がいいから、という理由で実装しました。
 
-##### 5-5-8.Get LoRA Negative ボタン
+##### 5-4-8.Get LoRA Negative ボタン
 
 固有のネガティブプロンプトを持っているLoRAをリスト以内で選択すると、押せるようになり、そのLoRAのネガティブプロンプトが、「Negative」タブのPreview欄に展開されます。
 
-##### 5-5-9. Remove / Forget LoRA ボタン
+##### 5-4-9. Remove / Forget LoRA ボタン
 
 「Remove」は選択したLoRAをリストから1つ除外します。「Forget」はカートとプレビューを完全にクリアして最初からやり直します。
 
-##### 5-5-10. Send to Cockpit / Send to Fav /Clear Previewボタン
+##### 5-4-10. Send to Cockpit / Send to Fav /Clear Previewボタン
 
 Preview欄に完成したLoRAプロンプトを、Cockpitタブ（またはFavoritesタブ）のテキストフィールドへ転送します。Clear Previewボタンは、単純に、Previewテキストボックスをクリアします。
 
-##### 5-5-10. Preset (プリセットの保存と呼び出し)
+##### 5-4-11. Preset (プリセットの保存と呼び出し)
 
 「Save as Preset」で現在のLoRAの組み合わせ（リストの中身と重み）に名前を付けて保存できます。「Call Preset」でいつでも一発で呼び出し、「Delete Preset」で削除します。よく使う衣装や画風の組み合わせを保存しておくと劇的に時短になります。
 
-### 5-6. 「LoRA Register & Manage」タブ (LoRAの金庫)
+### 5-5. 「LoRA Register & Manage」タブ (LoRAの金庫)
+
+![LoRA_Manage_Window](images/LoRA_Manage_Window_2026-06-09_171724.jpg)
 
 LoRAの実データ（ハッシュ値、トリガーワード、固有のネガティブプロンプト）を登録・管理する心臓部です。「LoRA」タブの「Open LoRA Manage Window」からアクセスします。
 
-#### 5-6-1. LoRA Alias / Model Name/ System Hash / Recommended Strength:
+#### 5-5-1. LoRA Alias / Model Name/ System Hash / Recommended Strength:
 
  - Alias: あなたが識別しやすい任意の名前（例：JK制服、水彩画スタイル）。
 
- - Model Name：`.safetensors`ファイルを読み込ませた際に、ファイルから取得された、そのLoRAの正式なシステム名です。自動で入力され、編集はできません。
+ - Model Name：.safesensorファイルを読み込ませた際に、ファイルから取得された、そのLoRAの正式なシステム名です。自動で入力され、編集はできません。
 
- - System Hash: SeaArt等で実際に使用されるハッシュ値です。フィールドをダブルクリックすることで、`.safetensors`ファイルの参照ウィンドウが開き、LoRAのファイルを指定すると、自動で AUTO V2形式のハッシュ値が取得できます。
+ - System Hash: SeaArt等で実際に使用されるハッシュ値です。フィールドをダブルクリックすることで、.safesensorファイルの参照ウィンドウが開き、LoRAのファイルを指定すると、自動で AUTO V2形式のハッシュ値が取得できます。
 
 *Note**：*SeaArtでのハッシュ値とは？
 
@@ -703,11 +698,11 @@ https://www.seaart.ai/ja/models/detail/40095be8759dde4285ccf683b24e8852
 
 例えば上記のLoRAの場合、「/detail/」以降の文字列「40095be8759dde4285ccf683b24e8852」が、ハッシュ値です。
 
-\- Recommended Strength:そのLoRAの、強さの推奨値
+ - Recommended Strength:そのLoRAの、強さの推奨値
 
-\- *Auto-Sanitize:* Hash入力欄に全角文字や不正な記号を入れても、自動的に半角の安全な文字に浄化される鉄壁のガードマンが常駐しています。
+ - *Auto-Sanitize:* Hash入力欄に全角文字や不正な記号を入れても、自動的に半角の安全な文字に浄化される鉄壁のガードマンが常駐しています。
 
-#### 5-6-2. LoRA Trigger Word / None チェックボックス:
+#### 5-5-2. LoRA Trigger Word / None チェックボックス:
 
 そのLoRAを発動させるためのトリガーワードを入力します。複数ある場合はカンマ区切りで入力可能です。
 
@@ -715,95 +710,101 @@ https://www.seaart.ai/ja/models/detail/40095be8759dde4285ccf683b24e8852
 
 トリガーワードが不要なLoRAの場合は「None」にチェックを入れてください。
 
-#### 5-6-3.LoRA’s Negative Promptsフィールド / Noneチェックボックス
+#### 5-5-3.LoRA’s Negative Promptsフィールド / Noneチェックボックス
 
 固有のネガティブプロンプトを持っているLoRAの場合、それらを一括して登録できます。登録したプロンプトは、メインウィンドウの「Negative」タブの、「Get LoRA Negative」ボタンから呼び出せます。
 
-#### 5-6-4. Register / Cancel / Update LoRA ボタン
+#### 5-5-4. Register / Cancel / Update LoRA ボタン
 
 入力した内容を登録します。トリガーワードが増えた、あるいはなくなったなど、既存のLoRAを編集（Manage）している最中は、ボタンが「Update LoRA」に変化し、変更がない場合は無駄な上書きを防ぐダーティチェック機能が働きます。
 
-#### 5-6-5. Registered LoRA List & Sort ボタン (▲ / ▼)
+#### 5-5-5. Registered LoRA List & Sort ボタン (▲ / ▼)
 
 登録済みのLoRA一覧です。「▲」「▼」ボタンを使って、よく使うLoRAを上に固めたり、カテゴリごとに並べ替えたりと、リストを自由に整理できます。ここでの並び順は、メイン画面のプルダウンにも連動します。
 
-#### 5-6-6. Manage / Delete LoRA ボタン
+#### 5-5-6. Manage / Delete LoRA ボタン
 
 リストから選択したLoRAを編集（Manage）、または完全に削除（Delete）します。
 
-### 5-7.「My Favorite」タブ（性癖の金庫室）
+### 5-6.「My Favorite」タブ（性癖の金庫室）
+
+![Favorite_Tab](images/Favorite_Tab_2026-06-09_171738.jpg)
 
 苦心の末に（？）作り上げた、大切なプロンプトを管理するためのメニュー類があるタブです。なお、このタブのボタンは全て、「My Favorite」タブがアクティブになっていないと、動作しません。
 
-#### 5-7-1.「Search Fav」フィールド、「Search Fav」ボタン＆「Clear Search」ボタン
+#### 5-6-1.「Search Fav」フィールド、「Search Fav」ボタン＆「Clear Search」ボタン
 
 フィールドにキーワードを入力して、エンターか「Search Fav」ボタンのクリックで、「My Favorite」シート内を検索できます。検索されるのは「Description」のフィールドのみで、メインシートでのそれ同様、ヒットしたセルが光り、複数ヒットした場合は、ループします。Clear Searchは、単純に、検索ボックスだけを消去します。
 
-#### 5-7-2.「Pull From Cockpit」ボタン
+#### 5-6-2.「Pull From Cockpit」ボタン
 
 「Cockpit」タブのテキストフィールドに入力されているプロンプトを転写します。
 
-#### 5-7-3.「Send to Cockpit」ボタン
+#### 5-6-3.「Send to Cockpit」ボタン
 
 上記とは逆に、Favorite Promptのテキストフィールドの内容を、Cockpitのフィールドへ送ります。お気に入りを、メインシート内のプロンプトを加えることで、更にブラッシュアップするときに。
 
-#### 5-7-4.「Open Favorite Manage Window」ボタン
+#### 5-6-4.「Open Favorite Manage Window」ボタン
 
 お気に入りの管理画面（後述）を開きます。
 
-#### 5-7-5.「Copy Fav」ボタン
+#### 5-6-5.「Copy Fav」ボタン
 
 「My Favorite」シート上のお気に入りをコピーします。やっぱりね、気に入った呪文は、何度でも使いたいですよね。「コピーされた呪文（プロンプト）は、説明と共にテキストフィールドに表示されます。（説明なしで呪文だけ見て、すぐに思い出せる人も、まずいないでしょう？）
 
-#### 5-7-6.「Tweaked!」ボタン
+#### 5-6-6.「Tweaked!」ボタン
 
 コピーしたお気に入りプロンプトを、テキストフィールド内にて、さらに手動で調整した後、クリック可能になり、クリックすると、テキストフィールドの内容がコピーされます。
 
-#### 5-7-7.「Add to Fav!」ボタン
+#### 5-6-7.「Add to Fav!」ボタン
 
 フィールド内のプロンプトを、「My Favorite」シートに登録します。「Description」が空欄だと、エラーを吐きます。最大50件まで登録できます。
 
-#### 5-7-8.「Replace Fav」ボタン
+#### 5-6-8.「Replace Fav」ボタン
 
 「My Favorite」シートの中で、フォーカスされているセルのプロンプトを、（「Favorite」タブの）テキストフィールドの内容と置換します（セルが空欄ならば、そのまま入力されます）。プロンプトが入っていないセル上でクリックしても、エラーが出ます。例えば、「Favに登録したプロンプトに、新しく要素を追加したら、もっとよくなった！　でも、お気に入りの中に似たものがダブるのは困る！」という場合に使えます。
 
-#### 5-7-9.「Clear Prompt & Description」ボタン
+#### 5-6-9.「Clear Prompt & Description」ボタン
 
 単純に、プロンプトと説明のフィールドをクリアします。
 
-#### 5-7-10.「Undo Fav」ボタン
+#### 5-6-10.「Undo Fav」ボタン
 
 Cockpit同様、テキストフィールドの内容をアンドゥします。
 
-### 5-8. Favorite Manageウィンドウ（コレクションは整理しましょう）
+### 5-7. Favorite Manageウィンドウ（コレクションは整理しましょう）
+
+![Fav_Manage_Window](images/Favorite_Manage_Window_2026-06-09_171755.jpg)
 
 登録されているお気に入りを管理するウィンドウです。
 
-#### 5-8-1.Your All Favoritesリストボックス/▲▼ボタン
+#### 5-7-1.Your All Favoritesリストボックス/▲▼ボタン
 
 全てのお気に入りが、リスト化されて一覧表示されます。▲▼ボタンでソートできます。
 
-#### 5-8-2.Full Description ボックス
+#### 5-7-2.Full Description ボックス
 
 リストで選択したお気に入りの、説明全文が表示されます。
 
-#### 5-8-3.「Send to Fav Window」ボタン
+#### 5-7-3.「Send to Fav Window」ボタン
 
 選択されたお気に入りを、Favoriteタブのテキストフィールドへ転送します。リスト内をダブルクリックしても、同じ挙動をします。
 
-#### 5-8-4.「Delete Selected Fav」ボタン
+#### 5-7-4.「Delete Selected Fav」ボタン
 
 選択されたお気に入りを削除します。複数選択でも可能です。
 
-#### 5-8-5.「All Delete Fav」ボタン
+#### 5-7-5.「All Delete Fav」ボタン
 
 全てのお気に入りを削除します。元には戻せませんので、くれぐれもご注意を。
 
-### 5-9. 「Gacha!」タブ（AIお任せ・プロンプト錬成）
+### 5-8. 「Gacha!」タブ（AIお任せ・プロンプト錬成）
+
+![Gacha! Tab](images/Gacha_Tab_2026-06-09_171825.jpg)
 
 Google Gemini APIを活用した、AIによるプロンプト自動生成機能です 。緻密で複雑な呪文（プロンプト）の構築にうん☆ざりした時の「純粋な息抜き」として、AIの想像力に身を委ねてみるのも、また一興かと。文字通り、「何が出るかな？」の、「ガチャ」です。ちなみに、Geminiにある魔法（誇大表現）をかけてありますので、NSFW絵のプロンプトも、しっかり練成してくれます。ただ、「一発アウト」な地雷ワードもあります。詳しくは、ブック内の「作者的覚え書き(ja)v3.0.0」シートをご覧ください。
 
-#### 5-9-1. Google Gemini API Key
+#### 5-8-1. Google Gemini API Key
 
 AIによる生成機能を利用するには、Google AI Studioにて各自でAPIキーを取得し、入力する必要があります。
 
@@ -813,19 +814,19 @@ AIによる生成機能を利用するには、Google AI Studioにて各自でAP
 
  - APIキーの自動セーブ：一度Google Geminiによるプロンプト練成が成功すれば、それをフラグにして、入力されたAPIキーは、ローカルマシンのレジストリに記録され、次回からは自動で入力されます。APIキーが変わった場合は、上書きすれば、その時の実行（成功）時に上書きされます。
 
-#### 5-9-2. 自然文入力欄（Please tell me your desire!）
+#### 5-8-2. 自然文入力欄（Please tell me your desire!）
 
 あなたが思い描くシチュエーション(欲望)を、普段使っている言葉で自由に入力してください。
 
  - **バイリンガル対応****:** 日本語、英語、あるいはその混在であってもAIが内容を理解し、SeaArt等の生成AIに最適なタグセットへと昇華させます。
 
-#### 5-9-3. 操作ボタン類
+#### 5-8-3. 操作ボタン類
 
  - **Feeling Lucky?:** 入力された内容を元に、Geminiへリクエストを送信し、ガチャを回します。エラーでの返答もAPIの使用回数に含められるので、過度な連打はエラーの元＝無駄玉の消費に繋がります。よって、一度押したら、15秒間はグレーアウトします。ちなみにその間、誤操作防止のため、他のタブウィンドウへの移動もできなくなります。バグではなくて、仕様です（いにしえからの常套句）
 
  - **Clear:** 入力欄の内容をクリアします。
 
-#### 5-9-4. 生成結果エリア（How about this?）
+#### 5-8-4. 生成結果エリア（How about this?）
 
 AIが錬成したプロンプトが表示されます。
 
@@ -833,7 +834,7 @@ AIが錬成したプロンプトが表示されます。
 - **Send to Cockpit / Send to Fav:** 生成されたプロンプトを「Cockpit」タブまたは「Favorites」タブへ転送します。お気に入りのLoRAを適用したりなど、お好みのままに。
 - **Clear Result:** 生成結果を消去します。
 
-#### 5-9-5. 「Trigger Happy?」フレーム（ガチャ残弾数）
+#### 5-8-5. 「Trigger Happy?」フレーム（ガチャ残弾数）
 
 本日の残りのガチャ実行回数を表示します。
 
@@ -843,7 +844,7 @@ AIが錬成したプロンプトが表示されます。
 
  - **リミット調整（隠し機能）****:** APIに課金しているヘビーユーザーが、上限設定を変更したい場合は、カウンターの数字部分をダブルクリックしてください。1日の上限回数を自由に調整できる入力ボックスが表示されます。
 
-#### 5-9-6.「Surprise Me!」チェックボックス / SFW & NSFW & Hardcoreオプションボタン
+#### 5-8-6.「Surprise Me!」チェックボックス / SFW & NSFW & Hardcoreオプションボタン
 
 チェックを入れると、3つのオプションボタンが出てきます。どれかを選んでから「Feeling Lucky?」を押すと、データベース内からランダムに抽出された単語を元に、Google Geminiがプロンプトを考えてくれます。
 
@@ -851,7 +852,9 @@ AIが錬成したプロンプトが表示されます。
 
 欲望を語るときには、あなたまで「お行儀よく」する必要はないです。変な照れがあると、Geminiがそれを察知して、（小賢しい）安全フィルターを発動させるケースが、デバッグ中にありました。そうです。女性器を指す場合は、「股間」とか、オブラートに包まなくていいんです。素直に「ま○こ」と書きましょう。
 
-### 5－10.「I/O」タブ（資産はきちんと保全しましょう）
+### 5-9.「I/O」タブ（資産はきちんと保全しましょう）
+
+![IO_Tab](images/IO_Tab_2026-06-09_171835.jpg)
 
 コツコツ築き上げたプロンプトという資産を、JSON形式でバックアップ（エクスポート）や、レストア（インポート）する機能を集約したタブです。
 
@@ -869,11 +872,11 @@ AIが錬成したプロンプトが表示されます。
 
 以上6つのデータが対象です。デフォルトでは全てにチェックが入っていますが、「Check All」ボタンを押すと、選択解除と全選択が切り替わります。「Export as JSON」でエクスポート、「Import from　JSON」で、インポートします。そのままだ！
 
-#### 5-10-1.Add(Marge)/Overwrite(Replace)オプションボタン
+#### 5-9-1.Add(Marge)/Overwrite(Replace)オプションボタン
 
 既存のデータに追加（マージ）するか、上書き（置換）するかを選択できます。なお、Favorite（お気に入り）を追加モードでインポートした際、合計50件を超えた分に関しては、あふれた分を、別のJSONファイルに保存できます。
 
-#### 5-10-2.「Legacy CSV to JSON」ボタン
+#### 5-9-2.「Legacy CSV to JSON」ボタン
 
 V2.xまでを使っていた方々への機能です。旧バージョンで作成したFavoriteとLoRAのCSVファイルを、v3.0.0で扱えるJSONファイルにコンバートします。
 
@@ -910,7 +913,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
  - 作者：不二川巴人（ふじかわ ともひと）（「でぇすて」とか、「不二川“でぇすて”巴人」名義で、エロゲーライターをやっていました）
 
- [連絡先・ブログはこちら。](https://dsblog.biz/)
+ -  [連絡先・ブログはこちら。](https://dsblog.biz/)
 
  - リクエストや感想、あるいはバグレポートは、ブログのメールフォームまで。[投げ銭（PayPal）](https://paypal.me/dst0508https:/paypal.me/dst0508)も歓迎です！
 
