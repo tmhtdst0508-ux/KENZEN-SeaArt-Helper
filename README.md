@@ -27,41 +27,30 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 ![Screenshot](images/Screenshot_20260604.jpg)
 
 
-# 🚀 【v3.0.0 Released!】 🚀
+# 🚀 【v3.1.0 Released!】 🚀
 
-• **Migrating data management to JSON files!**  
-Up until now, various data was managed using hidden Excel sheets (ghost sheets), and importing/exporting was done via CSV files. But now, everything has been integrated into JSON files! To be brutally honest, I initially thought, "JSON? What's that? The dude with the hockey mask from Friday the 13th?" But following Google Gemini's advice to switch to JSON resulted in a dramatic improvement—not only did it lighten the macro itself, but it made management a breeze for the dev side. Looking back, why didn't I do this from the start? (Answer: Because I didn't know squat about JSON files.)
+## The "NUKE!" Button Has Arrived!
+Let's be real—after modifying prompts and piling up custom settings for a while, you eventually look at your database and think, "What the hell did I even do here?" Source: Me. When that inevitable moment of chaos hits and you just want a clean slate, I've got you covered. Wielding this newly forged "NUKE! (All Reset)" button will instantly wipe the floor and restore every single setting, LoRA, and favorite back to its pristine factory default.
 
-・**New "I/O" Tab!**  
-Thanks to the JSON migration, you can now easily export/import exactly what you need in JSON format for the following six categories:  
-- Positive & Negative Prompt Presets (Casually implemented for the first time)  
-- Negative Prompt Stock  
-- LoRA Base Data  
-- LoRA Presets  
-- Favorites
+## Bug Fixes & Architecture Fortifications:
+I've successfully tracked down and squashed three critical bugs regarding prompt manipulation:
 
-Of course, you can choose whether to merge them into your existing data or overwrite them completely! As a bonus for those migrating from V2.x, I’ve included a feature to convert your old CSV files for LoRAs and Favorites into JSON! All these features are now centralized in the shiny new "I/O" tab!
+1. Prompt Sort Algorithm Overhaul:
+   Significantly improved the sorting logic to handle advanced prompt engineering. The parser now effortlessly crawls inside complex, interconnected strings and automatically inherit proper sorting scores without breaking your spell's integrity.
 
-**• Enhanced Favorites Management!**  
-In V2.x, there was a quietly massive problem: "You could replace Favorites, but you couldn't delete them individually." We revamped the UI and built a dedicated Favorites Management window! Now, Favorites are displayed in a list box, allowing for individual deletion, nuking them all, and sending them directly to the Favorite field by simply double-clicking!
+2. Fixed the Ghost LoRA Export Bug:
+   Resolved a silent caching issue where "LoRA-Specific Negative Prompts" were completely skipped and left behind during the JSON export process. Your custom negative backups are now 100% complete and safe.
 
-**• Revamped LoRA Management Screen!**  
-The LoRA management screen got an overhaul too! In V2.x, the hassle of "Register Alias & Hash -> Input Trigger Words -> Final Registration" has been simplified to be much more intuitive! Also, for the local Stable Diffusion users out there, if you load your own LoRA .safetensors files, the tool can now automatically fetch the AUTO V2 format hash and the system name! I mean, if you have .safetensors files in your storage, you might rename them for management purposes, right? But if you input that custom file name into the WebUI, the AI won't understand it. Now, you can also register the LoRA's inherent Negative Prompts at the same time, making them instantly callable from the main window's LoRA tab!
+3. Fortified the Negative Preset Parser:
+   Fixed a traditional parsing trap where multi-word tags bound together by custom weights—like `(worst quality, lowres, jpeg artifacts:1.2)`—would cause the list box expansion to completely fall apart. The tool now runs a sophisticated nesting parser to keep your heavy-weight curses perfectly intact.
 
-**• "Wrap with Hash" or "Wrap with Name" Options!**  
-Using both Stable Diffusion WebUI and SeaArt myself, I realized something: When including a LoRA in a prompt, it's better to use the Hash value for SeaArt, but for the SD WebUI, you should use the system name for the &lt;`lora:`&gt; tag. So, I added a toggle to let you choose "Which one to wrap with?" depending on your environment!
-
-**• "Cleanup Prompt" Button Implemented!**  
-When you build long incantations, you tend to accumulate extra commas. Source: Me. Even in that state, the AI won't spit out a fatal bug, but it feels so much better when it's neat and tidy (it's a Japanese thing). So, I added a button to scrub your entire prompt clean!
-
-**• Other minor bug fixes**  
-Honestly, my bad. \*Dogeza\*
+Honestly, my bad for missing these. *Deep bow of apology (Dogeza)* 🙇‍♂️
 
 If this tool aids you in your glorious creative journey, hitting that ⭐Star on the repository would be the ultimate encouragement for the author! Let's spread the "KENZEN" culture together!
 
-# ■ KENZEN SeaArt Helper Manual (v3.0.0)
+# ■ KENZEN SeaArt Helper Manual (v3.1.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.0.0.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.1.0.pdf)_
 
 **TL;DR**: This is a tool hyper-specialized in building and managing NSFW generation prompts for SeaArt (& Stable Diffusion). You can also use your API key to have Gemini brainstorm NSFW prompts for you.
 
@@ -169,7 +158,7 @@ A dedicated screen to manage and deploy Negative Prompts to halt the AI's "rampa
 
 ### 5-4. "LoRA" Tab (The LoRA Forge)
 
-![LoRA_Tab](images/LoRA_Tab_2026-06-09_171712.jpg)
+![LoRA_Tab](images/LoRA_Tab_20260622.jpg)
 
 Visually and intuitively builds and manages the combination of &lt;lora:hash(sys name):strength&gt; prompts and their accompanying trigger words, which are essential for quality improvement. (If no LoRA is registered, the UI is locked for safety. Please register LoRAs from the "Open LoRA Manage Window".)  
 **5-4-1. Use LoRA Checkbox**: Toggles the functionality of this tab on/off.  
@@ -261,7 +250,7 @@ Just an Estimate: The displayed count is an "estimate" based on typical Google f
 
 ### 5-9. "I/O" Tab (Safeguard your assets properly)
 
-![IO_Tab](images/IO_Tab_2026-06-09_171835.jpg)
+![IO_Tab](images/IO_Tab_20260622.jpg)
 
 A centralized tab bringing together features to backup (Export) or restore (Import) your painstakingly amassed prompt assets in JSON format.  
 - Positive Preset  
@@ -273,8 +262,8 @@ A centralized tab bringing together features to backup (Export) or restore (Impo
 
 The above 6 data types are targeted. By default, all are checked, but hitting "Check All" toggles between unchecking all and selecting all. Export with "Export as JSON", import with "Import from JSON". Just like it says!  
 **5-9-1. Add(Merge) / Overwrite(Replace) Option Buttons**: Choose whether to append (merge) to existing data or overwrite (replace) it. Furthermore, when importing Favorites in Add mode, anything exceeding the 50-item limit can be salvaged into a separate JSON file.  
-**5-9-2. "Legacy CSV to JSON" Button**: A feature for those who were using up to V2.x. Converts Favorite and LoRA CSV files created in older versions into JSON files usable in v3.0.0.
-
+**5-9-2. "Legacy CSV to JSON" Button**: A feature for those who were using up to V2.x. Converts Favorite and LoRA CSV files created in older versions into JSON files usable in v3.x.
+**5-9-3. The "NUKE! (All Reset)" Button**:This triggers a complete factory reset, wiping the floor and restoring every single piece of data back to its default state. Because this physically overwrites your entire database, features like "Undo" will NOT save you here. Treat this button with extreme respect—once you push it, there is no turning back. You have been warned!
 ## 6\. Prompt Construction Flow
 
 Simply select the pale green cells from left to right, and you'll have a completed prompt.  
@@ -286,7 +275,7 @@ At the top of the main sheet, hyperlinks are set to jump to each item's cell. Cl
 
 A collection of the author's favorite situations. Full disclosure of my fetishes! (Insane). Copying a sample simultaneously transfers it to the text box in the "Cockpit" tab window, so you can tweak it to craft your own original prompt.
 
-## 8\. "Author's Notes v3.0.0" Sheet
+## 8\. "Author's Notes v3.1.0" Sheet
 
 Contains tips regarding prompts and tales of my struggles while making this macro. Read it when you need a break(?).
 
@@ -302,8 +291,10 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
  - Contact/Blog: [dsblog.biz](https://dsblog.biz/)  
  - Bug reports are great, but [PayPal tips](https://paypal.me/dst0508) keep the lights on!  
  - While bug reports are absolutely welcome, what I really crave are your missing tag requests! Hit me with feedback like, "Hey, you forgot this location!" or "Where the hell is this specific outfit?!" Sure, you have the freedom to mod the code and add them yourself, but please share them with me—because I too wish to gaze upon uncharted scenarios! Your collective wisdom is the fuel that makes this macro even more totally KENZEN (Wholesome™)!  
- - (Bonus) Craving some Lore? On [my personal SeaArt page](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.  
-<br/>Now! Enjoy your KENZEN AI Life! 😊
+ - (Bonus) Craving some Lore? On [my personal SeaArt page](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.
+
+
+Now! Enjoy your KENZEN AI Life! 😊
 
 * * *
 <a id = "kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D"></a>
@@ -329,53 +320,21 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
 
 ![Screenshot](images/Screenshot_20260529.jpg)
 
-🚀 **【****v3.0.0** **リリース！】** 🚀
+## 🚀 【v3.1.0 リリース！】 🚀
+## 「NUKE!」ボタン新設！
+しばらく使っていると、自分でも何が何だか分からなくなってきます。ソースは作者。そんな時、「全てをリセットしたい！」と思う事もあるかと思います。よって、文字通り全てのデータを初期値に戻す、「NUKE!(All Reset)」ボタンを新設しました。
+## バグフィクス
+・プロンプトソートの挙動改善。
+・エクスポート機能において、「LoRA固有のネガティブプロンプト」が、エクスポートされない。
+・ネガティブプロンプトのプリセットを呼び出して、リスト内に展開する際、まとめて重み付けされたタグが正しく格納されない。
 
-**・データの管理を****JSON****ファイルに移行！**
-
-これまでは、各種データを、見えないExcelシート（ゴーストシート）で管理しており、インポートやエクスポートもCSVファイルでやっていましたが、それらを全て、JSONファイルに統合しました！　ぶっちゃけ作者も、「JSON？　何それ？『13日の金曜日』のアレ？」程度には思っていた！　しかし、Google GeminiのアドバイスでJSON形式にすると、マクロ自体の軽量化のみならず、作っている側も管理が楽になるという、劇的な改善がありました。逆に、なんで最初からやらなかったんだろう？（答え：JSONファイルそのものをよく知らなかったからです）
-
-**・「****I/O****」タブ新設！**
-
-データ管理をJSONに移行したことで、
-
-　**・ポジティブ＆ネガティブプロンプトのプリセット（さりげに今回初実装）**
-
-　**・ネガティブプロンプトのストック**
-
-　**・****LoRA****の基本データ**
-
-　**・****LoRA****のプリセット**
-
-　**・****Favorites******
-
-これら6つを、選択したものだけ、容易にJSON形式でエクスポート/インポートできるようになりました！　もちろん、既存のデータに追加するか、上書きするかも選択可能。ついでに、V2.xまでを使っていた人達のために、LoRAとFavoritesに関しては、CSVファイルをJSONにコンバートする機能も付けました！　それらの機能を、まとめて「I/O」タブに集約！
-
-**・****Favorites****の管理機能強化！**
-
-V2.xまでは、「Favoritesの置換はできても、個別削除ができない」という、地味に大きな問題点がありました。UIを変更し、Favoritesの管理専用ウィンドウを新設！　Favoritesの内容をリストボックスに展開し、個別削除、全削除、リスト内ダブルクリックによるFavoriteのフィールドへの転送も実装しました！
-
-**・****LoRA****の管理画面刷新！**
-
-LoRAについても、管理画面を変更！　V2.xまでは、「エイリアスとハッシュ値の登録→トリガーワードの入力→本登録」だった手間を簡略化し、より直感的に！　同時に、Stable Diffusionのローカル環境のユーザーのために、自分が持っているLoRAの.safesensorファイルを読み込ませれば、AUTO V2形式のハッシュ値と、システム名称を自動取得もできるように！　いやほら、自分のストレージ内に.safesensorファイルがあったら、管理のために、ファイル名を変えることもありますよね？　そのファイル名をWebUIに入力しても、AIが理解出来ないわけですから。同時に、LoRA固有のネガティブプロンプトも一緒に登録できるようになり、メインウィンドウのLoRAタブから、一発で呼び出せるようになりました！
-
-**・「ハッシュ値で括る」「名前で括る」の選択機能実装！**
-
-作者自身、Stable Diffusion WebUIと、SeaArtの両方を使っていて気付きました。LoRAをプロンプトに含める場合、SeaArtの場合はハッシュ値で、Stable DiffusionのWeb UIの場合は、システム名称で&lt;lora:&gt;タグを作った方がいい。じゃあってことで、ユーザーの環境に合わせて、「どちらで括るか？」を選べるようにしました！
-
-**・「****Cleanup Prompt****」ボタン実装！**
-
-長い呪文を構築していくと、余分な「,」なんかが増えがちです。ソースは作者。その状態でも、AIが致命的なバグを吐く！　というわけではないのですが、整っていた方が、気持ち的にスッキリします（日本人的）。なので、プロンプト全体を掃除するボタンを付けました！
-
-**・その他細かなバグフィクス**
-
-正直、スマンカッタ（土下座）
+この3点のバグを修正しました。いや、スマンカッタ（土下座）。
 
 **もしこのツールが、あなたの素晴らしき創作の旅の役に立ったなら、このリポジトリに** **⭐****Star** **を押していただけると、作者にとってこの上ない励みになります！** 共に「KENZEN」な文化を広めていきましょう！
 
-# ■KENZEN SeaArt Helper マニュアル（v3.0.0）
+# ■KENZEN SeaArt Helper マニュアル（v3.1.0）
 
-オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.0.0.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.1.0.pdf)
 
 
 **要約：****SeaArt****（＆****Stable Diffusion****）での、****NSFW****絵の生成プロンプト構築と管理に特化したツールです。****API****キーを使って、****Gemini****に****NSFW****絵のプロンプトを考えさせることもできます。**
@@ -620,7 +579,7 @@ Cockpit画面同様に、チェックボックスをオンにするとコンボ�
 
 ### 5-4.「LoRA」 タブ（LoRAの鍛冶場）
 
-![LoRA_Tab](images/LoRA_Tab_2026-06-09_171712.jpg)
+![LoRA_Tab](images/LoRA_Tab_20260622.jpg)
 
 品質向上に必須となる &lt;lora:hash(sys name):strength&gt; 形式のプロンプトと、それに付随するトリガーワードの組み合わせを視覚的かつ直感的に構築・管理します。
 
@@ -854,21 +813,21 @@ AIが錬成したプロンプトが表示されます。
 
 ### 5-9.「I/O」タブ（資産はきちんと保全しましょう）
 
-![IO_Tab](images/IO_Tab_2026-06-09_171835.jpg)
+![IO_Tab](images/IO_Tab_20260622.jpg)
 
 コツコツ築き上げたプロンプトという資産を、JSON形式でバックアップ（エクスポート）や、レストア（インポート）する機能を集約したタブです。
 
- - **Positive Preset****（ポジティブプロンプトのプリセット）**
+ - **Positive Preset** **（ポジティブプロンプトのプリセット）**
 
- - **Negative Stock****（ネガティブプロンプトのストック）**
+ - **Negative Stock** **（ネガティブプロンプトのストック）**
 
- - **Negative Preset****（ネガティブプロンプトのプリセット）**
+ - **Negative Preset** **（ネガティブプロンプトのプリセット）**
 
- - **LoRA Base Data****（LoRA****の基本データ）**
+ - **LoRA Base Data** **（LoRA** **の基本データ）**
 
- - **LoRA Preset****（LoRA****のプリセット）**
+ - **LoRA Preset** **（LoRA** **のプリセット）**
 
- - **Favorite****（お気に入り）**
+ - **Favorite** **（お気に入り）**
 
 以上6つのデータが対象です。デフォルトでは全てにチェックが入っていますが、「Check All」ボタンを押すと、選択解除と全選択が切り替わります。「Export as JSON」でエクスポート、「Import from　JSON」で、インポートします。そのままだ！
 
@@ -879,6 +838,11 @@ AIが錬成したプロンプトが表示されます。
 #### 5-9-2.「Legacy CSV to JSON」ボタン
 
 V2.xまでを使っていた方々への機能です。旧バージョンで作成したFavoriteとLoRAのCSVファイルを、v3.0.0で扱えるJSONファイルにコンバートします。
+
+#### 5-9-3.「NUKE!(All Reset)」ボタン
+
+全てのデータを初期状態に戻します。上書きして消す挙動をするので、アンドゥなどはできません。くれぐれもご注意ください。
+
 
 ## 6\. プロンプトの構築フロー
 
@@ -891,15 +855,15 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
 メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。
 
-## 7,「Sample Prompts」（サンプルプロンプト）シート
+## 7\.「Sample Prompts」（サンプルプロンプト）シート
 
 作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。
 
-## 8.「作者覚え書き(ja)v3.0.0 / Author's Notes v3.0.0」シート
+## 8\.「作者覚え書き(ja)v3.1.0 / Author's Notes v3.1.0」シート
 
 プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）
 
-## 9.「CONTACT」シート
+## 9\.「CONTACT」シート
 
 このREADMEにも書いていますが、作者の連絡先ブログなどを記載しています。
 
@@ -922,5 +886,6 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
  - （おまけ）[SeaArtの個人ページ](https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI)では、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。
 
 **さあ！　健やかなる()AIライフを！😊**
+
 
 ![FLAG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
