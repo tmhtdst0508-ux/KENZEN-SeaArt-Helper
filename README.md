@@ -1,5 +1,10 @@
   **[(日本語は下にあります)](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper#kenzen-seaart-helper-%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D)**
 
+💬 *Want to share your thoughts on my philosophy? Let's discuss it in the [\[Discussions thread\]](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/discussions)!*
+
+
+💬 開発理念なんかを、[ディスカッションスレッド](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/discussions)に書いています。お手柔らかに！
+
 \[Notice\] This tool runs on Excel Macro (VBA). It requires a Windows/Mac PC environment to unleash its full power. Sorry, prompt mages on mobile, this "forbidden door" requires a desktop key! 💻
 
 \[注意\] 本ツールは、Excelマクロ(VBA)です。 動作のためには、Windows/Mac PCが必要です。モバイル術士の皆様には申し訳ないのですが、「禁断の扉」を開けるには、「デスクトップ環境」というキーを入手してください。 💻
@@ -27,24 +32,25 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 ![Screenshot](images/Screenshot_20260604.jpg)
 
 
-## 🚀 【v3.1.0 to v3.1.1: Minor Update, Major Evolution!】 🚀
+## 🚀 【v3.1.1 to v3.1.2: Hotfix & Expanded Metagame!】 🚀
 
-### 1. Database Expansion: The Metagame of Multi-Character Prompts & Lights
-• Added the "Relationship" category: Believe it or not, I discovered that modern AIs are actually smart enough to interpret the underlying relationship dynamics when you put two characters on the canvas. To weaponize this, I’ve newly integrated a dedicated "Relationship" section into the database. 
-• Added the "Lighting" category: A subtle but absolutely critical element for god-tier compositions. To be completely honest, your dev wasn't an expert on lighting mechanics, so I figured, "When in doubt, ask the AI about the AI!" and had Gemini school me on the ultimate illumination meta.
-• Added the "NOT" modifier to "Censorship Fixes, Other": For those stubborn moments when the AI absolutely refuses to listen to your Negative Prompts, this new addition will help you forcefully purge unwanted elements from your generation.
+### 1. Database Expansion: Unlocking Handwear & The Secret Meta
+• Added "Hands & Wrists" category: Honestly, how did I miss this? Hand/wrist-focused fetishism is an absolute game-changer for adding that extra layer of sophisticated, high-end sensuality to your canvas.
+• Added "futanari" to "Skin & Attributes": Since I know exactly what you lot are cooking in your local chambers, I’ve discreetly slipped this highly demanded tag into the database. Enjoy responsibly!
 
-### 2. Prompt Sort Bug Squashed (Hyphen Fix)
-Fixed an annoying parsing bug where tags containing hyphens—such as `O-legged`—would cause the sorting algorithm to incomplete or malfunction. This is the glorious fruit of rigorous **Dogfooding** (using my own tool for... uh, research purposes)! The regex engine has been fully optimized.
+### 2. LoRA Management Bug Squashed (Surgical Fixes)
+• Fixed the double-dipping LoRA insertion bug: Sending a new LoRA will no longer duplicate or mess up the tags already sitting in your Cockpit or Favorites. 
+• Fixed the non-destructive Remove bug: Deleting a LoRA from your list will no longer accidentally hijack or overwrite your custom trigger weights with default values. 
+*“God is in the details!”* (Yeah, I said it. Don't look at me like that.)
 
-### 3. Complete Trivia
-Updated the "Author's Note" section with some slightly unhinged but highly practical insights. Feel free to skip if you only care about the tech, but you'd be missing out on the deeper lore.
+### 3. GitHub Discussions Unlocked!
+• I’ve added a direct link to our brand-new Discussions hub in README.md. Come share your thoughts, and please, go easy on your dev! 🌸
 
 If this tool aids you in your glorious creative journey, hitting that ⭐Star on the repository would be the ultimate encouragement for the author! Let's spread the "KENZEN" culture together!
 
-# ■ KENZEN SeaArt Helper Manual (v3.1.1)
+# ■ KENZEN SeaArt Helper Manual (v3.1.2)
 
-_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.1.1.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.1.2.pdf)_
 
 **TL;DR**: This is a tool hyper-specialized in building and managing NSFW generation prompts for SeaArt (& Stable Diffusion). You can also use your API key to have Gemini brainstorm NSFW prompts for you.
 
@@ -261,7 +267,7 @@ The above 6 data types are targeted. By default, all are checked, but hitting "C
 ## 6\. Prompt Construction Flow
 
 Simply select the pale green cells from left to right, and you'll have a completed prompt.  
-Character Count → Character Placement → Relationship → Skin & Attributes → Body Type → Wildcard For Hair → Hair length → Bangs → Tying → Hair Color → Body Hair → Occupation → Underwear → Outfit → Outfit State → Headwear → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Bondage Action & Movement → Means & Props → Body Parts → Interaction State → Expressions → Body fluids → Misc Items → Lighting → Camera Angle → Censorship Fixes & Others  
+Character Count → Character Placement → Relationship → Skin & Attributes → Body Type → Wildcard For Hair → Hair length → Bangs → Tying → Hair Color → Body Hair → Occupation → Underwear → Outfit → Outfit State → Headwear → Hands & Wrists → Footwear & Legwear → Accessories → Location → Time & Surroundings → Position → Action & Movement → Bondage Action & Movement → Means & Props → Body Parts → Interaction State → Expressions → Body fluids → Misc Items → Lighting → Camera Angle → Censorship Fixes & Others  
 If you are using the Dynamic Prompt extension in a local Stable Diffusion environment, wildcards are provided for hair, expressions, and camera angles. They are bundled in the ZIP file, so please make use of them.  
 At the top of the main sheet, hyperlinks are set to jump to each item's cell. Clicking them jumps to the cell, and the focused cell is automatically pushed to the left edge of the window.
 
@@ -269,7 +275,7 @@ At the top of the main sheet, hyperlinks are set to jump to each item's cell. Cl
 
 A collection of the author's favorite situations. Full disclosure of my fetishes! (Insane). Copying a sample simultaneously transfers it to the text box in the "Cockpit" tab window, so you can tweak it to craft your own original prompt.
 
-## 8\. "Author's Notes v3.1.1" Sheet
+## 8\. "Author's Notes v3.1.2" Sheet
 
 Contains tips regarding prompts and tales of my struggles while making this macro. Read it when you need a break(?).
 
@@ -285,7 +291,7 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
  - Contact/Blog: [dsblog.biz](https://dsblog.biz/)  
  - Bug reports are great, but [PayPal tips](https://paypal.me/dst0508) keep the lights on!  
  - While bug reports are absolutely welcome, what I really crave are your missing tag requests! Hit me with feedback like, "Hey, you forgot this location!" or "Where the hell is this specific outfit?!" Sure, you have the freedom to mod the code and add them yourself, but please share them with me—because I too wish to gaze upon uncharted scenarios! Your collective wisdom is the fuel that makes this macro even more totally KENZEN (Wholesome™)!  
- - (Bonus) Craving some Lore? On [my personal SeaArt page](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.
+ - (Bonus) Craving some Lore? On [my personal SeaArt page](https://www.seaart.ai/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.
 
 
 Now! Enjoy your KENZEN AI Life! 😊
@@ -314,25 +320,26 @@ Now! Enjoy your KENZEN AI Life! 😊
 
 ![Screenshot](images/Screenshot_20260529.jpg)
 
-## 🚀 【v3.1.1 リリース！】 🚀
-### 1.データベースの拡充
+## 🚀 【v3.1.2 リリース！】 🚀
 
-例えば画面内に人物が二人いる場合、意外なことに（？）AIはその関係性まで解釈することが出来ることが分かりました。よって、データベースに「関係性(Relationship)」の項目を追加しました。あと、地味に重要な要素として、「光源(Lighting)」も追加。これについては、作者はよく知らなかったのですが、「AIのことはAIに聞け！」ということで、Geminiに教えてもらいました。さらに、AIがネガティブプロンプトでも言う事を聞かない場合のために、「修正・その他(Censorship Fixes, Other)」に、「NOT」を追加しました。
+* * *
 
-### 2.プロンプトソート機能のバグフィックス
+### データベースの拡充
+「手元周り(Hands & Wrists)」を追加！　結構な盲点だった！　「手元のフェチズム」って、かなり重要だよな！　あと、需要があるだろう事が分かったので、こっそり「肌の色・属性(Skin & Attributes)」に「futanari」を入れといたぜ！
 
-例えば「`O-legged`」などの、ハイフンを含むタグがプロンプト内にある場合、ソート機能が不完全であったバグを直しました。いやあ、ドッグフーディングの賜物だな！
+### LoRA管理周りのバグ修正
+後からLoRAを追加したときに、二重に送られるのと、一度プレビューに出力された、整形済みLoRAタグをリムーブしたときの細かいバグを修正。神は細部に宿るのだよ！（自分で言うな）
 
-### 3.ものすごくどうでもいいこと
+### ディスカッション解禁
+README.mdにディスカッションへのリンクを載せました。お手柔らかに！
 
-「Author's Note」も、ちょっと追記。
 
 
 **もしこのツールが、あなたの素晴らしき創作の旅の役に立ったなら、このリポジトリに** **⭐****Star** **を押していただけると、作者にとってこの上ない励みになります！** 共に「KENZEN」な文化を広めていきましょう！
 
-# ■KENZEN SeaArt Helper マニュアル（v3.1.1）
+# ■KENZEN SeaArt Helper マニュアル（v3.1.2）
 
-オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.1.1.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.1.2.pdf)
 
 
 **要約：****SeaArt****（＆****Stable Diffusion****）での、****NSFW****絵の生成プロンプト構築と管理に特化したツールです。****API****キーを使って、****Gemini****に****NSFW****絵のプロンプトを考えさせることもできます。**
@@ -611,11 +618,11 @@ LoRAのシステムハッシュやトリガーワードを登録・管理する�
 
 カートに入っている「選択されたLoRAの」トリガーワードを、&lt;lora:Hash(sys name):strength&gt;,(Trigger word:1.x)の形式に整形し、Preview欄に出力します。トリガーワードの重み（Weight）が1.0の場合は、「()」でくくられません。ただし、「同じLoRAの、複数あるトリガーワードに、それぞれ違う重み付けをしたい」場合には、Previewテキストボックスを手動で編集してください。
 
-   *Safety Feature:* 万が一、大元の管理データから削除された「幽霊LoRA」がカートに残っていた場合、このボタンを押した瞬間に自動検知してカートから除霊（削除）します。
+- Safety Feature:* 万が一、大元の管理データから削除された「幽霊LoRA」がカートに残っていた場合、このボタンを押した瞬間に自動検知してカートから除霊（削除）します。
 
 ##### 5-4-7-1.Wrap with Hash / Wrap with Nameオプションボタン
 
-選択したLoRAを&lt;lora:…&gt;の形で成形する際、ハッシュ値で括るか、システム名で括るかを選択できます。SeaArtはハッシュ値で、Stable DiffusionのWebUIでは、名前で括った方がいいから、という理由で実装しました。
+選択したLoRAを&lt;`lora:…`&gt;の形で成形する際、ハッシュ値で括るか、システム名で括るかを選択できます。SeaArtはハッシュ値で、Stable DiffusionのWebUIでは、名前で括った方がいいから、という理由で実装しました。
 
 ##### 5-4-8.Get LoRA Negative ボタン
 
@@ -647,7 +654,7 @@ LoRAの実データ（ハッシュ値、トリガーワード、固有のネガ�
 
  - System Hash: SeaArt等で実際に使用されるハッシュ値です。フィールドをダブルクリックすることで、.safesensorファイルの参照ウィンドウが開き、LoRAのファイルを指定すると、自動で AUTO V2形式のハッシュ値が取得できます。
 
-*Note**：*SeaArtでのハッシュ値とは？
+_**Note**_ ：SeaArtでのハッシュ値とは？
 
 SeaArtのサイトの、各LoRAの詳細ページを開いたときのURLの、
 
@@ -663,7 +670,7 @@ https://www.seaart.ai/ja/models/detail/40095be8759dde4285ccf683b24e8852
 
 そのLoRAを発動させるためのトリガーワードを入力します。複数ある場合はカンマ区切りで入力可能です。
 
-*Note:*トリガーワードは最大10個まで。大文字・小文字を区別しない重複チェックが行われ、プロンプトに有害な記号（! ? @ # ( ) など）はエラーで弾かれます。
+***Note***:トリガーワードは最大10個まで。大文字・小文字を区別しない重複チェックが行われ、プロンプトに有害な記号（! ? @ # ( ) など）はエラーで弾かれます。
 
 トリガーワードが不要なLoRAの場合は「None」にチェックを入れてください。
 
@@ -827,7 +834,7 @@ AIが錬成したプロンプトが表示されます。
 
  - **Favorite** **（お気に入り）**
 
-以上6つのデータが対象です。デフォルトでは全てにチェックが入っていますが、「Check All」ボタンを押すと、選択解除と全選択が切り替わります。「Export as JSON」でエクスポート、「Import from　JSON」で、インポートします。そのままだ！
+以上6つのデータが対象です。デフォルトでは全てにチェックが入っていますが、「Check All」ボタンを押すと、選択解除と全選択が切り替わります。「Export as JSON」でエクスポート、「Import from JSON」で、インポートします。そのままだ！
 
 #### 5-9-1.Add(Marge)/Overwrite(Replace)オプションボタン
 
@@ -835,7 +842,7 @@ AIが錬成したプロンプトが表示されます。
 
 #### 5-9-2.「Legacy CSV to JSON」ボタン
 
-V2.xまでを使っていた方々への機能です。旧バージョンで作成したFavoriteとLoRAのCSVファイルを、v3.0.0で扱えるJSONファイルにコンバートします。
+V2.xまでを使っていた方々への機能です。旧バージョンで作成したFavoriteとLoRAのCSVファイルを、v3.xで扱えるJSONファイルにコンバートします。
 
 #### 5-9-3.「NUKE!(All Reset)」ボタン
 
@@ -846,7 +853,7 @@ V2.xまでを使っていた方々への機能です。旧バージョンで作�
 
 薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。
 
-キャラ数(Character Count) → キャラの配置(Character Placement) → 関係性(Relationship) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の毛に関するワイルドカード(Wildcard For Hair) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体毛(Body Hair) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → ヘッドウェア(Headwear) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → ボンデージ行為(Bondage Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情(Expressions) → 体液(Body fluids) → その他アイテム(Misc Items) → 光源(Lighting) → アングル(Camera Angle) → 修正その他(Censorship Fixes & Others)
+キャラ数(Character Count) → キャラの配置(Character Placement) → 関係性(Relationship) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の毛に関するワイルドカード(Wildcard For Hair) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 体毛(Body Hair) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → ヘッドウェア(Headwear) → 手元周り(Hands & Wrists) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 体位(Position) → 行為・動作(Action & Movement) → ボンデージ行為(Bondage Action & Movement) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 表情(Expressions) → 体液(Body fluids) → その他アイテム(Misc Items) → 光源(Lighting) → アングル(Camera Angle) → 修正その他(Censorship Fixes & Others)
 
 Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使用している場合、髪の毛、表情、アングルについては、ワイルドカードを用意しています。ZIPファイル内に同梱していますので、ご活用下さい。
 
@@ -857,7 +864,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
 作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。
 
-## 8\.「作者覚え書き(ja)v3.1.1 / Author's Notes v3.1.1」シート
+## 8\.「作者覚え書き(ja)v3.1.2 / Author's Notes v3.1.2」シート
 
 プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）
 
