@@ -32,25 +32,28 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 ![Screenshot](images/Screenshot_20260604.jpg)
 
 
-## 🚀 【v3.1.1 to v3.1.2: Hotfix & Expanded Metagame!】 🚀
+# 🚀 v3.1.3 Release!
 
-### 1. Database Expansion: Unlocking Handwear & The Secret Meta
-• Added "Hands & Wrists" category: Honestly, how did I miss this? Hand/wrist-focused fetishism is an absolute game-changer for adding that extra layer of sophisticated, high-end sensuality to your canvas.
-• Added "futanari" to "Skin & Attributes": Since I know exactly what you lot are cooking in your local chambers, I’ve discreetly slipped this highly demanded tag into the database. Enjoy responsibly!
+## 🔞 Fetish Database Expansion & Source Code Public Release!
 
-### 2. LoRA Management Bug Squashed (Surgical Fixes)
-• Fixed the double-dipping LoRA insertion bug: Sending a new LoRA will no longer duplicate or mess up the tags already sitting in your Cockpit or Favorites. 
-• Fixed the non-destructive Remove bug: Deleting a LoRA from your list will no longer accidentally hijack or overwrite your custom trigger weights with default values. 
-*“God is in the details!”* (Yeah, I said it. Don't look at me like that.)
-
-### 3. GitHub Discussions Unlocked!
-• I’ve added a direct link to our brand-new Discussions hub in README.md. Come share your thoughts, and please, go easy on your dev! 🌸
+* **Futanari & Cum-related Tag Expansion**: 
+  My bad! Even though I added "futanari" to the database recently, I somehow forgot to include cum-related vocabulary like "precum" or acts like "fellatio". Fixed now. Never in my life did I think I’d be deeply contemplating futanari tags at age 52, but here we are...
+* **Heavenly & Hellish Additions**: 
+  Realized that having just "angel" as an attribute felt a bit weak. So, I added "angel wings" and "halo". To complement them, "heaven" and "hell" have also been added as location tags.
+* **New Occupation Tag**: 
+  Added "ouendan" (cheer squad) to Occupations. It doesn't seem to respond well with the model I personally use for testing, but since it's an official Danbooru tag, I added it just in case!
+* **Code Polish & Refactoring**: 
+  Minor under-the-hood code tweaks. Nothing game-breaking was broken, but my inner perfectionist just couldn't leave those small quirks alone.
+* **Docs Status**: 
+  No major updates to the manual or README, so rest easy! (I guess?)
+* **Full Source Code Now Public**: 
+  Last but definitely not least—starting from this version, the full source code is now directly exposed on GitHub! Feel free to inspect it under the `src` directory in the repository.
 
 If this tool aids you in your glorious creative journey, hitting that ⭐Star on the repository would be the ultimate encouragement for the author! Let's spread the "KENZEN" culture together!
 
-# ■ KENZEN SeaArt Helper Manual (v3.1.2)
+# ■ KENZEN SeaArt Helper Manual (v3.1.3)
 
-_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.1.2.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v3.1.3.pdf)_
 
 **TL;DR**: This is a tool hyper-specialized in building and managing NSFW generation prompts for SeaArt (& Stable Diffusion). You can also use your API key to have Gemini brainstorm NSFW prompts for you.
 
@@ -275,7 +278,7 @@ At the top of the main sheet, hyperlinks are set to jump to each item's cell. Cl
 
 A collection of the author's favorite situations. Full disclosure of my fetishes! (Insane). Copying a sample simultaneously transfers it to the text box in the "Cockpit" tab window, so you can tweak it to craft your own original prompt.
 
-## 8\. "Author's Notes v3.1.2" Sheet
+## 8\. "Author's Notes v3.1.3" Sheet
 
 Contains tips regarding prompts and tales of my struggles while making this macro. Read it when you need a break(?).
 
@@ -320,18 +323,23 @@ Now! Enjoy your KENZEN AI Life! 😊
 
 ![Screenshot](images/Screenshot_20260529.jpg)
 
-## 🚀 【v3.1.2 リリース！】 🚀
+## 🚀 【v3.1.3 リリース！】 🚀
 
 * * *
 
-### データベースの拡充
-「手元周り(Hands & Wrists)」を追加！　結構な盲点だった！　「手元のフェチズム」って、かなり重要だよな！　あと、需要があるだろう事が分かったので、こっそり「肌の色・属性(Skin & Attributes)」に「futanari」を入れといたぜ！
+## データベースのよりフェティッシュな拡充と、ソースコードの公開！
 
-### LoRA管理周りのバグ修正
-後からLoRAを追加したときに、二重に送られるのと、一度プレビューに出力された、整形済みLoRAタグをリムーブしたときの細かいバグを修正。神は細部に宿るのだよ！（自分で言うな）
+- 作者としたことが、この間「futanari」をデータベースに入れたにも関わらず、cum周りの関連語を入れ忘れていたので、それらを追加。行為としては「fellatio」とか、「precum」とかね。まさか52歳で、futanariについて真面目に考えるようになるとは……。
 
-### ディスカッション解禁
-README.mdにディスカッションへのリンクを載せました。お手柔らかに！
+- 後は、属性に「angel」だけだと弱いことが分かったので、「angel wings」や「halo」なんかも追加。場所として「heaven」、「hell」も。
+
+- 「職業」に、「ouendan」も入れたけど、作者が検証に使っているモデルには通用しない様子。ただ、Danbooruにはあるので、念のために。
+
+- その他は、内部コードの微調整とか。致命的なものではなかったけど、直さないと据わりが悪かったという、なんか潔癖症的な。
+
+- マニュアル、及びREADMEには、大幅な変更はないので、ご安心を（？）
+
+- さりげに重要なこととして、このバージョンから、全てのソースコードを直接GitHubに公開しました。リポジトリの`src`フォルダから参照できます。
 
 
 
@@ -339,7 +347,7 @@ README.mdにディスカッションへのリンクを載せました。お手�
 
 # ■KENZEN SeaArt Helper マニュアル（v3.1.2）
 
-オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.1.2.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v3.1.3.pdf)
 
 
 **要約：****SeaArt****（＆****Stable Diffusion****）での、****NSFW****絵の生成プロンプト構築と管理に特化したツールです。****API****キーを使って、****Gemini****に****NSFW****絵のプロンプトを考えさせることもできます。**
@@ -864,7 +872,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
 作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。
 
-## 8\.「作者覚え書き(ja)v3.1.2 / Author's Notes v3.1.2」シート
+## 8\.「作者覚え書き(ja)v3.1.3 / Author's Notes v3.1.3」シート
 
 プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）
 
