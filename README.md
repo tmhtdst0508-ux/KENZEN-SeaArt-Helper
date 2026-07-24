@@ -173,26 +173,36 @@ The window consists of 8 tabs (panels): Cockpit, Positive, Negative, LoRA, Favor
 ![Cockpit](images/Cockpit_20260723.jpg)
 
 The tab containing the menu to build your prompts.
+
 **5-1-1. "Current Prompt"**: Displays the current contents of the clipboard. Every time you copy a prompt, it gets appended here. Since it's a text field, manual tweaks are possible.
-**5-1-2. Search Box (Enter Keyword)**: Input a keyword and hit Enter or click "Search" to search the main sheet. Upon a hit, the cell glows yellow and jumps to the prompt cell on its right. If you search in
-English, it stays put. On consecutive hits, press Enter to loop to the next result.
+
+**5-1-2. Search Box (Enter Keyword)**: Input a keyword and hit Enter or click "Search" to search the main sheet. Upon a hit, the cell glows yellow and jumps to the prompt cell on its right. If you search in English, it stays put. On consecutive hits, press Enter to loop to the next result.
+
 **5-1-3. "Jump to Category" Combo Box & "Back to Legend" Button**: A dropdown to jump to the heading cell of each category. At the end of the item columns, there's a "Return to Legend" hyperlink, but if you think
 "Scrolling down is a pain!", just hit "Back to Legend" to return to the legend.
-**5-1-4. "Copy" Button**: Click on a prompt cell you want to copy, and it gets sent to the clipboard. Repeated copying accumulates prompts in the "Current Prompt" field, separated by ", ". "BREAK" is special and
-gets line breaks before and after. Plus, if the clipboard gets locked for some reason, it's designed to retry.
+
+**5-1-4. "Copy" Button**: Click on a prompt cell you want to copy, and it gets sent to the clipboard. Repeated copying accumulates prompts in the "Current Prompt" field, separated by ", ". "BREAK" is special and gets line breaks before and after. Plus, if the clipboard gets locked for some reason, it's designed to retry.
+
 **5-1-5. "Copy without comma" Button**: Concatenates without a comma (just a space). Useful for combining concepts like "oversized tank top".The macro adds a comma and space to the start of copied words (except
-the first one). So for "1 girl is going to the park with me", you'd normal copy "1 girl", comma-less copy "is going to", comma-less copy "park", comma-less copy "with"... until the word where you actually want a comma next. Then just normal copy the next prompt. Note: even if you click this for the very first prompt, it won't add a space at the start.
+the first one). So for "`1 girl is going to the park with me"`, you'd normal copy `1 girl`, comma-less copy `is going to`, comma-less copy `park`, comma-less copy `with`... until the word where you actually want a comma next. Then just normal copy the next prompt. Note: even if you click this for the very first prompt, it won't add a space at the start.
+
 **5-1-6. "Undo" Button**: Reverts the operation. Up to 50 times. The clipboard contents revert too.
+
 **5-1-7. "Clear" Button**: Wipes the clipboard and "Current Prompt" field. Undo is possible.
+
 **5-1-8. "All Clear" Button**: Completely wipes the clipboard, "Current Prompt" field, and ALL history, resetting everything. Undo is NOT possible. (Aka: The Nuke button)
-**5-1-9. Weighting Feature ("Weight" Checkbox & "Wrap Block" Button)**:
-You can assign weights from 0.5 to 1.5 to prompts you want to emphasize (or weaken). Works for single words, or combos like "(`oversized tank top:1.1)`". Hitting "Wrap Block" wraps the block up to the previous comma
-in "()" and weights it. Works for single prompts too. To prevent misclicks and reduce AI load, the checkbox turns off once you click the Weight button. If you turn the check back on and click "Wrap Block" without adding a prompt, the weighting is removed.
+
+**5-1-9. Weighting Feature ("Weight" Checkbox & "Wrap Block" Button)**:You can assign weights from 0.5 to 1.5 to prompts you want to emphasize (or weaken). Works for single words, or combos like "`(oversized tank top:1.1)`". Hitting "Wrap Block" wraps the block up to the previous comma in "()" and weights it. Works for single prompts too. To prevent misclicks and reduce AI load, the checkbox turns off once you click the Weight button. If you turn the check back on and click "Wrap Block" without adding a prompt, the weighting is removed.
+
 **5-1-10. "Wrap \[ \]" Button:** When using the BREAK syntax, wrapping entire character elements in "\[\]" improves AI comprehension (might depend on the model). Select a range in the text box and press this
 button to wrap that block in "\[\]".
+
 **5-1-11. "Done!" Button**: Once you're satisfied with your manual tweaking, click "Done!" to copy the current text field contents.
+
 **5-1-12. "Everyone, Fall in! (Sort Prompt)" Button**: When building long incantations, it's easy to "forget an element." The AI understands even if the order is a mess, but it's better if it's organized. Hit this to sort your prompt according to the database item order. Note: If you use the BREAK syntax, it only applies to the final paragraph.
+
 **5-1-13. "Cleanup Prompt" Button**: While trial-and-erroring your spells, garbage like extra commas tends to slip in. It won't cause fatal errors, but it's not beautiful. Press this button to scrub the unnecessary commas out of your spell.
+
 **5-1-14. Send to Fav Button**: Sends a prompt you like to the text field in the "Favorite" tab window.
 
 <a id = "positive-tab-the-ai-only-does-what-its-told"></a>
@@ -201,23 +211,39 @@ button to wrap that block in "\[\]".
 ![Positive](images/Positive_20260723.jpg)
 
 A dedicated screen to efficiently manage and deploy Positive Prompts to make the fundamentally lazy AI actually work.
+
 **5-2-1. Your Positive Stock**: The list box on the left. Lists currently registered positive prompts. Comes with a default set. You add, subtract, divide, and multiply(?) these. Multi-selection via Ctrl/Shift or mouse drag is supported.
+
 **5-2-1-1. Selected Delete Button**: Deletes the selected items from the stock data. The source data goes poof too.
+
 **5-2-1-2. Delete All Button**: Nukes the entire stock. Beware, the source data is completely wiped.
+
 **5-2-2. Applied Positive List**: The list box on the right, home to the elite troops(?) you want to output as positive prompts. Also multi-selectable.
+
 **5-2-2-1. Select All Button**: Selects everything in the list. Useful for sending them all to the preview field at once.
+
 **5-2-2-2. Dismiss All Button**: Rejects (clears) all words you intended to apply. Doesn't affect the source data.
+
 **5-2-3. ▲/▼ Buttons**: Buttons next to the two list boxes. As they look, they sort the order in the lists. To prevent errors, they move one at a time. The left stock changes the source data order, the right does not.
+
 **5-2-4. →/← Buttons**: As they look. "→" sends selected items from the stock to the applied list, "←" returns (dismiss) intended words. Doesn't affect source data.
+
 **5-2-5. Add to Positive Preview Button**: Sends selected tags to the "Preview" text box at the bottom. Multi-selections are output separated by ", ".
+
 **5-2-6. Set as Positive Default Button**: Registers the Preview window contents as the default positive prompt.
+
 **5-2-7. Save as Positive Preset Button**: Registers the Preview window contents as a preset.
+
 **5-2-8. Add New Positive Stock? / Add New Positive Stock Button / Clear Positive Stock Input Button**: To register a new positive prompt, input it here and press Enter or the "Add New Positive Stock" button to add it
 to the left stock list. It formats and registers comma-separated, tab-separated, or line-break-separated inputs. Clear Positive Stock Input simply wipes the text box.
+
 **5-2-9. Preview Box**: As mentioned, displays the actual positive prompt. Direct manual editing is allowed.
+
 **5-2-10. Send to Cockpit Button / Clear Positive Preview Button**:Transfers the positive prompt in the Preview to the main text window of the Cockpit. You can also do this via the shortcut "`Ctrl+Shift+P`". Throwing an error if the Preview is empty. Clear Positive Preview wipes the Preview window.
+
 **5-2-11. Positive Preset Combo Box / Call Posi Preset Button / Delete Posi Preset Button**: Select a registered positive prompt preset from the dropdown and hit "Call Preset" to summon it. You can delete them
 with Delete Posi Preset, but you can't delete the Default.
+
 
 <a id = "negative-tab-the-absolute-blacklist"></a>
 ### 5-3. "Negative" Tab (The Absolute Blacklist)
@@ -225,18 +251,31 @@ with Delete Posi Preset, but you can't delete the Default.
 ![Negative](images/Negative_20260723.jpg)
 
 A dedicated screen to manage and deploy Negative Prompts to halt the AI's "rampage." Basically symmetrical to the Positive prompt screen, but with minor differences.
+
 **5-3-1. Your Negative Stock**: The list box on the left. Lists currently registered negative prompts. Comes with a default set.
+
 **5-3-1-1. Selected Delete Button**: Deletes selected items from the stock. Source data dies too.
+
 **5-3-1-2. Delete All Button**: Like the positive side, nukes the entire stock.
+
 **5-3-2. Applied Negative List**: Same as the positive side.
+
 **5-3-2-1. Select All / Dismiss All Button**: Same as the positive side.(Ditto below)
+
 **5-3-3. ▲/▼ Buttons**: (Ditto)
+
 **5-3-4. →/← Buttons**: (Ditto)
+
 **5-3-5. Add to Negative Preview Button**: (Ditto)
+
 **5-3-6. Weighting Checkbox, Combo Box, Weighten and Add to Nega Preview Button**: Just like the Cockpit, turning on the checkbox opens a combo box, allowing you to weight negative prompts from 0.5 to 1.5.
+
 **5-3-7. Add New Negative Stock? / Add New Negative Stock Button / Clear New Negative Stock Input Button**: Don't make me explain the same thing again! (Sudden rage)
+
 **5-3-8. Preview Box**: Needs no explanation.
+
 **5-3-9. Copy Negative Preview / Clear Negative Preview Button**: Copies the negative prompt in the text box to the clipboard, or clears the Preview box.
+
 **5-3-10. Negative Preset Combo Box / Call Nega Preset Button / Delete Nega Preset Button**: Same as the positive side.
 
 <a id = "lora-tab-the-lora-forge"></a>
@@ -244,24 +283,36 @@ A dedicated screen to manage and deploy Negative Prompts to halt the AI's "rampa
 
 ![LoRA](images/LoRA_20260723.jpg)
 
-Visually and intuitively builds and manages the combination of \<`lora:hash(sys name):strength`\> prompts and their accompanying trigger words, which are essential for quality improvement. (If no LoRA is registered, the UI is locked for safety. Please register LoRAs from the "Open LoRA Manage Window".)\
+Visually and intuitively builds and manages the combination of \<`lora:hash(sys name):strength`\> prompts and their accompanying trigger words, which are essential for quality improvement. (If no LoRA is registered, the UI is locked for safety. Please register LoRAs from the "Open LoRA Manage Window".)
+
 **5-4-1. Use LoRA Checkbox**: Toggles the functionality of this tab on/off.
+
 **5-4-2. Open LoRA Manage Window Button**: Opens a dedicated window (explained later) to register and manage LoRA system hashes and trigger words.
+
 **5-4-3. LoRA Selection & Strength**: Select a registered LoRA from the dropdown. Upon selection, the recommended strength and registered trigger words are automatically deployed.
+
 **5-4-4. Trigger Words Checkboxes**: Check only the deployed trigger words you want to use this time (user-friendly design: they all default to ON). LoRAs without trigger words won't show anything here.
+
 **5-4-5. Set! & Cancel Buttons**: "Set!" puts the selected LoRA and trigger words into the right list box (cart). "Cancel" resets the selection to blank.
+
 **5-4-6. Your Selected LoRA (Cart)**: The list of currently set LoRAs. If you want to stack multiple LoRAs, simply select another one and hit "Set!" to keep adding them.
+
 **5-4-7. Wrap LoRA! Button & Weight (Prompt Alchemy)**: Formats the "selected LoRA's" trigger words in the cart into the \<`lora:Hash(sysname):strength`\>,(`Trigger word:1.x`) format and outputs it to the Preview
 field. If the trigger word weight is 1.0, it won't be wrapped in "()". However, if you want to "give different weights to multiple trigger words of the same LoRA," please edit the Preview text box manually.
+
 ***Safety Feature***: In the unlikely event that a "Ghost LoRA" deleted from the main management data remains in the cart, it will automatically detect and exorcise (delete) it the moment you press this button.
+
 **5-4-7-1. Wrap with Hash / Wrap with Name Option Buttons**: When shaping the selected LoRA into the \<`lora:...`\> format, you can choose whether to wrap it with the hash value or the system name. Implemented
 because SeaArt prefers hashes, while SD WebUI prefers names.
+
 **5-4-8. Get LoRA Negative Button**: If you select a LoRA with inherent negative prompts within the list, this becomes clickable, deploying that LoRA's negative prompt to the Preview field of the "Negative" tab.
+
 **5-4-9. Remove / Forget LoRA Buttons**: "Remove" kicks the selected LoRA out of the list. "Forget" completely clears the cart and preview so you can start over.
-**5-4-10. Send to Cockpit / Send to Fav / Clear Preview Buttons**:
-Transfers the completed LoRA prompt in the Preview field to the text field of the Cockpit or Favorites tab. Clear Preview simply clears the Preview text box.
-**5-4-11. Preset (Save & Call Presets)**: "Save as Preset" lets you name and save your current LoRA combo (list contents and weights). "Call Preset" summons it instantly anytime, and "Delete Preset" deletes it.
-Saving combos of frequently used outfits or art styles dramatically reduces workflow time.
+
+**5-4-10. Send to Cockpit / Send to Fav / Clear Preview Buttons**: Transfers the completed LoRA prompt in the Preview field to the text field of the Cockpit or Favorites tab. Clear Preview simply clears the Preview text box.
+
+**5-4-11. Preset (Save & Call Presets)**: "Save as Preset" lets you name and save your current LoRA combo (list contents and weights). "Call Preset" summons it instantly anytime, and "Delete Preset" deletes it. Saving combos of frequently used outfits or art styles dramatically reduces workflow time.
+
 
 <a id = "lora-register-manage-tab-the-lora-vault"></a>
 ### 5-5. "LoRA Register & Manage" Tab (The LoRA Vault)
@@ -269,8 +320,11 @@ Saving combos of frequently used outfits or art styles dramatically reduces work
 ![LoRA_Manage](images/LoRA_Manage_Window_2026-06-09_171724.jpg)
 
 The heart of the operation where you register and manage actual LoRA data (hash values, trigger words, inherent negative prompts). Accessed via "Open LoRA Manage Window" from the "LoRA" tab.
+
 **5-5-1. LoRA Alias / Model Name / System Hash / Recommended Strength**:
+
 - Alias: Any name you can easily identify (e.g., JK Uniform, Watercolor Style).
+
 - Model Name: The official system name of that LoRA, fetched from the file when you load a .safetensors file. Auto-populated, cannot be edited.
 - System Hash: The actual hash value used in SeaArt, etc.
 - Double-clicking the field opens a .safetensors file reference window;specifying the LoRA file auto-fetches the AUTO V2 format hash value!
@@ -280,12 +334,18 @@ The heart of the operation where you register and manage actual LoRA data (hash 
 In this example, the string after /detail/,`40095be8759dde4285ccf683b24e8852`, is the hash value.
 - Recommended Strength: The recommended strength value for that LoRA.
 - Auto-Sanitize: An ironclad guard is stationed here; even if you input full-width characters or invalid symbols into the Hash field, it automatically purifies them into safe half-width characters.
+ 
 **5-5-2. LoRA Trigger Word / None Checkbox**: Input the trigger words to activate that LoRA. Multiple words can be input separated by commas.
+
 ***Note*** : Max 10 trigger words. A case-insensitive duplication check is performed, and symbols harmful to prompts (! ? @ \# ( ) etc.) are rejected with an error. If a LoRA doesn't need a trigger word, check "None".
+
 **5-5-3. LoRA's Negative Prompts Field / None Checkbox**: If a LoRA has inherent negative prompts, you can register them all at once. Registered prompts can be called up via the "Get LoRA Negative" button on the
 "Negative" tab of the main window.
+
 **5-5-4. Register / Cancel / Update LoRA Buttons**: Registers the input contents. While you are editing (Managing) an existing LoRA—say, adding or removing trigger words—the button morphs into "Update LoRA". A dirty check feature prevents pointless overwrites if nothing changed.
+
 **5-5-5. Registered LoRA List & Sort Buttons (▲ / ▼)**: A list of registered LoRAs. Use the "▲" and "▼" buttons to freely organize the list, like pushing your favorite LoRAs to the top or sorting them by category. The order here links to the dropdown in the main screen.
+
 **5-5-6. Manage / Delete LoRA Buttons**: Edits (Manage) or completely deletes (Delete) the selected LoRA from the list.
 
 <a id = "video-tutorial"></a>
@@ -308,17 +368,26 @@ https://youtu.be/arTUUEBNbZ0
 
 
 The tab housing menus to manage your precious prompts, forged after much painstaking effort(?). Note: None of the buttons on this tab will work unless the "My Favorite" tab is active.
-**5-6-1. "Search Fav" Field, "Search Fav" Button & "Clear Search"
-Button**: Input a keyword and hit Enter or click "Search Fav" to search within the "My Favorite" sheet. It only searches the "Description" field, glowing the hit cell like the main sheet, and looping on multiple hits. Clear Search simply wipes the search box.
+
+**5-6-1. "Search Fav" Field, "Search Fav" Button & "Clear Search" Button**: Input a keyword and hit Enter or click "Search Fav" to search within the "My Favorite" sheet. It only searches the "Description" field, glowing the hit cell like the main sheet, and looping on multiple hits. Clear Search simply wipes the search box.
+
 **5-6-2. "Pull From Cockpit" Button**: Transcribes the prompt inputted in the "Cockpit" tab's text field.
+
 **5-6-3. "Send to Cockpit" Button**: The reverse of the above; sends the Favorite Prompt text field contents to the Cockpit's field. Use this to further brush up a favorite by adding prompts from the main sheet.
+
 **5-6-4. "Open Favorite Manage Window" Button**: Opens the favorite management window (explained later).
+
 **5-6-5. "Copy Fav" Button**: Copies a favorite on the "My Favorite" sheet. You know, you wanna use those perfect spells over and over again.The copied spell (prompt) is displayed in the text field along with its
 description. (Almost no one could remember a spell just by looking at it without a description, right?)
+
 **5-6-6. "Tweaked!" Button**: After manually adjusting the copied favorite prompt within the text field, this becomes clickable; clicking it copies the text field contents.
+
 **5-6-7. "Add to Fav!" Button**: Registers the prompt in the field to the "My Favorite" sheet. If the "Description" is blank, it spits out an error. Max 50 items can be registered.
+
 **5-6-8. "Replace Fav" Button**: Replaces the prompt of the focused cell in the "My Favorite" sheet with the contents of the text field (if the cell is blank, it just inputs it). Spits an error if you click on a cell with no prompt. Useful when you think, "I added a new element to a Fav prompt and it got way better! But I don't want similar dupes cluttering my favorites!"
+
 **5-6-9. "Clear Prompt & Description" Button**: Simply clears the prompt and description fields.
+
 **5-6-10. "Undo Fav" Button**: Like the Cockpit, undoes the text field contents.
 
 **5-6-11. “Export As JSON for Mobile” Button**:Exports the data to a JSON file for mobile devices.
@@ -330,10 +399,15 @@ description. (Almost no one could remember a spell just by looking at it without
 
 
 The window to manage your registered favorites.
+
 **5-7-1. Your All Favorites List Box / ▲▼ Buttons**: All favorites are listed. Sort them with the ▲▼ buttons.
+
 **5-7-2. Full Description Box**: Displays the full description of the favorite selected in the list.
+
 **5-7-3. "Send to Fav Window" Button**: Sends the selected favorite to the text field in the Favorite tab. Double-clicking inside the list does the exact same thing.
+
 **5-7-4. "Delete Selected Fav" Button**: Deletes the selected favorite(s). Multi-selection is supported.
+
 **5-7-5. "All Delete Fav" Button**: Deletes all favorites. Point of no return, so be extremely careful.
 
 <a id = "gacha-tab-ai-auto-pilot-prompt-alchemy"></a>
@@ -342,30 +416,43 @@ The window to manage your registered favorites.
 ![Gacha!](images/Gacha_20260723.jpg)
 
 
-An automated prompt generation feature powered by the Google Gemini API.
-When you are absolutely sick of building dense and complex spells (prompts), surrender yourself to the AI's imagination as a "pure breather." It's literally a "Gacha" of "What will pop out?". By the way, I've cast some magic (exaggeration) on Gemini, so it will reliably forge NSFW prompts for you. However, there are some "instant death" landmine words. See the "Author's Notes v3.0.0" sheet in the workbook for details.
+An automated prompt generation feature powered by the Google Gemini API. When you are absolutely sick of building dense and complex spells (prompts), surrender yourself to the AI's imagination as a "pure breather." It's literally a "Gacha" of "What will pop out?". By the way, I've cast some magic (exaggeration) on Gemini, so it will reliably forge NSFW prompts for you. However, there are some "instant death" landmine words. For Exsample `high school girl(JK)`
+
 **5-8-1. Google Gemini API Key**: To use the AI generation feature, you must acquire an API key from Google AI Studio and input it here.
+
 **Not Supported**: I provide ZERO individual support regarding how to acquire or set up the API key. Please only use this if you are a "Mage" capable of figuring it out yourself. The author can't be bothered to handhold you that far (to be brutally honest!).
+
 **AI's Mood**: Google Gemini is a very "well-mannered" AI. No matter how much it CAN output NSFW prompts, depending on the content or the AI's "mood (safety filter)" (which sometimes aggressively flexes its service
 spirit), the output might fail or get outright rejected. Please enjoy it as a "Gacha" inclusive of these quirks.
+
 **Auto-Save API Key**: Once prompt alchemy via Google Gemini succeeds, using that as a flag, the inputted API key is recorded in your local machine's registry and will be auto-filled from the next time. If your API key changes, overwrite it, and it will save upon the next successful execution.
-**5-8-2. Natural Language Input Field (Please tell me your desire!)**:
-Freely input the situation (desire) you envision using your everyday words.
+
+**5-8-2. Natural Language Input Field (Please tell me your desire!)**: Freely input the situation (desire) you envision using your everyday words.
+
 Bilingual Support: Even if it's Japanese, English, or a mix of both, the AI will understand the context and elevate it into optimal tag sets for generative AIs like SeaArt.
+
 **5-8-3. Operation Buttons:**\
+
 **Feeling Lucky?**: Sends a request to Gemini based on your input and rolls the gacha. Error responses also count against your API limits, so excessive spamming leads to errors = wasting your ammo. Therefore, once
 pressed, it grays out for 15 seconds. Incidentally, during that time, to prevent misclicks, you can't move to other tab windows either. It's not a bug, it's a feature (the ancient mantra).
+
 **Clear**: Clears the input field contents.
+
 **5-8-4. Generation Result Area (How about this?)**: Displays the prompt forged by the AI.
 Copy This!: Copies the generated prompt to the clipboard.
 Send to Cockpit / Send to Fav: Transfers the generated prompt to the "Cockpit" or "Favorites" tab. Apply your favorite LoRAs or whatever your heart desires.
 Clear Result: Wipes the generation result.
+
 **5-8-5. "Trigger Happy?" Frame (Remaining Gacha Ammo)**: Displays the remaining number of gacha executions for the day.
+
 **Just an Estimate**: The displayed count is an "estimate" based on typical Google free-tier API limits and internal tracking within this tool. There may be slight discrepancies with actual Google API limits.
+
 **Reset**: The count resets at midnight Pacific Time (PT).
+
 **Limit Adjustment (Hidden Feature)**: If you are a heavy user paying for the API and want to change the limit setting, double-click the number part of the counter. An input box will appear allowing you to freely adjust the daily limit.
-**5-8-6. "Surprise Me!" Checkbox / SFW & NSFW & Hardcore Option
-Buttons**: Checking this reveals 3 option buttons. Pick one and hit "Feeling Lucky?", and Google Gemini will brainstorm a prompt for you based on randomly extracted words from the database.
+
+**5-8-6. "Surprise Me!" Checkbox / SFW & NSFW & Hardcore Option Buttons**: Checking this reveals 3 option buttons. Pick one and hit "Feeling Lucky?", and Google Gemini will brainstorm a prompt for you based on randomly extracted words from the database.
+
 ***Tips:*** Gacha Tricks: When describing your desires, there's no need for you to be "well-mannered". During debugging, there were cases where if you showed weird bashfulness, Gemini sensed it and activated its
 (smart-ass) safety filter. That's right. If you mean female genitalia, you don't need to sugarcoat it as "crotch". Just be honest and write "p\*\*\*y".
 
@@ -386,8 +473,10 @@ A centralized tab bringing together features to backup (Export) or restore (Impo
  
 The above 7 data types are targeted. By default, all are checked, but hitting "Check All" toggles between unchecking all and selecting all. Export with "Export as JSON", import with "Import from JSON". Just like
 it says!
+
 **5-9-1. Add(Merge) / Overwrite(Replace) Option Buttons**: Choose whether to append (merge) to existing data or overwrite (replace) it. Furthermore, when importing Favorites in Add mode, anything exceeding
 the 50-item limit can be salvaged into a separate JSON file.
+
 **5-9-2. "Legacy CSV to JSON" Button**: A feature for those who were using up to V2.x. Converts Favorite and LoRA CSV files created in older versions into JSON files usable in v3.x later.
 
 **5-9-3. The "NUKE! (All Reset)" Button:** This triggers a complete factory reset, wiping the floor and restoring every single piece of data back to its default state. Because this physically overwrites your entire database, features like "Undo" will NOT save you here. Treat this button with extreme respect—once you push it, there is no turning back. You have been warned!
@@ -507,12 +596,15 @@ Generation results are entirely up to the AI. The author assumes ZERO responsibi
 are unpredictable. I am not responsible for what you generate.
 
 **Tested Model**: [REED_XXX_illustrious_SDXL V15.0](https://civitai.red/models/1717562/reedxxxillustrioussdxl)
+
 **Author: Tomohito Fujikawa** (aka "D.S.T." or "Deeste" / Former Eroge (Visual Novels) Writer).
+
 **Contact/Blog**: [dsblog.biz](https://dsblog.biz/)
 Bug reports are great, but [PayPal tips](https://paypal.me/dst0508) keep the lights on!
 While bug reports are absolutely welcome, what I really crave are your missing tag requests! Hit me with feedback like, "Hey, you forgot this location!" or "Where the hell is this specific outfit?!" Sure, you have
 the freedom to mod the code and add them yourself, but please share them with me—because I too wish to gaze upon uncharted scenarios! Your collective wisdom is the fuel that makes this macro even more totally
 KENZEN (Wholesome™)!
+
 (Bonus) Craving some Lore? On [my personal SeaArt
 page](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.
 
@@ -581,7 +673,7 @@ SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のため�
 
 - [7.モバイル用ブックマークレット](#mobile-bm-jp)
 
- - [8.プロンプトの構築フロー](#build-jp)
+- [8.プロンプトの構築フロー](#build-jp)
 
 - [9.「Sample Prompts」（サンプルプロンプト）シート](#sample-jp)
 
@@ -634,9 +726,7 @@ SeaArtのウェブサイトから、ハッシュ値を取得するブックマ�
 
 コーディング支援： Google Gemini（実質的な実装担当という名の丸投げ）
 
-透明性の確保：
-GitHubのリポジトリに、全ソースコードを公開しています。また、`Alt+F11` でVBAエディタを開き、\[標準モジュール\] 内の MainCodeを参照・改変いただけます。（※悪意あるバックドアは仕込んでいませんが、Google
-Geminiの言いなりで煮込まれたスパゲッティコードが内包されています）
+透明性の確保：GitHubのリポジトリに、全ソースコードを公開しています。また、`Alt+F11` でVBAエディタを開き、\[標準モジュール\] 内の MainCodeを参照・改変いただけます。（※悪意あるバックドアは仕込んでいませんが、Google Geminiの言いなりで煮込まれたスパゲッティコードが内包されています）
 
 著作権：放棄しませんが、改変および再配布は自由です。報告も不要です（あると作者が喜びます）。
 
@@ -1245,7 +1335,7 @@ Mobile Memosのエリアまで、スクロールで飛びます。
 
 ZIPファイルの「`KENZEN_Mobile`」フォルダ内に入っている、「`KENZEN_GetURL_BM.txt`」ファイルは、JavaScriptのブックマークレットです。ブックマークに登録し、別タブでSeaArtのLoRAなどのページを閲覧しているときに作動させると、ハッシュ値が取得＆コピーされます。`KENZEN_Mobile.html`のメモに追加して活用してください。
 
-<a id = "#build-jp"></a>
+<a id = "build-jp"></a>
 ## 8. プロンプトの構築フロー
 
 薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。
@@ -1257,7 +1347,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
 メインシートの冒頭には、各項目のセルへ飛ぶハイパーリンクが設定しており、クリックするとジャンプし、フォーカスの移動したセルは、自動的にウィンドウの左端に寄ります。
 
-<a id = "#sample-jp"></a>
+<a id = "sample-jp"></a>
 ## 9.「Sample Prompts」（サンプルプロンプト）シート
 
 作者お気に入りのシチュエーションを収録しています。性癖の開示！（電波）サンプルをコピーすると、「Cockpit」タブウィンドウのテキストボックスにも同時に転送されるので、自分で調節して、オリジナルのプロンプトを作る事も出来ます。
@@ -1293,6 +1383,5 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 - （おまけ）[SeaArtの個人ページ](https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI)では、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。
 
 **さあ！　健やかなる()AIライフを！😊**
-
 
 ![FLAG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
