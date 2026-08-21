@@ -28,7 +28,7 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 
 **Screenshot**
 
-![Screenshot](images/Screenshot_20260803.jpg)
+![Screenshot](images/Screenshot_20260821.jpg)
 
 <a id = "created-with-kenzen-seaart-helper"></a>
 ## 🔞 Created with KENZEN SeaArt Helper
@@ -42,11 +42,15 @@ Want to see what this tool can actually create?
 * Written by a former professional Japanese eroge scenario writer
 * English edition available
 
-👉 **[View the project on itch.io](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)**
+[**\*Melancholy & Bliss of a Futanari Office Lady\***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) The Free trial is [**here**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial).
 
-**[Click here](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)** for the free trial!
+[**\*That Handsome Captain's Unexpected Secret\***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) The Free trial is [**here.**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)
 
-There's another one. It's titled **“That Handsome Captain's Unexpected Secret”** and is also available on itch.io! [**Click here**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) There's a free demo, too. [**Click here**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)
+[**\*Rebellion at Futanari Academy\***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) The Free Trial is [**here**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)**.**
+
+[**\*Futanari Idol's Special Fan Service!\***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) The Free Trial is [**here.**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)
+
+[**\*Futanari in the Mirror\***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) The Free Trial is [**here.**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)
 
 > **Adults only (18+).** The linked page contains explicit fictional sexual content.
 
@@ -101,54 +105,26 @@ There's another one. It's titled **“That Handsome Captain's Unexpected Secret�
 - [🔞 Created with KENZEN SeaArt Helper](#created-with-kenzen-seaart-helper)
 
 <a id = "whatsnew"></a>
-## 🚀v4.1.1 Released: "Eyes speak as eloquently as the mouth." (目は口ほどにものを言う)
+# 🚀 Release v4.2.0: The Sci-Fi Update! 🛸✨
 
-### 🚀 Import Behavior Tweaks
+* 🪐 **Massive Database Expansion (Sci-Fi Focus):** Hugely expanded the database, primarily centering around Sci-Fi scenarios. As someone with zero prior Sci-Fi literacy, this was completely in my blind spot until now! My bad, kings! The list is way too long to fit here, so I've compiled everything into a dedicated doc. 👉 **Check out the full tag list in [here](docs/tags_in_v4.2.0.md)!**
+* 🎭 **Terminology Update:** Renamed `Character Placement` to `Character Roles` for clearer semantic categorization.
+* 🔀 **Deprecated `Wrap [ ]` & Added `Dynamic Prompts Wrap`:** Realized that wrapping prompts with `[ ]` while using the `BREAK` syntax is completely redundant, so it's gone. In its place, built a dedicated wrapper for local Stable Diffusion users utilizing **Dynamic Prompts**: select any comma-separated tags, and it instantly wraps them into a `{A | B | C}` wildcard block!
+* 🛠️ **Crucial Bug Fixes:**
+  * Fixed an issue where formatted `<lora:...>` tags sent to Cockpit or Favs erroneously inherited a leading comma `, `.
+  * Fixed a prompt sorter bug where regular tags containing lowercase `"break"` (e.g., `mind break`) triggered unintended `BREAK` line splits.
+  * Fixed the weighting logic bug where wrapping a tag at the start of a newline immediately following a `BREAK` caused severe index displacement.
+* 🛡️ **Fail-Safe Cloud Guard:** Fixed an issue where running directly from cloud sync environments (OneDrive/SharePoint) triggered consecutive error dialogs followed by a fatal `Runtime Error 91`. The tool now gracefully force-closes the workbook immediately upon detection.
 
-During the initial launch of the Main Window, the macro executes an initialization routine to parse and load the `KENZEN_Config.json` file. Consequently, importing external config/data files while the window remained active resulted in real-time sync delays. To address this, the import workflow has been refactored: completing an import now safely unloads the UI and automatically re-executes the startup sequence to guarantee fresh state hydration.
+---
 
-### 👁️ Added `Eye Color` to the Tag Database
-
-Looking back, I can't believe this was missing—eye color is obviously an essential parameter for AI image generation. As the dev, it is my sworn duty to cater to all your cultured degenerate needs.
-
-In Japan, there is a famous idiom: *"Eyes speak as eloquently as the mouth"* (目は口ほどにものを言う). Since Japanese culture heavily relies on "reading the room" (空気を読む), facial expressions—specifically the nuances conveyed through the eyes—carry immense weight. For a Japanese dev to overlook this was practically sacrilege!
-
-*Fun fact:* With the addition of `Eye Color`, our tag database has officially hit **40 distinct categories**. *Who authorized us to go this hard?!*
-
-### 🔞 Database Refactoring & Tag Expansions
-
-- **Categorization Cleanup:** Reclassified several tags originally residing in `General Action` that logically belonged under `Sexual Act` or `Bondage Action & Movement`.
-- **New Tag Drops:**
-    - `Sexual Act`: Added `anilingus` and `testicle sucking`.
-    - `Bondage Action & Movement`: Added `chastity belt`.
-    - And Littele more.
-
-### 🃏 Added 2 New Dynamic Prompts Wildcards
-
-While not a direct code patch to the Excel macro itself, the bundled DynamicPrompts wildcard suite has been updated!
-
-- Added `Eye Color` wildcard.
-- Added `sexual_positions` wildcard.
-
-*Dev's note on `sexual_positions`:* Testing this internally was a blast. If your generations are feeling repetitive or stale, this wildcard is the ultimate cure for artistic burnout.
-
-### 🎮 Dogfooding Project: Original Adult CG Pack Released!
-
-As part of my rigorous dogfooding process, I crafted a full-fledged adult CG collection using this exact tool!
-
-To make it truly worthwhile, I wrote an exclusive, original lore/narrative to go with it. And don't worry—it’s fully translated into English! This isn't just another lazy, thrown-together asset dump.
-
-It's currently available on **itch.io**! Check it out if you're interested and want to support the project: 👉 **[\*Melancholy & Bliss of a Futanari Office Lady\*](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)**
-
-**[Click here](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)** for the free trial!
-
-There's another one! It's titled “That Handsome Captain's Unexpected Secret” and is also available on itch.io! [**Click here!**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) There's a free demo, too! [**Click here!**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)
+*Ah, the absolute beauty of continuous dogfooding!* Sure, the database is expanding and the machinery is getting unapologetically complex—but that's intentional. This macro isn't built for passive "spectators" who just want a lazy generic NSFW prompt with zero effort. **It is engineered for Directors—you cultured degenerates who architect and craft every single layer of the scene from scratch.** 🎬🔥
 
 **If this tool aids you on your glorious creative journey, hitting that ⭐Star button on this repository would be the ultimate encouragement for the author!** Let us spread the "KENZEN" culture together!
 
-# ■ KENZEN SeaArt Helper Manual (v4.1.1)
+# ■ KENZEN SeaArt Helper Manual (v4.2.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](KENZEN_SeaArt_Helper_Manual_v4.1.1.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v4.2.0.pdf)_
 
 
 TL;DR: This is a tool hyper-specialized in building and managing NSFW generation prompts for SeaArt (& Stable Diffusion). You can also use your API key to have Gemini brainstorm NSFW prompts for you.
@@ -205,7 +181,7 @@ The window consists of 8 tabs (panels): Cockpit, Positive, Negative, LoRA, Favor
 <a id = "cockpit-tab"></a>
 ### 5-1 "Cockpit" Tab
 
-![Cockpit](images/Cockpit_20260723.jpg)
+![Cockpit](images/cockpit_20260821.jpg)
 
 The tab containing the menu to build your prompts.
 
@@ -229,8 +205,7 @@ the first one). So for "`1 girl is going to the park with me"`, you'd normal cop
 
 **5-1-9. Weighting Feature ("Weight" Checkbox & "Wrap Block" Button)**:You can assign weights from 0.5 to 1.5 to prompts you want to emphasize (or weaken). Works for single words, or combos like "`(oversized tank top:1.1)`". Hitting "Wrap Block" wraps the block up to the previous comma in "()" and weights it. Works for single prompts too. For tags consisting of two or more words separated by commas (,), you can apply weights to them all at once by selecting the relevant range in the preview box and then clicking this button. To prevent misclicks and reduce AI load, the checkbox turns off once you click the Weight button. If you turn the check back on and click "Wrap Block" without adding a prompt, the weighting is removed.
 
-**5-1-10. "Wrap \[ \]" Button:** When using the BREAK syntax, wrapping entire character elements in "\[\]" improves AI comprehension (might depend on the model). Select a range in the text box and press this
-button to wrap that block in "\[\]".
+.**5-1-10. "Dynamic Prompt Wrap" Button**: This button is for users who are using the Dynamic Prompt extension in a local Stable Diffusion environment. It wraps the tags in the selected range—separated by commas (,)—in the format {A | B | C}.
 
 **5-1-11. "Done!" Button**: Once you're satisfied with your manual tweaking, click "Done!" to copy the current text field contents.
 
@@ -602,7 +577,7 @@ Save this script as a browser bookmark on your phone. When you're browsing LoRAs
 
 Simply select the pale green cells from left to right, and you'll have a completed prompt.
 
-Art Style → Camera Angle → Character Count → Character Placement → Relationship → Skin & Attributes → Body Type → Wildcard for Hair → Hair length → Bangs → Tying → Hair Color → Eye Color → Expressions → Body Hair → Position → General Action → Major Categories of Sexual Act → Sexual Act → Bondage Action & Movement → Occupation → Underwear → Outfit → Outfit State → Clothing Color → Clothing Material → Headwear → Hands & Wrists → Footwear & Legwear → Accessories → Location → Time & Surroundings → Means & Props → Body Parts → Interaction State → Body fluids → Misc Items → Lighting → Effects → Censorship Fixes, Others
+Art Style → Camera Angle → Character Count → Character Roles → Relationship → Skin & Attributes → Body Type → Wildcard for Hair → Hair length → Bangs → Tying → Hair Color → Eye Color → Expressions → Body Hair → Position → General Action → Major Categories of Sexual Act → Sexual Act → Bondage Action & Movement → Occupation → Underwear → Outfit → Outfit State → Clothing Color → Clothing Material → Headwear → Hands & Wrists → Footwear & Legwear → Accessories → Location → Time & Surroundings → Means & Props → Body Parts → Interaction State → Body fluids → Misc Items → Lighting → Effects → Censorship Fixes, Others
 
 
 If you are using the Dynamic Prompt extension in a local Stable Diffusion environment, wildcards are provided for hair, expressions, and camera angles. They are bundled in the ZIP file, so please make use of them.
@@ -616,7 +591,7 @@ A collection of the author's favorite situations. Full disclosure of my fetishes
 own original prompt.
 
 <a id = "authors-notes-v4.0.0-sheet"></a>
-## 10. "Author's Notes v4.1.1" Sheet
+## 10. "Author's Notes v4.2.0" Sheet
 
 Contains tips regarding prompts and tales of my struggles while making this macro. Read it when you need a break(?).
 
@@ -644,9 +619,7 @@ the freedom to mod the code and add them yourself, but please share them with me
 KENZEN (Wholesome™)!
 
 **Official Showcase:** 
-An adult CG collection created with this tool is available on [itch.io](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady). Even if it's just $5, you don't want to shell out that much? Well, [here's the trial version!](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)
-
-There is one more. "That Handsome Captain's Unexpected Secret", The product is [**here**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret), and the trial version is [**here.**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)
+An adult CG collection created with this tool is available on [itch.io](https://dst-fujikawa.itch.io).
 
 (Bonus) Craving some Lore? On [my personal SeaArt
 page](https://www.seaart.ai/ja/new-user/4b23d22e331a382c4adc23a3df4e7077), I post original short stories based on the generated illustrations. Feel free to check them out if you like.
@@ -675,7 +648,7 @@ SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のため�
 
 **スクリーンショット**
 
-![Screenshot](images/Screenshot_20260803.jpg)
+![Screenshot](images/Screenshot_20260821.jpg)
 
 <a id="created-with-kenzen-jp"></a>
 ## 🔞 KENZEN SeaArt Helperによる制作例
@@ -689,15 +662,15 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 * 元商業エロゲーシナリオライターによる構成・執筆
 * 英語版をitch.ioにて販売
 
-👉 **[itch.ioで英語版を見る](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)**
+[**「ふたなりOLの憂鬱と幸福」**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) 体験版は [**ここ**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)。
 
-無料体験版は **[こちら。](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)**
+[**「男前なアイツの意外な秘密」**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) 体験版は [**ここ**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)。
 
-もう一つあります。**『男前なアイツの意外な秘密』**。同じく、書き下ろしテキストを添えた、CG80枚の作品です。こちらは、1つのZIPファイルに、英語版と日本語版の両方入っています。
+[**「私立ふたなり学園の下剋上」**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) 体験版は [**ここ**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)**。**
 
-👉 **[itch.ioで見る](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret)**
+[**「ふたなりアイドルのファンサービス！」**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) 体験版は [**ここ**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)**。**
 
-無料体験版は[**こちら。**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)
+[**「鏡の中のふたなり」**](https://dst-fujikawa.itch.io/futanari-in-the-mirror) 体験版は [**ここ**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)**。**
 
 > **18歳未満閲覧禁止。** リンク先には、架空の成人キャラクターによる露骨な性的表現が含まれます。
 
@@ -754,29 +727,25 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 
 
 <a id = "whatsnew-jp"></a>
-# 🚀 【v4.1.1 リリース！】 🚀
+# 🚀 【v4.2.0 リリース！】:SFアップデート！🚀
+・データベースを、SFのシチュエーションを中心に、大幅拡充。作者にSFの素養がないために、今まで盲点だった！　いや、すまんかった！　かなり数が多いので、別のドキュメントにまとめました。[こちら]( docs/tags_in_v4.2.0.md)からどうぞ！
 
-## 🚀 インポート時の挙動の変更
-このマクロは、メインウィンドウを開いたときに、初期化処理として、JSONファイルを読みに行く挙動をする。なので、外部のファイルをインポートした際に、ウィンドウが開いたままだと、すぐに内容が反映されない。よって、インポート完了後はいったんウィンドウを閉じ、再度開く挙動にした。
+・同時に、「Character Placement」を、「Character Roles」に変更。
 
-## 👁️ データベースタグに、「`Eye Color`」を追加
-考えてみれば、この項目も、イラストを生成させるに当たって、指定できないわけがない。お前等のこだわりには、やはり作者として、できる限り答えなくてはならないと思う。ちなみに、日本では、「目は口ほどにものを言う」という言葉がある。日本では「空気を読む」文化が根強いので、「目の表情」が重視される。日本人である作者が、それを忘れていたのだから、冗談にもならない。余談だが、Eye Colorの追加で、データベースの項目数が、40個になった。誰がここまでやれと言った？
+・"Wrap[ ]"の廃止と、"Dynamic Prompt Wrap"の追加：BREAK構文を使う際、"[ ]"でプロンプトを括っても、まったく意味がない事が判明したので、その機能を削除。代わりに、Dynamic Promptを使っているユーザーのために、選択した", "で区切られた範囲を、"{A | B | C}"でWrapする機能を実装。
 
-## 🔞 データベースの整理＆少量の追加
-「General Action」の中に、「Sexual Act」や、「Bondage Action & Movement」に分類した方がいいのでは？　と思えるタグがあったので、それらを一部、分類し直した。また、「Sexual Act」に`anilingus`と、`testicle sucking`、Bondage Action & Movementに`chastity belt`を追加。その他もちょっと。
+・細かいバグフィクス：整形されたLoRAタグをCockpit、あるいはFavに送る際、頭に", "が付いてしまう問題、プロンプトをソートする際、タグの中に"break"が入っていると、結果がおかしくなる問題、最後に、BREAKの直後の、行頭のタグを重み付けする際に、正しく動作しない問題を修正。
 
-## 🃏 DynamicPrompt用のワイルドカードを2つ追加
-マクロ本体のバージョンアップではないが、同梱ファイルのDynamicPrompt用のワイルドカードファイルに、先述の「Eye Color」と、「sexual_positions」を追加した。体位については、使ってみると、非常に面白い。マンネリ打破には、うってつけじゃないかと、我ながら思う。
+・さらに、OneDriveなどのクラウドドライブ上で実行しようとした際、エラーダイアログの後に、実行時エラー91が出る問題も修正。その場合、強制的にブックが閉じるようにしました。
 
-## 🎮 このマクロを使っての公開サンプル製品
-ドッグフーディングの一環として、このマクロを使って、CG集を作った。もちろん、成人向けである。仮にもライターとして、とっておきの書き下ろしストーリーを付け加えている。適当に寄せ集めただけの、ありふれたCG集ではない。タイトルは、**『ふたなりOLの憂鬱と幸福』** だ。英語版を[itch.ioで販売している](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)ので、興味のある奴はチェックしてみてくれ。もう一つ、**[『男前なアイツの意外な秘密』](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret)** というのもあるので、気になる奴はよろしく。
+ドッグフーディングの賜物だな！　しかし、データベースの拡充はいいとして、どんどん複雑になっていく！　なぜなら、このマクロは、「観客」のためではなく、お前等「監督」のためのものだからだ！
 
 
 **もしこのツールが、あなたの素晴らしき創作の旅の役に立ったなら、このリポジトリに⭐Star を押していただけると、作者にとってこの上ない励みになります！** 共に「KENZEN」な文化を広めていきましょう！
 
-# ■KENZEN SeaArt Helper マニュアル（v4.1.1）
+# ■KENZEN SeaArt Helper マニュアル（v4.2.0）
 
-オフラインマニュアルは、[こちらをご覧下さい](KENZEN_SeaArt_Helper_Manual_v4.1.1.pdf)
+オフラインマニュアルは、[こちらをご覧下さい](docs/KENZEN_SeaArt_Helper_Manual_v4.2.0.pdf)
 
 **要約：SeaArt（＆Stable Diffusion）での、NSFW絵の生成プロンプト構築と管理に特化したツールです。APIキーを使って、GeminiにNSFW絵のプロンプトを考えさせることもできます。**
 
@@ -841,7 +810,7 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 <a id = "cockpit-jp"></a>
 ### 5-1「Cockpit」タブ
 
-![Cockpit](images/Cockpit_20260723.jpg)
+![Cockpit](images/cockpit_20260821.jpg)
 
 プロンプトを構築していくためのメニューがあるタブです。
 
@@ -881,9 +850,9 @@ Clear ボタンでクリップボードと画面表示内容を消去します�
 
  強調したい（あるいは弱めたい）プロンプトを、0.5～1.5まで重み付けできます。一つの単語はもちろん、例えば、先ほどの「oversized + tank top」といった、2単語以上の組み合わせも、「`(oversized tank top:1.1)`」のようにできます。「Wrap Block」を押すと、その前のカンマまでのブロックを「()」でくくって、重み付けします。「,」で区切られた、2つ以上の単語からなるタグについては、プロビューボックス内の対象範囲を選択してからこのボタンを押すと、まとめて重み付けできます。誤操作防止と、AIへの負荷軽減のために、一度「Weight」ボタンをクリックすると、チェックボックスはオフになります。また、プロンプトを追加しないで、もう一度チェックをオンにして「Wrap Block」をクリックすると、重み付けが解除されます。
 
-#### 5-1-10.「Wrap \[ \]」ボタン
+#### 5-1-10.「Dynamic Prompt Wrap」ボタン
 
- BREAK構文を使う際、人物ごとの要素丸ごとを”\[\]”でくくると、AIの理解がよくなります。（使用するモデルによるかもしれません）そんな時、テキストボックス内の範囲を選択し、このボタンを押すと、そのブロックが”\[\]”でくくられます。
+ Stable Diffusionのローカル環境において、Dynamic Promptの拡張機能を利用しているユーザー向けのボタンです。選択範囲の「, 」で区切られたタグを、｛A | B | C｝の形式で括ります。
 
 #### 5-1-11.「Done!」ボタン
 
@@ -1402,7 +1371,7 @@ ZIPファイルの「`KENZEN_Mobile`」フォルダ内に入っている、「`K
 
 薄緑色のセルを左から順に選んでいくだけで、一つの完成されたプロンプトになります。
 
-画風(Art Style) → アングル(Camera Angle) → キャラ数(Character Count) → キャラの配置(Character Placement) → 関係性(Relationship) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の毛全てへのワイルドカード(Wildcard for Hair) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 瞳の色(Eye Color) → 表情(Expressions) → 体毛(Body Hair) → 体位(Position) → 一般的行為(General Action) → 性的行為大分類(Major Categories of Sexual Act) → 性的行為(Sexual Act) → ボンデージ行為(Bondage Action & Movement) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → 服の色 (Clothing Color) → 服の素材 (Clothing Material) → ヘッドウェア(Headwear) → 手元周り(Hands & Wrists) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 体液(Body fluids) → その他アイテム(Misc Items) → 光源(Lighting) → 効果(Effects) → 修正その他(Censorship Fixes, Others)
+画風(Art Style) → アングル(Camera Angle) → キャラ数(Character Count) → キャラの役割(Character Roles) → 関係性(Relationship) → 肌の色・属性(Skin & Attributes) → 体型(Body Type) → 髪の毛全てへのワイルドカード(Wildcard for Hair) → 髪の長さ(Hair length) → 前髪(Bangs) → 髪の結び目(Tying) → 髪の色(Hair Color) → 瞳の色(Eye Color) → 表情(Expressions) → 体毛(Body Hair) → 体位(Position) → 一般的行為(General Action) → 性的行為大分類(Major Categories of Sexual Act) → 性的行為(Sexual Act) → ボンデージ行為(Bondage Action & Movement) → 職業(Occupation) → 下着(Underwear) → 服装(Outfit) → 服の状態(Outfit State) → 服の色 (Clothing Color) → 服の素材 (Clothing Material) → ヘッドウェア(Headwear) → 手元周り(Hands & Wrists) → 足元周り(Footwear & Legwear) → アクセサリー類(Accessories) → 場所(Location) → 時間帯・周囲の状況(Time & Surroundings) → 手段・道具(Means & Props) → 身体の部位(Body Parts) → 行為の状態(Interaction State) → 体液(Body fluids) → その他アイテム(Misc Items) → 光源(Lighting) → 効果(Effects) → 修正その他(Censorship Fixes, Others)
 
 Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使用している場合、髪の毛、目の色、表情、体位、アングルについては、ワイルドカードを用意しています。ZIPファイル内に同梱していますので、ご活用下さい。
 
@@ -1415,7 +1384,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 
 
 <a id = "authors-note-jp"></a>
-## 10.「作者覚え書き(ja)v4.1.1 / Author's Notes v4.1.1」シート
+## 10.「作者覚え書き(ja)v4.2.0」シート
 
 プロンプトに関するTipsとか、このマクロを作るに当たっての苦労話とかを書いています。息抜きにどうぞ（？）
 
@@ -1442,9 +1411,7 @@ Stable Diffusionのローカル環境で、Dynamic Promptの拡張機能を使�
 - バグレポートももちろんですが、「こんなロケーションが抜けてるぜ！」とか、「この服がないぞ！」というフィードバックは、是非ともお寄せください。自分好みに自由に改変できるとは言え、「未知のシチュエーションを、俺も見たい！」からです！　あなたの意見が、このマクロをよりKENZENにします！
 
 - **公式作例：**
-- 本ツールを使用して制作した成人向けCG集を、[ITCH.CO（英語版）](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)で公開しています。無料体験版は[こちら](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)。
-
-- もう1タイトルあります。こちらは、日本語と英語を、1つのZIPファイルに同梱しています。[こちらからどうぞ](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret)。無料体験版は[こちら](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)。
+- 本ツールを使用して制作した成人向けCG集を、[ITCH.CO（英語版）](https://dst-fujikawa.itch.io)で公開しています。現在、5タイトル。それぞれに、無料体験版があります。
 
 - （おまけ）[SeaArtの個人ページ](https://www.seaart.ai/ja/user/4b23d22e331a382c4adc23a3df4e7077?u_code=XWACJSXI)では、生成したイラストを元に、書き下ろしショートショートを投稿したりしています。よろしければ、そちらもどうぞ。
 
