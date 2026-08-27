@@ -127,7 +127,7 @@ The Dictionary Matrix displays all 41 categories (0. Particles/Prepositions thro
 <a id = "en_2-1"></a>
 ### 2-1. "Cockpit" Tab
 
-![Cockpit_tab](images/Cockpit_tab_20260823,jpg)
+![Cockpit_tab](images/Cockpit_tab_20260823.jpg)
 
 The central command center for assembling, tweaking, and finalizing your generation prompts.
 
