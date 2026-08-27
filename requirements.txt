@@ -1,0 +1,7 @@
+# KENZEN SeaArt Helper v5.0.0
+# Core Runtime Dependencies
+PySide6>=6.5.0
+requests>=2.31.0
+
+# Optional: Build & Distribution Dependency
+pyinstaller>=6.0.0

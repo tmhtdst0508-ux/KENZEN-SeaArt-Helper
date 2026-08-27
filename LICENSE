@@ -1,3 +1,21 @@
+# KENZEN SeaArt Helper Source Code License
+
+The source code of KENZEN SeaArt Helper is licensed under the MIT License below.
+
+**Important:**  
+This MIT License applies to the source code of KENZEN SeaArt Helper only.
+
+The database file `tags.db` and its contents are **not** licensed under the MIT License.  
+They are provided under a separate proprietary database license.
+
+See:
+
+`LICENSE-DATA.md`
+
+for the terms applicable to `tags.db`.
+
+---
+
 MIT License
 
 Copyright (c) 2026 Tomohito Fujikawa

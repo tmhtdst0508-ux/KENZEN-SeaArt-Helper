@@ -1,0 +1,75 @@
+{
+  "Settings": {
+    "AppName": "KENZEN SeaArt Helper v5.0.0",
+    "GeminiAPIKey": "",
+    "GachaCount": 0,
+    "MaxGachaQuota": 15,
+    "LastPTDate": "2026-08-26",
+    "SurpriseMe": false,
+    "SurpriseLevel": "SFW",
+    "AutoSortOnDone": false,
+    "AutoWrapBracket": false,
+    "DefaultWeight": "1.1"
+  },
+  "PositivePresets": {
+    "REED_XXX_illustrious_SDXL": [
+      "masterpiece",
+      "best quality",
+      "amazing quality",
+      "absurdres"
+    ]
+  },
+  "NegativePresets": {
+    "REED_XXX_illustrious_SDXL": [
+      "lowres",
+      "bad anatomy",
+      "bad hands",
+      "text",
+      "error",
+      "missing fingers",
+      "extra digit",
+      "fewer digits",
+      "cropped",
+      "worst quality",
+      "low quality",
+      "normal quality",
+      "jpeg artifacts",
+      "signature",
+      "watermark",
+      "username",
+      "blurry"
+    ]
+  },
+  "PositiveStock": [
+    "masterpiece",
+    "best quality",
+    "amazing quality",
+    "absurdres"
+  ],
+  "NegativeStock": [
+    "lowres",
+    "bad anatomy",
+    "bad hands",
+    "text",
+    "error",
+    "missing fingers",
+    "extra digit",
+    "fewer digits",
+    "cropped",
+    "worst quality",
+    "low quality",
+    "normal quality",
+    "jpeg artifacts",
+    "signature",
+    "watermark",
+    "username",
+    "blurry",
+    "censor",
+    "ugly",
+    "deformed"
+  ],
+  "LoRAData": [],
+  "LoRAPresets": {},
+  "Favorites": [],
+  "MobileMemos": []
+}
