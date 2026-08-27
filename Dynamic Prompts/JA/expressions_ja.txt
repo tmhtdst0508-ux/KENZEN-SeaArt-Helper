@@ -1,0 +1,52 @@
+# ==========================================
+# Expressions Wildcard Dictionary v1.0
+# ==========================================
+
+# --- 喜 (Joy) ---
+smile
+laughing
+grin
+smirk # ドヤ顔・ニヤリ
+cheerful
+
+# --- 怒 (Anger) ---
+angry
+frown # しかめっ面
+glaring # 睨みつける
+annoyed # イライラした
+pout # むくれる・ぷくーっ
+clenched teeth # 食いしばり
+
+# --- 哀 (Sorrow / Fear) ---
+sad
+crying
+tears # 涙
+depressed # 落ち込んだ
+despair # 絶望
+pale # 青ざめる
+
+# --- 驚・日常・その他 (Surprise / Misc) ---
+surprised # 驚き
+embarrassed # 困惑・恥じらい
+blush # 赤面
+expressionless # 無表情
+sleeping # 睡眠
+winking # ウインク
+looking at viewer # カメラ目線
+looking away # 目をそらす
+looking up # 上目遣い
+empty eyes # 虚ろな目
+
+# --- 性的・フェティッシュ (Sexual / Arousal) ---
+ahegao # アヘ顔
+ecstasy # 恍惚
+heavy blush # ゆでダコレベルの赤面
+heart-shaped pupils # ハート目
+parted lips # 少し開いた唇
+biting lip # 唇を噛む
+open mouth # ポカンと開いた口
+half-closed eyes # 半目
+unfocused eyes # 焦点の合っていない目
+rolling eyes # 白目をむく
+drooling # よだれ
+hanging tongue # だらしなく垂れた舌

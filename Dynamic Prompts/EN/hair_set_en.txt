@@ -1,0 +1,1 @@
+__hair_length_en__, __hair_color_en__, __hair_bangs_en__, __hair_tying_en__

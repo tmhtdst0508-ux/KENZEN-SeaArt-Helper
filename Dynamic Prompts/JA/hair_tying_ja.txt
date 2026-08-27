@@ -1,0 +1,20 @@
+wavy hair # ウェーブヘア
+low twintails # おさげ
+single hair bun # お団子ヘア（1つ）
+double bun # お団子ヘア（2つ）
+curly hair # カールヘア
+side ponytail # サイドポニーテール
+twintails # ツインテール
+twin drills # ツインドリル
+two side up # ツーサイドアップ
+half updo # ハーフアップ
+high ponytail # ハイポニーテール
+messy hair # ボサボサ髪
+ponytail # ポニーテール
+low ponytail # ローポニーテール（まとめ髪）
+single braid # 三つ編み（1本）
+twin braids # 三つ編み（2本）
+drill hair # 縦ロール（ドリルヘア）
+short ponytail # 短いポニーテール
+topknot # 頭頂部を結ぶ
+hair down #髪を下ろしている

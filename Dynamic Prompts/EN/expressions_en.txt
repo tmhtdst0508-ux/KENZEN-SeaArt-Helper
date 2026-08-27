@@ -1,0 +1,52 @@
+# ==========================================
+# Expressions Wildcard Dictionary v1.0
+# ==========================================
+
+# --- Joy ---
+smile
+laughing
+grin
+smirk
+cheerful
+
+# --- Anger ---
+angry
+frown
+glaring
+annoyed
+pout
+clenched teeth
+
+# --- Sorrow & Fear ---
+sad
+crying
+tears
+depressed
+despair
+pale
+
+# --- Surprise & Misc ---
+surprised
+embarrassed
+blush
+expressionless
+sleeping
+winking
+looking at viewer
+looking away
+looking up
+empty eyes
+
+# --- Arousal & Fetish (NSFW/Spicy) ---
+ahegao
+ecstasy
+heavy blush
+heart-shaped pupils
+parted lips
+biting lip
+open mouth
+half-closed eyes
+unfocused eyes
+rolling eyes
+drooling
+hanging tongue

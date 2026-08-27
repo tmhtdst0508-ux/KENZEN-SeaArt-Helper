@@ -1,0 +1,62 @@
+# ==========================================
+# Camera Angles & Framing Wildcard Dictionary
+# ==========================================
+
+# --- Basic Angles (Camera Height & Angle) ---
+eye level
+low angle
+extreme low angle
+high angle
+extreme high angle
+from above
+from below
+bird's-eye view
+overhead shot
+worm's-eye view
+ground level shot
+
+# --- Viewing Direction (Camera Orientation) ---
+front view
+straight-on
+three-quarter view
+side view
+from side
+profile
+back view
+from behind
+backshot
+view from behind
+over-the-shoulder
+
+# --- Camera Tilt & Special Compositions ---
+dutch angle
+canted angle
+tilted angle
+skewed perspective
+dynamic angle
+dramatic angle
+cinematic angle
+wide angle shot
+fisheye lens view
+
+# --- Framing & Shot Distance ---
+close-up
+macro shot
+medium close-up
+extreme close-up
+POV
+portrait
+medium shot
+medium wide shot
+cowboy shot
+full body shot
+wide shot
+extreme wide shot
+
+# --- Gaze & Eye Contact ---
+looking at viewer
+looking away
+looking to the side
+looking up
+looking down
+turning around

@@ -1,0 +1,6 @@
+short hair # ショートヘア
+very short hair # ベリーショート
+very long hair # ベリーロング
+medium hair # ミディアムヘア
+long hair # ロングヘア
+absurdly long hair # 超絶ロング

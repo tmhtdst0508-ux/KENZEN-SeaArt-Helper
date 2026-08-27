@@ -1,0 +1,37 @@
+# --- 基本色 ---
+orange hair # オレンジ髪
+grey hair # グレー髪
+pink hair # ピンク髪
+blonde hair # 金髪
+silver hair # 銀髪
+black hair # 黒髪
+purple hair # 紫髪
+blue hair # 青髪
+red hair # 赤髪
+brown hair # 茶髪
+white hair # 白髪
+green hair # 緑髪
+
+# --- 明暗バリエーション (light / dark 結合版) ---
+light blue hair # 明るい青髪
+dark blue hair # 暗い青髪
+light pink hair # 明るいピンク髪
+dark red hair # 暗い赤髪
+light brown hair # 明るい茶髪
+dark brown hair # 暗い茶髪
+light green hair # 明るい緑髪
+dark green hair # 暗い緑髪
+light purple hair # 明るい紫髪
+dark purple hair # 暗い紫髪
+
+# --- ツートンカラー組み合わせ (絵的に違和感のない厳選パターン) ---
+two-tone hair, black hair, red hair # ツートン（黒×赤：王道のクール・パンク系）
+two-tone hair, black hair, blue hair # ツートン（黒×青：サイバー・ミステリアス系）
+two-tone hair, black hair, purple hair # ツートン（黒×紫：妖艶・ダーク系）
+two-tone hair, silver hair, blue hair # ツートン（銀×青：冷色系の非常に美しいコントラスト）
+two-tone hair, silver hair, pink hair # ツートン（銀×ピンク：インナーカラーの定番・お洒落系）
+two-tone hair, blonde hair, pink hair # ツートン（金×ピンク：ポップ・ギャル系）
+two-tone hair, blonde hair, light blue hair # ツートン（金×水色：派手髪・サブカル系）
+two-tone hair, white hair, black hair # ツートン（白×黒：神聖なモノトーン・アシンメトリー）
+two-tone hair, brown hair, blonde hair # ツートン（茶×金：ナチュラルなメッシュ・ハイライト風）
+two-tone hair, grey hair, pink hair # ツートン（グレー×ピンク：今風のアンニュイ・ストリート系）

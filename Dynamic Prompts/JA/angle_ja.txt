@@ -1,0 +1,58 @@
+# --- 基本のアングル（カメラの高さ・角度） ---
+eye level
+low angle
+extreme low angle
+high angle
+extreme high angle
+from above
+from below
+bird's-eye view
+overhead shot
+worm's-eye view
+ground level shot
+
+# --- 被写体を見る方向（回り込み） ---
+front view
+straight-on
+three-quarter view
+side view
+from side
+profile
+back view
+from behind
+backshot
+view from behind
+over-the-shoulder
+
+# --- カメラの傾き・特殊構図 ---
+dutch angle
+canted angle
+tilted angle
+skewed perspective
+dynamic angle
+dramatic angle
+cinematic angle
+wide angle shot
+fisheye lens view
+
+# --- キャラクターの映る範囲（距離感） ---
+close-up
+macro shot
+medium close-up
+extreme close-up
+POV
+portrait
+medium shot
+medium wide shot
+cowboy shot
+full body shot
+wide shot
+extreme wide shot
+
+# --- 視線とカメラのコンタクト ---
+looking at viewer
+looking away
+looking to the side
+looking up
+looking down
+turning around

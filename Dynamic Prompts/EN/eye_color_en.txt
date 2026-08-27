@@ -1,0 +1,27 @@
+# ==========================================
+# Eye Color Wildcard Dictionary v1.0
+# ==========================================
+
+blue eyes
+light blue eyes
+deep blue eyes
+red eyes
+vermilion eyes
+green eyes
+emerald green eyes
+lime green eyes
+yellow eyes
+amber eyes
+brown eyes
+black eyes
+purple eyes
+violet eyes
+pink eyes
+silver eyes
+white eyes
+grey eyes
+orange eyes
+heterochromia
+red eyes, blue eyes, heterochromia
+glowing eyes
+gradient eyes

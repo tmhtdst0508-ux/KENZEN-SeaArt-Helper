@@ -1,0 +1,28 @@
+# ==========================================
+# Eye Color Wildcard Dictionary v1.0
+# ==========================================
+
+blue eyes # 青目
+light blue eyes # 水色目
+deep blue eyes # 深青目
+red eyes # 赤目
+vermilion eyes # 朱色目
+green eyes # 緑目
+emerald green eyes # エメラルドグリーン目
+lime green eyes # 黄緑目
+yellow eyes # 金眼・黄目
+amber eyes # 琥珀色目
+brown eyes # 茶目
+black eyes # 黒目
+purple eyes # 紫目
+violet eyes # ヴァイオレット目
+pink eyes # ピンク目
+silver eyes # シルバー目・銀目
+white eyes # 白目（瞳が白）
+grey eyes # グレー目
+orange eyes # オレンジ目
+heterochromia # オッドアイ
+red eyes, blue eyes, heterochromia # オッドアイ（赤と青）
+glowing eyes # 光る目
+gradient eyes #グラデーション目
+
