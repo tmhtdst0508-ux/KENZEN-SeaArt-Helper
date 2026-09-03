@@ -1,5 +1,5 @@
 """
-Main Entry Point for KENZEN SeaArt Helper v5.0.0
+Main Entry Point for KENZEN SeaArt Helper v5.0.1
 """
 
 import sys
@@ -37,7 +37,7 @@ def main():
     if sys.platform == "win32":
         try:
             import ctypes
-            myappid = "kenzen.seaart.helper.v5.0.0"
+            myappid = "kenzen.seaart.helper.v5.0.1"
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
         except Exception:
             pass
@@ -48,7 +48,7 @@ def main():
     )
 
     app = QApplication(sys.argv)
-    app.setApplicationName("KENZEN SeaArt Helper v5.0.0")
+    app.setApplicationName("KENZEN SeaArt Helper v5.0.1")
 
     # 2. Edge-case Guard: Prevent multiple instances, notify active instance, and bring to front
     single_inst = SingleInstanceManager(app)

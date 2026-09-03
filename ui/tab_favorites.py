@@ -14,6 +14,7 @@ from PySide6.QtGui import QColor, QBrush
 from ..core.config_manager import ConfigManager
 from ..core.prompt_engine import sanitize_sd_prompt
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, safe_copy_to_clipboard
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabFavorites(QWidget):
@@ -91,7 +92,7 @@ class TabFavorites(QWidget):
         h_prompt = QHBoxLayout()
         lbl_pr = QLabel("Prompt:")
         lbl_pr.setFixedWidth(80)
-        self.txt_prompt = QTextEdit()
+        self.txt_prompt = PlainTextOnlyTextEdit()
         self.txt_prompt.setFixedHeight(75)
         h_prompt.addWidget(lbl_pr)
         h_prompt.addWidget(self.txt_prompt)

@@ -15,6 +15,7 @@ from PySide6.QtGui import QTextCursor
 from ..core.prompt_engine import PromptEngine, sanitize_sd_prompt
 from ..core.config_manager import ConfigManager
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, COLOR_WARNING
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabCockpit(QWidget):
@@ -37,7 +38,7 @@ class TabCockpit(QWidget):
         top_bar.setContentsMargins(2, 0, 2, 0)
         top_bar.setSpacing(12)
 
-        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.0.0</span>")
+        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.1.0</span>")
         lbl_title.setStyleSheet("padding: 2px;")
 
         btn_matrix = QPushButton("📖 Show Dictionary Matrix (辞書マトリクス表示)")
@@ -55,7 +56,7 @@ class TabCockpit(QWidget):
         grp_main = QGroupBox("Main Prompt Editor / プロンプト編集")
         grp_layout = QVBoxLayout(grp_main)
         
-        self.txt_main = QTextEdit()
+        self.txt_main = PlainTextOnlyTextEdit()
         self.txt_main.setPlaceholderText("Enter prompts here, or click tags in the Dictionary Matrix...")
         grp_layout.addWidget(self.txt_main)
 

@@ -12,9 +12,11 @@ from PySide6.QtWidgets import (
     QDoubleSpinBox, QTextEdit, QListWidgetItem, QInputDialog
 )
 from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QKeySequence, QShortcut
 from ..core.config_manager import ConfigManager, format_lora_preset_preview
 from ..core.prompt_engine import PromptEngine, sanitize_sd_prompt
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, safe_copy_to_clipboard
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabLoRA(QWidget):
@@ -205,7 +207,7 @@ class TabLoRA(QWidget):
         prev_layout = QVBoxLayout(grp_prev)
         prev_layout.setContentsMargins(8, 14, 8, 8)
         
-        self.txt_preview = QTextEdit()
+        self.txt_preview = PlainTextOnlyTextEdit()
         self.txt_preview.setFixedHeight(110)
         self.txt_preview.setPlaceholderText("Output LoRA tags and wrapped triggers will appear here...")
         prev_layout.addWidget(self.txt_preview)
@@ -247,14 +249,15 @@ class TabLoRA(QWidget):
         btn_send_lora_to_fav.setFixedHeight(38)
         btn_send_lora_to_fav.clicked.connect(self.on_send_lora_to_fav)
 
-        btn_send_cockpit = QPushButton("🚀 Send Generated LoRA Tags to Cockpit")
-        btn_send_cockpit.setProperty("btnType", "success")
-        btn_send_cockpit.setFixedHeight(38)
-        btn_send_cockpit.clicked.connect(self.on_send_cockpit)
+        self.btn_send_cockpit = QPushButton("🚀 Send Generated LoRA Tags to Cockpit (Ctrl+Shift+L)")
+        self.btn_send_cockpit.setProperty("btnType", "success")
+        self.btn_send_cockpit.setToolTip("Sends generated LoRA tags from Preview to Cockpit prompt (Ctrl+Shift+L)")
+        self.btn_send_cockpit.setFixedHeight(38)
+        self.btn_send_cockpit.clicked.connect(self.on_send_cockpit)
 
         bottom_bar.addWidget(btn_get_lora_negative)
         bottom_bar.addWidget(btn_send_lora_to_fav)
-        bottom_bar.addWidget(btn_send_cockpit)
+        bottom_bar.addWidget(self.btn_send_cockpit)
         layout.addLayout(bottom_bar)
 
         self.refresh_presets()
@@ -561,8 +564,12 @@ class TabLoRA(QWidget):
                 self.config.save_lora_presets(presets)
                 self.refresh_presets()
 
+    def get_current_lora_prompt(self) -> str:
+        """Returns sanitized generated LoRA tags strictly from txt_preview."""
+        return sanitize_sd_prompt(self.txt_preview.toPlainText().strip())
+
     def on_send_cockpit(self):
-        preview_txt = sanitize_sd_prompt(self.txt_preview.toPlainText().strip())
+        preview_txt = self.get_current_lora_prompt()
         if preview_txt:
             self.send_to_cockpit.emit(preview_txt)
         else:

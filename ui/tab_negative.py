@@ -13,6 +13,7 @@ from PySide6.QtCore import Qt, Signal
 from ..core.config_manager import ConfigManager
 from ..core.prompt_engine import PromptEngine, sanitize_sd_prompt
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, safe_copy_to_clipboard
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabNegative(QWidget):
@@ -149,7 +150,7 @@ class TabNegative(QWidget):
         prev_box = QGroupBox("Negative Prompt Preview & Weighting / 適用プレビュー＆重み付け")
         prev_layout = QVBoxLayout(prev_box)
         
-        self.txt_preview = QTextEdit()
+        self.txt_preview = PlainTextOnlyTextEdit()
         self.txt_preview.setFixedHeight(65)
         self.txt_preview.setPlaceholderText("Select tags in the Applied Negative Tags list to preview and weight here...")
         prev_layout.addWidget(self.txt_preview)

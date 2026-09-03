@@ -16,6 +16,7 @@ from ..core.gemini_api import GeminiAPI
 from ..core.config_manager import ConfigManager
 from ..core.prompt_engine import sanitize_sd_prompt, sanitize_api_key
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, safe_copy_to_clipboard
+from .widgets import PlainTextOnlyTextEdit
 
 
 class ClickableStatusLabel(QLabel):
@@ -98,7 +99,7 @@ class TabGacha(QWidget):
         input_box = QGroupBox("Input Concept / シチュエーション・概念入力")
         input_layout = QVBoxLayout(input_box)
         
-        self.txt_input = QTextEdit()
+        self.txt_input = PlainTextOnlyTextEdit()
         self.txt_input.setFixedHeight(85)
         self.txt_input.setPlaceholderText("Describe your desired scene, characters, outfit, mood, or background (Japanese or English supported)...")
         input_layout.addWidget(self.txt_input)
@@ -138,7 +139,7 @@ class TabGacha(QWidget):
         res_box = QGroupBox("AI Generated Visual Tags / AI生成結果")
         res_layout = QVBoxLayout(res_box)
 
-        self.txt_result = QTextEdit()
+        self.txt_result = PlainTextOnlyTextEdit()
         self.txt_result.setPlaceholderText("Generated visual descriptive tags will appear here...")
         res_layout.addWidget(self.txt_result)
 

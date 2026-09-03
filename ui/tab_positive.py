@@ -14,6 +14,7 @@ from PySide6.QtGui import QKeySequence, QShortcut
 from ..core.config_manager import ConfigManager
 from ..core.prompt_engine import sanitize_sd_prompt
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabPositive(QWidget):
@@ -23,11 +24,6 @@ class TabPositive(QWidget):
         super().__init__(parent)
         self.config = config_manager
         self.init_ui()
-        self.setup_shortcuts()
-
-    def setup_shortcuts(self):
-        self.shortcut_send = QShortcut(QKeySequence("Ctrl+Shift+P"), self)
-        self.shortcut_send.activated.connect(self.on_apply_cockpit)
 
     def init_ui(self):
         layout = QVBoxLayout(self)
@@ -160,7 +156,7 @@ class TabPositive(QWidget):
         # 3. Preview Area (Issue 7: Empty initially, displays selected items)
         prev_box = QGroupBox("Applied Tags Preview / 選択プレビュー")
         prev_layout = QVBoxLayout(prev_box)
-        self.txt_preview = QTextEdit()
+        self.txt_preview = PlainTextOnlyTextEdit()
         self.txt_preview.setFixedHeight(55)
         self.txt_preview.setPlaceholderText("Select tags in the Applied Tags list to preview here...")
         prev_layout.addWidget(self.txt_preview)

@@ -15,6 +15,7 @@ from ..core.db_manager import DBManager
 from .style import (
     COLOR_ACTION, COLOR_TAG_EN_BG, COLOR_TAG_EN_HOVER, COLOR_TAG_JP_BG
 )
+from .widgets import PlainTextOnlyTextEdit
 
 
 def get_category_header_color(order: int) -> str:
@@ -279,7 +280,7 @@ class MatrixWindow(QWidget):
         lbl_prompt_header.setStyleSheet("font-size: 11px; font-weight: bold; color: #475569; margin-top: 2px;")
         right_layout.addWidget(lbl_prompt_header)
 
-        self.txt_sample_prompt = QTextEdit()
+        self.txt_sample_prompt = PlainTextOnlyTextEdit()
         self.txt_sample_prompt.setPlaceholderText("Select a sample prompt from the table on the left...")
         self.txt_sample_prompt.setStyleSheet("font-size: 12px; line-height: 1.4; background-color: #FFFFFF;")
         right_layout.addWidget(self.txt_sample_prompt, 1)

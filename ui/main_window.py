@@ -1,5 +1,5 @@
 """
-Main Window for KENZEN SeaArt Helper v5.0.0
+Main Window for KENZEN SeaArt Helper v5.0.1
 Coordinates all 8 tabs (including Gacha!), cross-tab signals, cooldown locks,
 prompt transfer dialogs (Overwrite/Append/Cancel), and NUKE full reset.
 """
@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
         self.gemini_api = GeminiAPI(self.config.get_setting("GeminiAPIKey", ""), self.db)
 
         # 2. Window & Styles
-        self.setWindowTitle("KENZEN SeaArt Helper v5.0.0")
+        self.setWindowTitle("KENZEN SeaArt Helper v5.1.0")
         self.resize(920, 680)
         self.setStyleSheet(MAIN_STYLESHEET)
 
@@ -147,12 +147,19 @@ class MainWindow(QMainWindow):
         # Status bar
         self.status_bar = QStatusBar(self)
         self.setStatusBar(self.status_bar)
-        self.status_bar.showMessage("KENZEN SeaArt Helper v5.0.0 - Ready (41 Categories / 1,475 Tags Loaded)")
+        self.status_bar.showMessage("KENZEN SeaArt Helper v5.1.0 - Ready (41 Categories / 1,493 Tags Loaded)")
 
-        # Global Shortcut: Ctrl+Shift+P for inserting Positive Prompt from any tab
+        # Global Shortcuts (Window-level context so they work across all tabs and focused inputs):
+        # Ctrl+Shift+P for inserting Positive Prompt from any tab
         from PySide6.QtGui import QKeySequence, QShortcut
         self.shortcut_pos = QShortcut(QKeySequence("Ctrl+Shift+P"), self)
+        self.shortcut_pos.setContext(Qt.WindowShortcut)
         self.shortcut_pos.activated.connect(self.on_shortcut_insert_positive)
+
+        # Ctrl+Shift+L for inserting LoRA tags from any tab
+        self.shortcut_lora = QShortcut(QKeySequence("Ctrl+Shift+L"), self)
+        self.shortcut_lora.setContext(Qt.WindowShortcut)
+        self.shortcut_lora.activated.connect(self.on_shortcut_insert_lora)
 
     def _clamp_to_visible_screen(self, widget: QWidget):
         """Edge-case Guard 6: Clamps widget inside available virtual desktop geometry to avoid lost off-screen windows."""
@@ -291,6 +298,18 @@ class MainWindow(QMainWindow):
             return
         self.on_positive_to_cockpit_beginning(pos_text)
 
+    def on_shortcut_insert_lora(self):
+        """Ctrl+Shift+L: Appends LoRA tags into Cockpit from any tab (requires non-empty preview)."""
+        lora_text = self.tab_lora.get_current_lora_prompt()
+        if not lora_text:
+            QMessageBox.warning(
+                self,
+                "注意 / Warning",
+                "送信するLoRAタグがプレビューボックスにありません。\nNo LoRA tags in the preview box."
+            )
+            return
+        self.on_lora_to_cockpit(lora_text)
+
     def on_positive_to_cockpit_beginning(self, text: str):
         """
         Inserts positive tags at the beginning of Cockpit without asking overwrite/append dialog.
@@ -299,6 +318,7 @@ class MainWindow(QMainWindow):
         success = self.tab_cockpit.receive_positive_prompt(text)
         if success:
             self.tab_widget.setCurrentIndex(0)
+            self.tab_cockpit.txt_main.setFocus()
             self.status_bar.showMessage("Positive prompt inserted into Cockpit", 3000)
 
     def on_pull_cockpit_to_fav(self):
@@ -318,12 +338,14 @@ class MainWindow(QMainWindow):
         """Issue 2: Appends LoRA tag directly without overwrite dialog, checking for duplicates."""
         self.tab_cockpit.receive_lora_tag(text)
         self.tab_widget.setCurrentIndex(0)
+        self.tab_cockpit.txt_main.setFocus()
         self.status_bar.showMessage("LoRA tag transferred to Cockpit", 3000)
 
     def send_to_cockpit_with_dialog(self, text: str, is_prefix: bool = False):
         """Issue 10: Handles Cockpit prompt insertion with dialog."""
         self.tab_cockpit.receive_prompt_from_external(text, is_prefix=is_prefix)
         self.tab_widget.setCurrentIndex(0)
+        self.tab_cockpit.txt_main.setFocus()
         self.status_bar.showMessage("Prompt transferred to Cockpit", 3000)
 
     def on_send_to_fav(self, prompt: str, description: str = ""):

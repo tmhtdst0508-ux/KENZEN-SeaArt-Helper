@@ -1,5 +1,5 @@
 """
-Config Manager for KENZEN SeaArt Helper v5.0.0
+Config Manager for KENZEN SeaArt Helper v5.1.0
 Handles loading, saving, and updating JSON configuration with v4.2.0 exact default data,
 BOM handling, selective export/import with Merge/Overwrite modes, and mobile memo parsing.
 """
@@ -13,7 +13,7 @@ from typing import Dict, Any, List, Optional, Tuple, Set
 
 DEFAULT_CONFIG: Dict[str, Any] = {
     "Settings": {
-        "AppName": "KENZEN SeaArt Helper v5.0.0",
+        "AppName": "KENZEN SeaArt Helper v5.1.0",
         "GeminiAPIKey": "",
         "GachaCount": 0,
         "MaxGachaQuota": 15,

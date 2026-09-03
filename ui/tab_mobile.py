@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, Signal
 from ..core.config_manager import ConfigManager, parse_mobile_memo_item, format_mobile_memo_item
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER
+from .widgets import PlainTextOnlyTextEdit
 
 
 class TabMobile(QWidget):
@@ -60,7 +61,7 @@ class TabMobile(QWidget):
         right_box = QGroupBox("Memo Content / メモ内容・編集")
         right_layout = QVBoxLayout(right_box)
 
-        self.txt_content = QTextEdit()
+        self.txt_content = PlainTextOnlyTextEdit()
         self.txt_content.setPlaceholderText("Enter or edit content (prompts, URL, or notes)...")
         right_layout.addWidget(self.txt_content)
 

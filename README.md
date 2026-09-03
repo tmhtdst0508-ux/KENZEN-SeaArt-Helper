@@ -22,7 +22,7 @@ I am Tomohito Fujikawa (aka "D.S.T." or "Deeste"). I am a writer who has spent a
 That is exactly why I forged this tool for my comrades (read: you degenerates). **KENZEN SeaArt Helper** is the ultimate standalone cockpit for AI mages wielding SeaArt and Stable Diffusion.
 
 **How to Download & Launch**
-1. Download `KENZEN_SeaArt_Helper_v5.0.0.zip` from the GitHub Releases.
+1. Download `KENZEN_SeaArt_Helper_v5.1.0.zip` from the GitHub Releases.
 2. Extract the ZIP file to any local folder on your PC (e.g. `C:\Tools\KENZEN_SeaArt_Helper`). *(Notice: Do NOT run directly from Cloud sync folders like OneDrive or Dropbox!)*
 3. Double-click `KENZEN_SeaArt_Helper.exe` to launch immediately. No installation or Excel setup required!
 
@@ -43,6 +43,7 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 * [***Rebellion at Futanari Academy***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) (Free Trial [**here**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver))
 * [***Futanari Idol's Special Fan Service!***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver))
 * [***Futanari in the Mirror***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver))
+* [***In Brief: I Am Futanari, Yet I Adore Thee***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (Free Trial [**here**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
 
 > **Adults only (18+).** The linked pages contain explicit fictional sexual content.
 
@@ -78,20 +79,17 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 
  ---
 <a id = "whatsnew"></a>
-## 🚀 Release v5.0.0: The Standalone Python Era! 🐍✨
+## 🚀 Release v5.1.0: Wild West Update! 🤠🌵✨
 
-* 💻 **Full Standalone Transition (Zero Excel Dependency):** Completely rewritten in Python (PySide6) and compiled into a standalone desktop application. No Microsoft Excel license, macro configuration, or `.xlsm` unblocking required!
-* 🗄️ **High-Performance SQLite & Matrix Database:** Tag databases are now stored in lightning-fast SQLite (`tags.db`). The Dictionary Matrix window displays all 41 categories (over 1,475 tags) with dedicated Japanese notes and English prompts side-by-side.
-* 🖥️ **Side-by-Side Dual Window System:** Launches both the 8-Tab Main Control Cockpit and the Tag Matrix window simultaneously for seamless multi-display prompt architecture.
-* 🖱️ **Native mouse wheel scrolling / standard right-click support!** Effortlessly navigate extensive categories with smooth mouse wheel scrolling and standard right-click tag dispatch.
-* 🛡️ **Ironclad Safety & Single-Instance Lock:** Built-in Cloud Sync execution prevention and single-instance locks protect your precious prompt configurations from data corruption.
-* 📦 **Streamlined 8 Tabs with Complete JSON IO:** Presets, LoRA libraries, Positive/Negative stocks, and Favorites are cleanly persisted and backed up via JSON.
+* 🤠 **西部劇関連タグの大量追加 / New Western Era Tags:** 保安官 (sheriff)、リボルバー・二丁拳銃 (revolver, dual revolvers)、レザーチャップス (leather chaps)、カウガールブーツ (cowgirl boots)、木造酒場・宿舎 (wooden room, log cabin)、指名手配ポスター (wanted poster) など、フロンティア・西部劇の世界観を構築する全43タグを新規収録！
+* 📋 **ブラウザからのプレーンテキスト貼り付けバグ修正 / Clean Plain-Text Paste:** ブラウザや外部エディタからプロンプトを右クリックまたは `Ctrl+V` で貼り付ける際、HTML書式や不要な装飾スタイルを完全排除し、強制的にプレーンテキストとして貼り付けられるように修正！
+* ⚡ **LoRAタグ一発挿入ショートカット（Ctrl+Shift+L）/ Direct LoRA Shortcut:** 全タブ共通で `Ctrl+Shift+L` を押すだけで、LoRAプレビュー欄のタグをCockpit末尾へ即座に挿入し、自動でCockpitタブへ画面切り替え＆エディタにフォーカス。プレビュー空欄時の警告ダイアログおよび重複タグの自動スキップも完備！
 
 ---
 
-# ■ KENZEN SeaArt Helper Manual (v5.0.0)
+# ■ KENZEN SeaArt Helper Manual (v5.1.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.0.0.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.1.0.pdf)_
 
 **TL;DR:** This is a standalone desktop application specialized in building, weighting, and managing NSFW generation prompts for SeaArt & Stable Diffusion. Includes SQLite-backed 41-category matrix, LoRA managers, and AI Gacha alchemy powered by Google Gemini API.
 
@@ -192,7 +190,7 @@ Complete visual architecture for LoRA integration and trigger word management.
 * **Preview Controls:**
   * **Remove LoRA:** Intelligently extracts and deletes a specific LoRA and its related triggers from the preview box without destroying other tags.
   * **Forget LoRA:** Completely clears all input fields, checkboxes, and preview for a fresh start.
-* **Send LoRA Negative / Send to Fav / Send to Cockpit:** Bridge tags seamlessly to Negative Preview, Favorites, or Cockpit with duplicate prevention. When sending to Cockpit, KENZEN intelligently inspects existing LoRA tags, skips duplicates, and seamlessly merges only newly added LoRA tags.
+* **Send LoRA Negative / Send to Fav / Send to Cockpit (Ctrl+Shift+L Shortcut):** Bridge tags seamlessly to Negative Preview, Favorites, or Cockpit with duplicate prevention. Pressing **Ctrl+Shift+L** from any tab instantly appends generated LoRA tags from the preview box to the end of Cockpit prompt (prompts a warning dialog if the preview box is empty). When sending to Cockpit, KENZEN intelligently inspects existing LoRA tags, skips duplicates, and seamlessly appends only newly added LoRA tags.
 
 ---
 
@@ -293,7 +291,7 @@ See [LICENSE-DATA.md](LICENSE-DATA.md) for details.
 だからこそ、同志たち（と書いて「お前等」と読む）のためにこのツールを錬成しました。**KENZEN SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のための究極のスタンドアロン・コックピットです。
 
 **ダウンロードと起動方法**
-1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.0.0.zip` をダウンロードします。
+1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.1.0.zip` をダウンロードします。
 2. PC上の任意のローカルフォルダ（例：`C:\Tools\KENZEN_SeaArt_Helper`）にZIPを解凍します。（※OneDriveやDropbox等のクラウド同期フォルダ直下には置かないでください）
 3. フォルダ内の `KENZEN_SeaArt_Helper.exe` をダブルクリックするだけで即座に起動します。Excelのインストールやマクロの許可設定は一切不要です！
 
@@ -314,6 +312,7 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 * [**「私立ふたなり学園の下剋上」**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)）
 * [**「ふたなりアイドルのファンサービス！」**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)）
 * [**「鏡の中のふたなり」**](https://dst-fujikawa.itch.io/futanari-in-the-mirror) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)）
+* [***「前略、ふたなりですが、お慕い申し上げております」***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
 
 > **18歳未満閲覧禁止。** リンク先には、架空の成人キャラクターによる露骨な性的表現が含まれます。
 
@@ -349,18 +348,17 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
  - [5. ライセンス](#ja_5)
 
 <a id = "whatsnew_jp"></a>
-## 🚀 【v5.0.0 リリース！】: 完全スタンドアロン化（脱Excel）達成！🐍✨
+## 🚀 【v5.1.0 リリース！】: 西部劇アップデート！🤠🌵✨
 
-* 💻 **完全脱Excel・スタンドアロン化:** Python (PySide6) によりゼロから再構築し、Windowsネイティブアプリケーション（.exe）としてコンパイル。Excelの有無やマクロのセキュリティ設定に一切煩わされず動作します。
-* 🗄️ **SQLite採用の超高速辞書マトリクス:** タグデータベースをSQLite（`tags.db`）へ刷新。全41カテゴリ・1,475件以上のタグを横スクロールマトリクスで俯瞰でき、左列（日本語説明）と右列（英語プロンプト）の直感的な視認性を完全再現。
-* 🖥️ **2画面サイド・バイ・サイド起動:** 起動と同時に「8タブ操作コックピット」と「辞書マトリクス」が並列で立ち上がり、デュアルディスプレイや大画面での直感的なプロンプト構築を実現。
-* 🖱️ **マウスホイールと右クリックサポート！（Native mouse wheel scrolling / standard right-click support!）:** 全41カテゴリのスムーズなマウスホイールスクロールや、右クリックによるスペース区切りタグ転送など、ネイティブGUIならではの快適操作を実現！
-* 🛡️ **二重起動防止＆クラウド同期ガード:** クラウドドライブ上での誤実行ガードや、多重起動時に既存ウィンドウを前面へ呼び戻すスマートハンドラを搭載。
-* 📦 **洗練された8タブUIとJSONバックアップ:** プリセットやLoRAライブラリ、お気に入りを安全に永続化し、7項目ごとの選択的バックアップ／リストアに対応。
+* 🤠 **西部劇関連タグの大量追加:** 保安官、リボルバー（二丁拳銃）、レザーチャップス、カウガールブーツ、木造建築・ログハウス、指名手配ポスターなど、ワイルドウエストの世界観を完璧に演出できる最新タグ（全43件）をデータベースへ新規追加！
+* 📋 **ブラウザからのプレーンテキスト貼り付けバグ修正:** ブラウザや外部エディタからプロンプトを右クリックまたは `Ctrl+V` で貼り付ける際、不要なHTMLタグやフォント書式を完全排除し、純粋なプレーンテキストとして安全に挿入されるようバグフィクス！
+* ⚡ **LoRAのショートカットキーによる一発挿入機能の追加:** 全タブ共通で「`Ctrl+Shift+L`」を押すだけで、LoRAプレビュー欄のタグ群をCockpitの末尾へ即時挿入し、自動でCockpitタブへ遷移してエディタにフォーカス。プレビュー空欄時の注意ダイアログや重複タグの自動スキップも完備！
 
 ---
 
-# ■ KENZEN SeaArt Helper マニュアル（v5.0.0）
+# ■ KENZEN SeaArt Helper マニュアル（v5.1.0）
+
+_オフラインマニュアルは [こちらからダウンロードして下さい。](docs/KENZEN_SeaArt_Helper_Manual_v5.1.0.pdf)_
 
 **要約：SeaArt及びStable Diffusionでの、NSFW・高精度プロンプト構築と管理に特化したスタンドアロンデスクトップツールです。SQLiteによる41カテゴリの辞書マトリクス、LoRA鍛冶場、Google Gemini APIによるAIガチャ錬成を搭載しています。**
 
@@ -462,7 +460,7 @@ LoRAタグ `<lora:name:strength>` とトリガーワードの組み合わせを�
 * **プレビュー個別制御:**
   * **Remove LoRA:** プレビュー内に存在する特定のLoRAタグおよび関連トリガーのみをピンポイントで除外。
   * **Forget LoRA:** 入力欄やチェックボックス、プレビューを一括で初期化。
-* **LoRAネガティブ転送 / Fav転送 / Cockpit転送:** 完成したLoRA群を各タブへ安全に受け渡し。Cockpit転送時は既存のLoRAタグを自動スキップし、新規追加されたLoRAタグのみをスマート差分転送（末尾マージ）します。
+* **LoRAネガティブ転送 / Fav転送 / Cockpit転送（Ctrl+Shift+L ショートカット対応）:** 完成したLoRA群を各タブへ安全に受け渡し。全タブ共通で「`Ctrl+Shift+L`」を押すと、LoRAプレビュー欄のタグをCockpitの末尾へ即時挿入します（プレビュー欄が空の場合は注意ダイアログを表示）。Cockpit転送時は既存のLoRAタグを自動スキップし、新規追加されたLoRAタグのみをスマート差分転送（末尾マージ）します。
 
 ---
 
