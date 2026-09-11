@@ -1,9 +1,9 @@
 {
   "Settings": {
-    "AppName": "KENZEN SeaArt Helper v5.1.1",
+    "AppName": "KENZEN SeaArt Helper v5.1.2",
     "GachaCount": 0,
     "MaxGachaQuota": 15,
-    "LastPTDate": "2026-09-06",
+    "LastPTDate": "2026-09-10",
     "SurpriseMe": false,
     "SurpriseLevel": "SFW",
     "AutoSortOnDone": false,
@@ -72,6 +72,17 @@
   ],
   "LoRAData": [],
   "LoRAPresets": {},
-  "Favorites": [],
+  "Favorites": [
+    {
+      "id": 1,
+      "prompt": "1girl, school uniform, classroom, smiling",
+      "description": "放課後の少女"
+    },
+    {
+      "id": 2,
+      "prompt": "1girl, swimsuit, beach, sunset, calm waves",
+      "description": "夕暮れの海辺"
+    }
+  ],
   "MobileMemos": []
 }

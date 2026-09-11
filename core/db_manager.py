@@ -23,6 +23,7 @@ class DBManager:
         self._jp_to_en_map: Dict[str, str] = {}
         self._en_to_jp_map: Dict[str, str] = {}
         self._tag_to_category_order: Dict[str, int] = {}
+        self._tag_to_category_order_collapsed: Dict[str, int] = {}
         
         # Verify database health before loading
         is_healthy, _ = self.verify_database_health()
@@ -150,6 +151,7 @@ class DBManager:
                 self._jp_to_en_map.clear()
                 self._en_to_jp_map.clear()
                 self._tag_to_category_order.clear()
+                self._tag_to_category_order_collapsed.clear()
 
                 cat_order_map = {c["id"]: c["category_order"] for c in self._categories_cache}
 
@@ -179,7 +181,23 @@ class DBManager:
                             clean_tok = token.strip().lower()
                             if clean_tok and clean_tok not in self._tag_to_category_order:
                                 self._tag_to_category_order[clean_tok] = order
-                        self._tag_to_category_order[en.lower()] = order
+                            col_tok = clean_tok.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+                            if col_tok and col_tok not in self._tag_to_category_order_collapsed:
+                                self._tag_to_category_order_collapsed[col_tok] = order
+                        en_lower = en.lower()
+                        self._tag_to_category_order[en_lower] = order
+                        col_en = en_lower.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+                        if col_en and col_en not in self._tag_to_category_order_collapsed:
+                            self._tag_to_category_order_collapsed[col_en] = order
+
+                # Common aliases / variations for camera angles
+                cat2_order = cat_order_map.get(2, 2)
+                for alias in ["bird eye's view", "birdeyesview", "bird's eye view", "birds eye view"]:
+                    self._tag_to_category_order[alias] = cat2_order
+                    self._tag_to_category_order_collapsed[alias.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")] = cat2_order
+                for alias in ["worm eye's view", "wormeyesview", "worm's eye view", "worms eye view"]:
+                    self._tag_to_category_order[alias] = cat2_order
+                    self._tag_to_category_order_collapsed[alias.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")] = cat2_order
 
         except Exception as e:
             print(f"[DBManager] Error loading database: {e}")
@@ -216,7 +234,10 @@ class DBManager:
     def get_tag_order(self, tag_en: str) -> int:
         """Returns the category order for an English tag (for prompt sorting)."""
         clean = tag_en.strip().lower()
-        return self._tag_to_category_order.get(clean, 999)
+        if clean in self._tag_to_category_order:
+            return self._tag_to_category_order[clean]
+        collapsed = clean.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+        return self._tag_to_category_order_collapsed.get(collapsed, 999)
 
     def translate_jp_to_en(self, jp_label: str) -> Optional[str]:
         return self._jp_to_en_map.get(jp_label.strip())
@@ -232,10 +253,12 @@ class DBManager:
         norm = re.sub(r"\s+", " ", text.strip().lower()).replace(", ", ",").replace(",", ", ")
         if norm in self._en_to_jp_map:
             return True
-        # Compare without spaces/underscores
-        raw_key = text.strip().lower().replace(" ", "").replace("_", "")
+        # Compare without spaces/underscores/hyphens/apostrophes
+        raw_key = text.strip().lower().replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+        if raw_key in self._tag_to_category_order_collapsed:
+            return True
         for en_key in self._en_to_jp_map:
-            if en_key.replace(" ", "").replace("_", "") == raw_key:
+            if en_key.replace("'", "").replace("-", "").replace(" ", "").replace("_", "") == raw_key:
                 return True
         return False
 

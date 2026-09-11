@@ -1,6 +1,6 @@
 """
-Gacha! Tab for KENZEN SeaArt Helper v5.0.0
-AI-powered prompt generator using Google Gemini API (gemini-3.7-flash),
+Gacha! Tab for KENZEN SeaArt Helper v5.1.2
+AI-powered prompt generator using Google Gemini API (gemini-3.8-flash),
 reset-by-default Surprise Me (SFW, NSFW, Hardcore), countdown quota tracking (n / max runs),
 double-click quota configurator, 15-second cooldown lock, and input clear controls.
 """
@@ -262,15 +262,15 @@ class TabGacha(QWidget):
                 self.txt_result.setPlainText(
                     f"🎲 [Surprise Me! 抽出タグ / Injected Inspiration Tags ({s_level})]\n"
                     f"{surprise_tags}\n\n"
-                    f"🤖 [Gemini 思考中 / Generating with gemini-3.7-flash...]"
+                    f"🤖 [Gemini 思考中 / Generating with gemini-3.8-flash...]"
                 )
             else:
-                self.txt_result.setPlainText("🤖 [Gemini 思考中 / Generating with gemini-3.7-flash...]")
+                self.txt_result.setPlainText("🤖 [Gemini 思考中 / Generating with gemini-3.8-flash...]")
             
             if not user_input:
                 user_input = f"Random aesthetic scene with tags: {surprise_tags}"
         else:
-            self.txt_result.setPlainText("🤖 [Gemini 思考中 / Generating with gemini-3.7-flash...]")
+            self.txt_result.setPlainText("🤖 [Gemini 思考中 / Generating with gemini-3.8-flash...]")
 
         self.is_generating = True
         self.btn_gacha.setEnabled(False)

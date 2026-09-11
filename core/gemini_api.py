@@ -1,7 +1,7 @@
 """
-Gemini API Client for KENZEN SeaArt Helper v5.0.0
+Gemini API Client for KENZEN SeaArt Helper v5.1.2
 AI-powered Gacha prompt generation using Google Gemini API with exact VBA system prompt,
-fixed model gemini-3.7-flash, 3-level Surprise Me vocabulary injection, and error diagnostics.
+fixed model gemini-3.8-flash, 3-level Surprise Me vocabulary injection, and error diagnostics.
 """
 
 import datetime
@@ -15,8 +15,8 @@ from .db_manager import DBManager
 class GeminiAPI:
     def __init__(self, api_key: str = "", db_manager: Optional[DBManager] = None):
         self.api_key = api_key
-        # Fixed model: gemini-3.7-flash
-        self.model_name = "gemini-3.7-flash"
+        # Fixed model: gemini-3.8-flash
+        self.model_name = "gemini-3.8-flash"
         self.db = db_manager
 
     def set_api_key(self, key: str):
@@ -63,7 +63,7 @@ class GeminiAPI:
         """
         Sends request to Gemini API to extract and generate visual descriptive tags.
         System prompt is strictly traced from VBA edition.
-        Target model: gemini-3.7-flash.
+        Target model: gemini-3.8-flash.
         Returns (success: bool, result_or_error_message: str).
         """
         if not self.api_key:

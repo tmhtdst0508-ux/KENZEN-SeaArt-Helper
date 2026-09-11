@@ -22,7 +22,7 @@ I am Tomohito Fujikawa (aka "D.S.T." or "Deeste"). I am a writer who has spent a
 That is exactly why I forged this tool for my comrades (read: you degenerates). **KENZEN SeaArt Helper** is the ultimate standalone cockpit for AI mages wielding SeaArt and Stable Diffusion.
 
 **How to Download & Launch**
-1. Download `KENZEN_SeaArt_Helper_v5.1.1.zip` from the GitHub Releases.
+1. Download `KENZEN_SeaArt_Helper_v5.1.2.zip` from the GitHub Releases.
 2. Extract the ZIP file to any local folder on your PC (e.g. `C:\Tools\KENZEN_SeaArt_Helper`). *(Notice: Do NOT run directly from Cloud sync folders like OneDrive or Dropbox!)*
 3. Double-click `KENZEN_SeaArt_Helper.exe` to launch immediately. No installation or Excel setup required!
 
@@ -77,22 +77,20 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 
  - [5. License](#en_5)
 
- - [6. Troubleshooting & FAQ](#en_6)
+- [6. Troubleshooting & FAQ](#en_6)
 
  ---
 <a id = "whatsnew"></a>
-## 🚀 Release v5.1.1: Precision & Default Presets Update! 🎯🔄✨
+## 🚀 Release v5.1.2: Gemini 3.8 Flash & Typography Precision Update! ⚡🪄✨
 
-* 🔄 **Default Preset Auto-Deploy & "Call Default" Button / デフォルトプリセット自動展開 ＆ 復元ボタン:** Presets designated via "⭐ Set as Default" across Positive, Negative, and LoRA tabs now automatically deploy to active lists and previews upon application launch! A dedicated "🔄 Call Default" button has also been added to all three tabs to instantly restore or apply default presets on demand.
-* 🛡️ **Comma-Containing Tag Wildcard Protection / カンマ付きタグのワイルドカード保護:** Fixed an issue where dynamic prompts formatting (`{}`) erroneously split single tags containing commas (such as `ass up, face down`) into pipe-separated fragments (`{ass up | face down}`). Single and multi-tag selections are now accurately preserved.
-* 🎛️ **Weight Pulldown Checkbox Interlocking / 重み付けプルダウン連動修正:** Fixed an issue where the weight pulldown was accessible even when the "Weight:" checkbox was disabled. It is now strictly locked and grayed out until the checkbox is explicitly checked.
-* 📋 **Favorites Instant Detail Preview / お気に入り選択時の即時反映:** Clicking, selecting, or navigating rows in the Favorites tab now immediately reflects the Description and Prompt in the detail panel without latency.
-* ⚡ **Global Shortcuts & Focus Transition / ショートカット＆フォーカス自動遷移:** Full integration of `Ctrl+Shift+L` for instant LoRA insertion into Cockpit tail with automatic tab switching and editor focus, alongside `Ctrl+Shift+P` for positive tags.
+* ⚡ **Gemini 3.8 Flash API Upgrade / Gemini 3.8 Flash への刷新:** The Gacha! AI prompt generation engine has been upgraded to Google's latest gemini-3.8-flash model, delivering enhanced reasoning speeds and higher-fidelity prompt synthesis.
+* 🛡️ **Apostrophe & Typography Protection / アポストロフィ保護デバッグ:** Fixed an issue where single quotes/apostrophes (') were inadvertently stripped during prompt sorting (Sort Prompts) and clean-up / copy (Done!). Essential tags such as bird eye's view, doctor's operating room, and bride's bouquet now strictly retain their single quotes.
+* 🔄 **Smart Quote Normalization & Tag Matching / 表記揺れ正規化 ＆ 順序認識強化:** Full-width and curly quotes (’, ‘, ´) are automatically normalized to standard ASCII ', and angle tags such as bird eye's view and bird's-eye view are accurately resolved to Category 2 (Camera Angles) for clean prompt sorting.
 ---
 
-# ■ KENZEN SeaArt Helper Manual (v5.1.1)
+# ■ KENZEN SeaArt Helper Manual (v5.1.2)
 
-_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.1.1.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.1.2.pdf)_
 
 **TL;DR:** This is a standalone desktop application specialized in building, weighting, and managing NSFW generation prompts for SeaArt & Stable Diffusion. Includes SQLite-backed 41-category matrix, LoRA managers, and AI Gacha alchemy powered by Google Gemini API.
 
@@ -218,7 +216,7 @@ Save, search, curate, and export your masterpiece prompts.
 
 ![Gacha_tab](images/Gacha_tab_20260823.jpg)
 
-AI-powered brainstorming utilizing the Google Gemini API (`gemini-3.7-flash`).
+AI-powered brainstorming utilizing the Google Gemini API (`gemini-3.8-flash`).
 
 * **API Key Setup & Auto-Save:** Securely enter your Gemini API key with masked input and show/hide toggles.
 * **Surprise Me! (SFW / NSFW / Hardcore):** Inject randomized thematic database tags to inspire creative and unexpected scene generations.
@@ -283,6 +281,7 @@ The source code is licensed under the MIT License.
 The `tags.db` database is provided under a separate license and is not covered by the MIT License.
 See [LICENSE-DATA.md](LICENSE-DATA.md) for details.
 
+
 <a id = "en_6"></a>
 ## 6. Troubleshooting & FAQ
 
@@ -309,7 +308,7 @@ Because this software is built and packaged using Python and PyInstaller without
 だからこそ、同志たち（と書いて「お前等」と読む）のためにこのツールを錬成しました。**KENZEN SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のための究極のスタンドアロン・コックピットです。
 
 **ダウンロードと起動方法**
-1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.1.1.zip` をダウンロードします。
+1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.1.2.zip` をダウンロードします。
 2. PC上の任意のローカルフォルダ（例：`C:\Tools\KENZEN_SeaArt_Helper`）にZIPを解凍します。（※OneDriveやDropbox等のクラウド同期フォルダ直下には置かないでください）
 3. フォルダ内の `KENZEN_SeaArt_Helper.exe` をダブルクリックするだけで即座に起動します。Excelのインストールやマクロの許可設定は一切不要です！
 
@@ -365,21 +364,19 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 
  - [5. ライセンス](#ja_5)
 
- - [6. トラブルシューティング & FAQ](#ja_6)
+- [6. トラブルシューティング ＆ FAQ](#ja_6)
 
 <a id = "whatsnew_jp"></a>
-## 🚀 【v5.1.1 リリース！】: プリセット自動展開＆高精度デバッグアップデート！🎯🔄✨
+## 🚀 【v5.1.2 リリース！】: Gemini 3.8 Flash 刷新 ＆ アポストロフィ保護アップデート！⚡🪄✨
 
-* 🔄 **デフォルトプリセットの自動展開＆「🔄 Call Default」ボタン新設:** Positive、Negative、LoRA の各タブにおいて、「⭐ Set as Default」で設定したプリセットがアプリ起動時に自動展開されるようになりました！さらに、いつでもワンクリックでデフォルト設定を復元・展開できる「🔄 Call Default」ボタンを全3タブに追加。LoRAタブにも「⭐ Set as Default」を新設しました。
-* 🛡️ **カンマを含むタグのワイルドカード（`{}`）保護修正:** `ass up, face down` のように内部にカンマを含む単一タグを `{}` で括った際、カンマで機械的に分割されてパイプ `|`（`{ass up | face down}`）に化けてしまう不具合を解消。単一・複数選択時ともに正確に保護・展開されます。
-* 🎛️ **Cockpit 重み付けプルダウンのチェックボックス連動修正:** 「Weight:」チェックボックスがオフの時でも重み付けプルダウンが操作できてしまっていた問題を修正し、チェック時のみ有効化（オフ時はグレーアウト）されるよう連動を徹底。
-* 📋 **Favorites タブの選択時即時反映:** お気に入り一覧の行をクリック・選択・キー移動した際、詳細欄（説明・プロンプト）に即座に内容が反映されるよう操作感を大幅改善。
-* ⚡ **ショートカットの利便性強化:** 全タブ共通で「`Ctrl+Shift+L`」を押すだけでLoRAプレビュー欄のタグをCockpit末尾へ即座に挿入し、Cockpitタブへの自動画面切り替え＆エディタへのフォーカス移動を完備。
+* ⚡ **Gemini 3.8 Flash（gemini-3.8-flash）へのAPIモデル刷新:** Gacha!タブのAIプロンプト自動生成エンジンを、Googleの最新高速推論モデル gemini-3.8-flash へ刷新。よりスマートかつ洗練されたプロンプト生成が可能になりました。
+* 🛡️ **プロンプト整列・クリーンコピー時のアポストロフィ（'）保護:** プロンプト整列（Sort Prompts）や整形コピー（Done!）時に、bird eye's view や doctor's operating room などのアポストロフィが勝手に消去されてしまう不具合を修正。半角シングルクォートを完全に保護します。
+* 🔄 **スマート引用符の自動正規化 ＆ カテゴリー順序判定強化:** 全角・カーリー引用符（’, ‘, ´）を半角 ' に自動統一。さらに bird eye's view などの表記揺れも正しく構図・アングル（Category 2）として自動認識され、先頭付近へ美しく整列されます。
 ---
 
-# ■ KENZEN SeaArt Helper マニュアル（v5.1.1）
+# ■ KENZEN SeaArt Helper マニュアル（v5.1.2）
 
-_オフラインマニュアルは [こちらからダウンロードして下さい。](docs/KENZEN_SeaArt_Helper_Manual_v5.1.1.pdf)_
+_オフラインマニュアルは [こちらからダウンロードして下さい。](docs/KENZEN_SeaArt_Helper_Manual_v5.1.2.pdf)_
 
 **要約：SeaArt及びStable Diffusionでの、NSFW・高精度プロンプト構築と管理に特化したスタンドアロンデスクトップツールです。SQLiteによる41カテゴリの辞書マトリクス、LoRA鍛冶場、Google Gemini APIによるAIガチャ錬成を搭載しています。**
 
@@ -506,7 +503,7 @@ LoRAタグ `<lora:name:strength>` とトリガーワードの組み合わせを�
 
 ![Gacha_tab](images/Gacha_tab_20260823.jpg)
 
-Google Gemini API（`gemini-3.7-flash`）によるAIプロンプト自動生成機能です。
+Google Gemini API（`gemini-3.8-flash`）によるAIプロンプト自動生成機能です。
 
 * **APIキー設定 ＆ マスク表示:** APIキーを安全に保存・管理（表示/非表示トグル付き）。
 * **Surprise Me! (SFW / NSFW / Hardcore):** データベースからランダムにインスピレーションタグを抽出し、AIに斬新なプロンプトを考案させます。
@@ -575,10 +572,9 @@ KENZEN SeaArt Helper のソースコードには MIT License が適用されま�
 
 詳細は [LICENSE-DATA.md](LICENSE-DATA.md) をご確認ください。
 
-<a id = "ja_6"></a>
-## 6. トラブルシューティング & FAQ
 
-### セキュリティソフトや Windows SmartScreen による警告について（誤検知への対応）
+<a id = "ja_6"></a>
+## 6. トラブルシューティング ＆ FAQ
 
 本アプリのダウンロード時や起動時に、セキュリティソフト（ESET、Avastなど）や Windows SmartScreen から「疑わしいファイル」「認識されないアプリ」として警告が表示されたり、ファイルが隔離される場合があります。
 
@@ -591,5 +587,6 @@ KENZEN SeaArt Helper のソースコードには MIT License が適用されま�
 
 
 **さあ、進化した独立コックピットで、良きKENZENなるAIライフを！😊**
+
 
 ![FLAG_COUNTER](https://s01.flagcounter.com/count2/rmpG/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)

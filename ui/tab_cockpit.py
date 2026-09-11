@@ -38,7 +38,7 @@ class TabCockpit(QWidget):
         top_bar.setContentsMargins(2, 0, 2, 0)
         top_bar.setSpacing(12)
 
-        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.1.1</span>")
+        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.1.2</span>")
         lbl_title.setStyleSheet("padding: 2px;")
 
         btn_matrix = QPushButton("📖 Show Dictionary Matrix (辞書マトリクス表示)")

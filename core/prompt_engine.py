@@ -48,13 +48,16 @@ def sanitize_sd_prompt(raw_text: str) -> str:
     text = text.replace("：", ":")
     text = text.replace("｜", "|")
     text = text.replace("—", "-").replace("―", "-").replace("ー", "-")
+    # Normalize curly/smart apostrophes to standard ASCII single quote
+    text = text.replace("’", "'").replace("‘", "'").replace("´", "'")
 
     # 3. Strip invisible and control characters
     text = re.sub(r"[\u200b\u200c\u200d\u200e\u200f\ufeff\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
 
     # 4. Remove all dangerous / buggy characters (both half-width and remaining full-width)
-    # Target: ?, !, @, /, \, ", ', `, ^, ~, *, +, &, %, $, #, ;, ￥
-    dangerous_chars = r'[?!@/\\"\'`^~*+&%$#;￥？！＠／＼”’｀＾～＊＋＆％＄＃；]'
+    # Target: ?, !, @, /, \, ", `, ^, ~, *, +, &, %, $, #, ;, ￥, etc.
+    # Note: Preserves ' (apostrophe/single quote) for English tags (e.g. bird's-eye view, bird eye's view, men's clothes)
+    dangerous_chars = r'[?!@/\\"`^~*+&%$#;￥？！＠／＼“”｀＾～＊＋＆％＄＃；]'
     text = re.sub(dangerous_chars, "", text)
 
     # 5. Clean up corrupted or empty brackets
@@ -358,6 +361,9 @@ class PromptEngine:
         if not prompt.strip():
             return ""
 
+        # Normalize full-width characters, dangerous characters, and curly apostrophes
+        prompt = sanitize_sd_prompt(prompt)
+
         if registered_lora_triggers is None:
             registered_lora_triggers = set()
         else:
@@ -467,6 +473,7 @@ class PromptEngine:
             registered_lora_triggers = set()
         else:
             registered_lora_triggers = {t.lower().strip() for t in registered_lora_triggers if t.strip()}
+        segment_text = sanitize_sd_prompt(segment_text)
         return self._sort_single_block(segment_text, registered_lora_triggers)
 
     def _sort_single_block(self, block_text: str, registered_lora_triggers: Set[str]) -> str:
@@ -570,9 +577,9 @@ class PromptEngine:
         # Insert commas between adjacent parentheses: ') (' -> '), ('
         norm = re.sub(r"(\))\s*(\()", r"\1, \2", norm)
         # Insert commas between word and parenthesis: 'solo (' -> 'solo, ('
-        norm = re.sub(r"([a-zA-Z0-9_-])\s*(\()", r"\1, \2", norm)
+        norm = re.sub(r"([a-zA-Z0-9_\-'])\s*(\()", r"\1, \2", norm)
         # Insert commas between parenthesis and word: ')' 'word' -> '), word'
-        norm = re.sub(r"(\))\s*([a-zA-Z0-9_-])", r"\1, \2", norm)
+        norm = re.sub(r"(\))\s*([a-zA-Z0-9_\-'])", r"\1, \2", norm)
 
         # Check for registered LoRA triggers
         for trig in sorted(registered_lora_triggers, key=len, reverse=True):
