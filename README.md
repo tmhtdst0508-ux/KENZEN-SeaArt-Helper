@@ -22,7 +22,7 @@ I am Tomohito Fujikawa (aka "D.S.T." or "Deeste"). I am a writer who has spent a
 That is exactly why I forged this tool for my comrades (read: you degenerates). **KENZEN SeaArt Helper** is the ultimate standalone cockpit for AI mages wielding SeaArt and Stable Diffusion.
 
 **How to Download & Launch**
-1. Download `KENZEN_SeaArt_Helper_v5.1.2.zip` from the GitHub Releases.
+1. Download `KENZEN_SeaArt_Helper_v5.2.0.zip` from the GitHub Releases.
 2. Extract the ZIP file to any local folder on your PC (e.g. `C:\Tools\KENZEN_SeaArt_Helper`). *(Notice: Do NOT run directly from Cloud sync folders like OneDrive or Dropbox!)*
 3. Double-click `KENZEN_SeaArt_Helper.exe` to launch immediately. No installation or Excel setup required!
 
@@ -44,6 +44,9 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 * [***Futanari Idol's Special Fan Service!***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver))
 * [***Futanari in the Mirror***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver))
 * [***In Brief: I Am Futanari, Yet I Adore Thee***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (Free Trial [**here**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
+* [***Gunfight at the O.K. Futanari Corral? ***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral) (Free Trial [**here**](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral-trial-ver))
+* [***The Insatiable Futanari Shrine Maiden: Heaven & Hell ***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell) (Free Trial [**here**](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell-trial-ver))
+
 
 > **Adults only (18+).** The linked pages contain explicit fictional sexual content.
 
@@ -81,16 +84,18 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 
  ---
 <a id = "whatsnew"></a>
-## 🚀 Release v5.1.2: Gemini 3.8 Flash & Typography Precision Update! ⚡🪄✨
+## 🚀 Release v5.2.0: DeepL Real-time Translation & User Dictionary Update! 🌐📖✨
 
-* ⚡ **Gemini 3.8 Flash API Upgrade / Gemini 3.8 Flash への刷新:** The Gacha! AI prompt generation engine has been upgraded to Google's latest gemini-3.8-flash model, delivering enhanced reasoning speeds and higher-fidelity prompt synthesis.
-* 🛡️ **Apostrophe & Typography Protection / アポストロフィ保護デバッグ:** Fixed an issue where single quotes/apostrophes (') were inadvertently stripped during prompt sorting (Sort Prompts) and clean-up / copy (Done!). Essential tags such as bird eye's view, doctor's operating room, and bride's bouquet now strictly retain their single quotes.
-* 🔄 **Smart Quote Normalization & Tag Matching / 表記揺れ正規化 ＆ 順序認識強化:** Full-width and curly quotes (’, ‘, ´) are automatically normalized to standard ASCII ', and angle tags such as bird eye's view and bird's-eye view are accurately resolved to Category 2 (Camera Angles) for clean prompt sorting.
+* 🌐 **DeepL Real-time Translation Assistant:** Direct integration in the Cockpit tab. Automatically detects your source language (Japanese, German, French, Spanish, Chinese, etc.) and translates input into English prompt tags with a single Enter press, appending them with comma formatting and active weight support.
+* 💾 **Independent User Dictionary System (`user_tags.json`):** Custom tags translated or added by users are persisted in an isolated `user_tags.json` file. Updating or overwriting `tags.db` in future releases will NEVER overwrite or erase your custom registered vocabulary!
+* 📖 **Dynamic Tag Matrix Integration & Cross-Search:** Newly added custom tags appear immediately under a dedicated "★ ユーザー登録タグ (User Dictionary)" section (Category 41) with high-visibility gold styling, complete with instant deletion (×) support. Both official and custom tags are seamlessly searched and sorted across the entire app.
+* 🌍 **Bilingual & Multi-Language UX:** All translation controls, hints, placeholders, and API key dialogs are designed bilingually (English & Japanese), with automatic browser redirection to the official DeepL API key management page according to your local region/language.
+* 🏷️ **Database Expansion (40 New Tags):** Integrated 40 new visual descriptive tags (Records #1550–#1589) into `tags.db`.
 ---
 
-# ■ KENZEN SeaArt Helper Manual (v5.1.2)
+# ■ KENZEN SeaArt Helper Manual (v5.2.0)
 
-_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.1.2.pdf)_
+_Prefer offline reading? [Download the PDF Manual here!](docs/KENZEN_SeaArt_Helper_Manual_v5.2.0.pdf)_
 
 **TL;DR:** This is a standalone desktop application specialized in building, weighting, and managing NSFW generation prompts for SeaArt & Stable Diffusion. Includes SQLite-backed 41-category matrix, LoRA managers, and AI Gacha alchemy powered by Google Gemini API.
 
@@ -126,7 +131,7 @@ The Dictionary Matrix displays all 41 categories (0. Particles/Prepositions thro
 <a id = "en_2-1"></a>
 ### 2-1. "Cockpit" Tab
 
-![Cockpit_tab](images/Cockpit_tab_20260823.jpg)
+![Cockpit_tab](images/Cockpit_tab_20261001.jpg)
 
 The central command center for assembling, tweaking, and finalizing your generation prompts.
 
@@ -308,7 +313,7 @@ Because this software is built and packaged using Python and PyInstaller without
 だからこそ、同志たち（と書いて「お前等」と読む）のためにこのツールを錬成しました。**KENZEN SeaArt Helper**は、SeaArtとStable Diffusionを駆使するAI術師のための究極のスタンドアロン・コックピットです。
 
 **ダウンロードと起動方法**
-1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.1.2.zip` をダウンロードします。
+1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.2.0.zip` をダウンロードします。
 2. PC上の任意のローカルフォルダ（例：`C:\Tools\KENZEN_SeaArt_Helper`）にZIPを解凍します。（※OneDriveやDropbox等のクラウド同期フォルダ直下には置かないでください）
 3. フォルダ内の `KENZEN_SeaArt_Helper.exe` をダブルクリックするだけで即座に起動します。Excelのインストールやマクロの許可設定は一切不要です！
 
@@ -324,12 +329,15 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 * 元商業エロゲーシナリオライターによる構成・執筆
 * 英語版をitch.ioにて販売中
 
-* [**「ふたなりOLの憂鬱と幸福」**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)）
-* [**「男前なアイツの意外な秘密」**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)）
-* [**「私立ふたなり学園の下剋上」**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)）
-* [**「ふたなりアイドルのファンサービス！」**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)）
-* [**「鏡の中のふたなり」**](https://dst-fujikawa.itch.io/futanari-in-the-mirror) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)）
+* [***「ふたなりOLの憂鬱と幸福」***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)）
+* [***「男前なアイツの意外な秘密」***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)）
+* [***「私立ふたなり学園の下剋上」***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)）
+* [***「ふたなりアイドルのファンサービス！」***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)）
+* [***「鏡の中のふたなり」***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)）
 * [***「前略、ふたなりですが、お慕い申し上げております」***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
+* [***「ふたなりカウガールと女保安官の決斗？」***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral-trial-ver))
+* [***「絶倫ふたなり巫女の天国と地獄」***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell-trial-ver))
+
 
 > **18歳未満閲覧禁止。** リンク先には、架空の成人キャラクターによる露骨な性的表現が含まれます。
 
@@ -367,16 +375,18 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 - [6. トラブルシューティング ＆ FAQ](#ja_6)
 
 <a id = "whatsnew_jp"></a>
-## 🚀 【v5.1.2 リリース！】: Gemini 3.8 Flash 刷新 ＆ アポストロフィ保護アップデート！⚡🪄✨
+## 🚀 【v5.2.0 リリース！】: DeepL リアルタイム翻訳アシスタント ＆ 独立ユーザー辞書システム搭載！🌐📖✨
 
-* ⚡ **Gemini 3.8 Flash（gemini-3.8-flash）へのAPIモデル刷新:** Gacha!タブのAIプロンプト自動生成エンジンを、Googleの最新高速推論モデル gemini-3.8-flash へ刷新。よりスマートかつ洗練されたプロンプト生成が可能になりました。
-* 🛡️ **プロンプト整列・クリーンコピー時のアポストロフィ（'）保護:** プロンプト整列（Sort Prompts）や整形コピー（Done!）時に、bird eye's view や doctor's operating room などのアポストロフィが勝手に消去されてしまう不具合を修正。半角シングルクォートを完全に保護します。
-* 🔄 **スマート引用符の自動正規化 ＆ カテゴリー順序判定強化:** 全角・カーリー引用符（’, ‘, ´）を半角 ' に自動統一。さらに bird eye's view などの表記揺れも正しく構図・アングル（Category 2）として自動認識され、先頭付近へ美しく整列されます。
+* 🌐 **DeepLリアルタイム翻訳アシスタント搭載:** Cockpitタブ内にDeepL翻訳エンジンを直結。母国語（自動判定）を入力してEnterを押すだけで、即座に英訳してプロンプト末尾へ自動挿入（重み付け有効時は重みも自動反映）。
+* 💾 **完全独立のユーザー辞書システム (`user_tags.json`):** 登録した自作タグは大元の公式DB（`tags.db`）とは完全別ファイルの `user_tags.json` で管理。将来のアップデートで `tags.db` を丸ごと上書きしても、ユーザー登録データが消える心配は一切ありません。
+* 📖 **マトリクス辞書へのリアルタイム反映 ＆ 横断検索:** 登録したタグは再起動不要でマトリクス画面の「★ ユーザー登録タグ（カテゴリ41）」セクションにゴールド枠で即座に出現（ワンクリック削除「×」対応）。検索窓でも公式タグと区別なく横断検索・ジャンプ可能です。
+* 🌍 **多言語・英語併記のユニバーサルUI:** 海外ユーザーにも分かりやすい日英併記のインターフェースを採用。APIキー取得リンクもアクセス元の国・言語へ自動リダイレクトされます。
+* 🏷️ **新タグ40件の追加:** `tags.db` に新たに40件のビジュアル記述タグ（レコード #1550～#1589）を追加拡充。
 ---
 
-# ■ KENZEN SeaArt Helper マニュアル（v5.1.2）
+# ■ KENZEN SeaArt Helper マニュアル（v5.2.0）
 
-_オフラインマニュアルは [こちらからダウンロードして下さい。](docs/KENZEN_SeaArt_Helper_Manual_v5.1.2.pdf)_
+_オフラインマニュアルは [こちらからダウンロードして下さい。](docs/KENZEN_SeaArt_Helper_Manual_v5.2.0.pdf)_
 
 **要約：SeaArt及びStable Diffusionでの、NSFW・高精度プロンプト構築と管理に特化したスタンドアロンデスクトップツールです。SQLiteによる41カテゴリの辞書マトリクス、LoRA鍛冶場、Google Gemini APIによるAIガチャ錬成を搭載しています。**
 
@@ -406,7 +416,8 @@ _オフラインマニュアルは [こちらからダウンロードして下�
 * **タグ辞書マトリクス:** カテゴリごとに左列（日本語ラベル）、右列（英語タグ）がセットで並びます。セルをクリックするだけで、即座にCockpitのプロンプト末尾へ転送されます。
 * **2つのコピーモード:**タグを左クリックすると、「`, `」（カンマと半角スペース）で、右クリックすると、「` `」（半角スペースのみ）でコピーされ、Cockpitへ送られます。例えば、「`sitting on chair`」としたい場合、「`sitting`」で左クリックコピー、「`on`」で右クリックコピー（カンマなし）「`chair`」で再度右クリックコピーすればOKです。
 * **サンプルプロンプト集:** 作者厳選のシチュエーション呪文を収録。ワンクリックでCockpitへ展開し、ベース呪文として活用できます。
-* **クイック検索 & カテゴリジャンプ（A〜Zアルファベット順＆3回点滅ハイライト）:** 各カテゴリ内のタグは英語プロンプトのアルファベット順（A〜Z・大文字小文字不問）で整列しています。検索バーにキーワードを入力して Enter または「Next ▶」を押すと、該当セルへ即座にスクロールして鮮やかな黄色で3回点滅（Flash）し、連続押下で次候補へ順次巡回ジャンプします。カテゴリジャンプのコンボボックスからは「0. 接続助詞・前置詞」を含む全41カテゴリへ瞬時に移動・最上部復帰できます。
+* **★ ユーザー登録タグ（カテゴリ41）の統合表示:** ユーザーが登録した自作タグは、専用のゴールド枠（`#FEFCE8` / `#FDE047`）で「★ ユーザー登録タグ」セクションとして一覧表示されます。各タグには「×」ボタンが付き、不要になったタグをワンクリックで確認付き削除できます。
+* **クイック検索 & カテゴリジャンプ（A〜Zアルファベット順＆3回点滅ハイライト）:** 各カテゴリ内のタグは英語プロンプトのアルファベット順（A〜Z・大文字小文字不問）で整列しています。検索バーにキーワードを入力して Enter または「Next ▶」を押すと、該当セルへ即座にスクロールして鮮やかな黄色で3回点滅（Flash）し、連続押下で次候補へ順次巡回ジャンプします。公式タグとユーザー登録タグを横断して検索可能です。カテゴリジャンプのコンボボックスからは全カテゴリへ瞬時に移動・最上部復帰できます。
 
 ---
 
@@ -419,6 +430,11 @@ _オフラインマニュアルは [こちらからダウンロードして下�
 
 * **辞書マトリクス表示ボタン:** 閉じてしまった辞書マトリクスウィンドウをいつでも再呼び出しできます。
 * **メインプロンプトエディタ:** タグの追記、手動編集が自由に行えるテキストエリア。
+* **🌐 DeepLリアルタイム翻訳アシスタント（上下分割パネル）:**
+  * **Source / 原文:** 母国語（日本語、ドイツ語、フランス語、スペイン語、中国語など自動判定）で単語や表現を入力し、`Enter` キーで即座に英訳。
+  * **English / 英訳:** 翻訳結果が表示されます。`Enter` キーまたは「＋ Add to Prompt (追加)」を押すと、カンマ区切りでプロンプト末尾へ自動挿入。「重み付け有効」がONの場合は設定された重み（例: `(tag:1.1)`）が自動適用されます。
+  * **💾 Save Tag (辞書登録):** ワンクリックで独立ユーザー辞書（`user_tags.json`）に保存。アプリ再起動不要でマトリクス画面に出現し、検索窓でも即座にヒットします。
+  * **🔗 Get API Key (DeepL) ＆ ⚙️ API Key:** 無料キー（月50万文字無料）の取得ページを開く公式リンク（居住地言語へ自動リダイレクト）と、キー設定ダイアログ（Windowsレジストリ安全保存）を完備。
 * **重み付け機能 (0.5 ～ 1.5):** テキストを選択して **Apply Weight (tag:w)** を押すと `(tag:1.2)` の形式で重み付けされます。**Enable Weight** にチェックを入れておくと、マトリクスからタグを追加した際に自動で重み付けが適用されます（チェックボックスがオフの時はプルダウン操作が無効化されます）。
 * **Dynamic Prompts Wrap (`{A | B | C}`):** カンマ区切りの複数タグを選択してボタンを押すと、ワイルドカード記法 `{tag1 | tag2 | tag3}` へ一括変換（または解除）します。`ass up, face down` などのカンマを含むタグも分割されず正確に保護されます。
 * **Sort Prompts (41カテゴリ自動整列 ＆ スマート階層化):** 散らかったプロンプトを、ベースポジティブ、LoRAトリガー、および41カテゴリの並び順に沿って瞬時に整列・ソートします。

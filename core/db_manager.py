@@ -4,11 +4,18 @@ Handles SQLite tags.db operations, category loading, tag retrieval, and search.
 """
 
 import os
+import sys
+import json
 import sqlite3
+import datetime
 from typing import List, Dict, Tuple, Optional, Any
 
 
 from .path_utils import get_resource_path
+
+USER_CATEGORY_ID = 9999
+USER_CATEGORY_NAME = "★ ユーザー登録タグ (User Dictionary)"
+USER_CATEGORY_ORDER = 41
 
 
 class DBManager:
@@ -17,6 +24,9 @@ class DBManager:
             self.db_path = get_resource_path("tags.db")
         else:
             self.db_path = db_path
+
+        self.user_tags_path = get_resource_path("user_tags.json")
+        self._user_tags_cache: List[Dict] = []
 
         self._categories_cache: List[Dict] = []
         self._tags_by_category_cache: Dict[int, List[Dict]] = {}
@@ -201,6 +211,169 @@ class DBManager:
 
         except Exception as e:
             print(f"[DBManager] Error loading database: {e}")
+
+        # Always load and merge user dictionary after loading tags.db
+        self._load_and_merge_user_tags()
+
+    def _load_and_merge_user_tags(self):
+        """Loads user_tags.json and merges into in-memory category/tag caches."""
+        self._user_tags_cache.clear()
+
+        # 1. Ensure user category exists in categories cache
+        user_cat = {
+            "id": USER_CATEGORY_ID,
+            "category_order": USER_CATEGORY_ORDER,
+            "category_name": USER_CATEGORY_NAME
+        }
+        if not any(c["id"] == USER_CATEGORY_ID for c in self._categories_cache):
+            self._categories_cache.append(user_cat)
+            self._categories_cache.sort(key=lambda c: c.get("category_order", 999))
+
+        self._tags_by_category_cache[USER_CATEGORY_ID] = []
+
+        # 2. Read user_tags.json if exists
+        if os.path.exists(self.user_tags_path):
+            try:
+                with open(self.user_tags_path, "r", encoding="utf-8-sig") as f:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self._user_tags_cache = data
+            except Exception as e:
+                print(f"[DBManager] Error reading user_tags.json: {e}")
+
+        # 3. Merge each user tag into caches
+        for t in self._user_tags_cache:
+            tag_dict = dict(t)
+            tag_dict["category_id"] = USER_CATEGORY_ID
+            tag_dict["category_name"] = USER_CATEGORY_NAME
+            if "note" not in tag_dict or tag_dict["note"] is None:
+                tag_dict["note"] = ""
+
+            self._tags_by_category_cache[USER_CATEGORY_ID].append(tag_dict)
+
+            ja = tag_dict.get("label_ja", "").strip()
+            en = tag_dict.get("prompt_en", "").strip()
+
+            if ja and en:
+                self._jp_to_en_map[ja] = en
+                self._en_to_jp_map[en.lower()] = ja
+
+            if en:
+                order = USER_CATEGORY_ORDER
+                for token in en.split(","):
+                    clean_tok = token.strip().lower()
+                    if clean_tok and clean_tok not in self._tag_to_category_order:
+                        self._tag_to_category_order[clean_tok] = order
+                    col_tok = clean_tok.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+                    if col_tok and col_tok not in self._tag_to_category_order_collapsed:
+                        self._tag_to_category_order_collapsed[col_tok] = order
+                en_lower = en.lower()
+                self._tag_to_category_order[en_lower] = order
+                col_en = en_lower.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+                if col_en and col_en not in self._tag_to_category_order_collapsed:
+                    self._tag_to_category_order_collapsed[col_en] = order
+
+    def get_user_tags(self) -> List[Dict]:
+        """Returns all custom user tags."""
+        return list(self._user_tags_cache)
+
+    def save_user_tags(self) -> bool:
+        """Saves current user_tags_cache to user_tags.json atomically."""
+        try:
+            tmp_path = self.user_tags_path + ".tmp"
+            with open(tmp_path, "w", encoding="utf-8") as f:
+                json.dump(self._user_tags_cache, f, indent=2, ensure_ascii=False)
+            if os.path.exists(self.user_tags_path):
+                os.replace(tmp_path, self.user_tags_path)
+            else:
+                os.rename(tmp_path, self.user_tags_path)
+            return True
+        except Exception as e:
+            print(f"[DBManager] Error saving user_tags.json: {e}")
+            return False
+
+    def add_user_tag(self, label_ja: str, prompt_en: str, note: str = "") -> Tuple[bool, Optional[Dict], str]:
+        """
+        Adds a new tag to the user dictionary and caches.
+        Returns (success: bool, new_tag_dict: Optional[Dict], message: str).
+        """
+        ja = label_ja.strip()
+        en = prompt_en.strip()
+        nt = note.strip()
+
+        if not en:
+            return False, None, "英語プロンプトが入力されていません。(Prompt is empty)"
+
+        # Check duplicate
+        for existing in self._user_tags_cache:
+            if existing.get("prompt_en", "").strip().lower() == en.lower():
+                return False, None, f"この英語プロンプトは既にユーザー辞書に登録されています: {en}"
+
+        import time
+        tag_id = f"u_{int(time.time() * 1000)}"
+        new_tag = {
+            "id": tag_id,
+            "category_id": USER_CATEGORY_ID,
+            "category_name": USER_CATEGORY_NAME,
+            "label_ja": ja,
+            "prompt_en": en,
+            "note": nt or "User Dictionary"
+        }
+
+        self._user_tags_cache.append(new_tag)
+        self._tags_by_category_cache[USER_CATEGORY_ID].append(new_tag)
+
+        if ja:
+            self._jp_to_en_map[ja] = en
+            self._en_to_jp_map[en.lower()] = ja
+
+        order = USER_CATEGORY_ORDER
+        for token in en.split(","):
+            clean_tok = token.strip().lower()
+            if clean_tok and clean_tok not in self._tag_to_category_order:
+                self._tag_to_category_order[clean_tok] = order
+            col_tok = clean_tok.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+            if col_tok and col_tok not in self._tag_to_category_order_collapsed:
+                self._tag_to_category_order_collapsed[col_tok] = order
+        en_lower = en.lower()
+        self._tag_to_category_order[en_lower] = order
+        col_en = en_lower.replace("'", "").replace("-", "").replace(" ", "").replace("_", "")
+        if col_en and col_en not in self._tag_to_category_order_collapsed:
+            self._tag_to_category_order_collapsed[col_en] = order
+
+        saved = self.save_user_tags()
+        if not saved:
+            return False, new_tag, "ユーザー辞書ファイルの保存に失敗しました。"
+
+        return True, new_tag, f"「{ja or en}」をユーザー辞書に登録しました。"
+
+    def delete_user_tag(self, tag_id: Any) -> bool:
+        """Deletes a user tag by ID and updates caches and file."""
+        target = None
+        for t in self._user_tags_cache:
+            if str(t.get("id")) == str(tag_id):
+                target = t
+                break
+
+        if not target:
+            return False
+
+        self._user_tags_cache.remove(target)
+        if USER_CATEGORY_ID in self._tags_by_category_cache:
+            self._tags_by_category_cache[USER_CATEGORY_ID] = [
+                t for t in self._tags_by_category_cache[USER_CATEGORY_ID]
+                if str(t.get("id")) != str(tag_id)
+            ]
+
+        ja = target.get("label_ja", "").strip()
+        en = target.get("prompt_en", "").strip().lower()
+        if ja in self._jp_to_en_map and self._jp_to_en_map[ja] == target.get("prompt_en", "").strip():
+            del self._jp_to_en_map[ja]
+        if en in self._en_to_jp_map and self._en_to_jp_map[en] == ja:
+            del self._en_to_jp_map[en]
+
+        self.save_user_tags()
+        return True
 
     def get_categories(self) -> List[Dict]:
         """Returns all categories sorted by category_order."""

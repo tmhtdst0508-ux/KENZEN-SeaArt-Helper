@@ -1,31 +1,113 @@
 """
-Cockpit Tab for KENZEN SeaArt Helper v5.0.0
-Main cockpit for prompt editing, weighting, Dynamic Prompts wrapping ({A | B | C}),
+Cockpit Tab for KENZEN SeaArt Helper v5.2.0
+Main cockpit for prompt editing, DeepL real-time translation assistant,
+weighting, Dynamic Prompts wrapping ({A | B | C}),
 category sorting with Base Positive & LoRA triggers, two clear buttons (Soft & Hard),
 and clipboard operations.
 """
 
 import re
+from typing import Optional
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QTextEdit, QLineEdit,
-    QPushButton, QComboBox, QCheckBox, QGroupBox, QMessageBox, QApplication
+    QPushButton, QComboBox, QCheckBox, QGroupBox, QMessageBox, QApplication,
+    QDialog, QGridLayout
 )
-from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QTextCursor
+from PySide6.QtCore import Qt, Signal, QUrl
+from PySide6.QtGui import QTextCursor, QDesktopServices
 from ..core.prompt_engine import PromptEngine, sanitize_sd_prompt
 from ..core.config_manager import ConfigManager
+from ..core.db_manager import DBManager
+from ..core.deepl_api import DeepLAPI, DeepLTranslateWorker
 from .style import COLOR_ACTION, COLOR_SUCCESS, COLOR_DANGER, COLOR_WARNING
 from .widgets import PlainTextOnlyTextEdit
+
+
+class DeepLKeyDialog(QDialog):
+    """Simple, clean modal dialog to configure DeepL API key."""
+    def __init__(self, config: ConfigManager, deepl_api: DeepLAPI, parent=None):
+        super().__init__(parent)
+        self.config = config
+        self.deepl_api = deepl_api
+        self.setWindowTitle("DeepL API Key Configuration / API設定")
+        self.setFixedWidth(460)
+        self.init_ui()
+
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(16, 16, 16, 16)
+        layout.setSpacing(12)
+
+        lbl_desc = QLabel(
+            "<b>Please configure your DeepL API Key (Free or Pro). / DeepL APIキーを設定してください。</b><br>"
+            "<span style='color: #475569; font-size: 11px;'>"
+            "Supports DeepL API Free keys (ends with <code>:fx</code>, 500,000 chars/month free).<br>"
+            "DeepL API Free（月50万文字無料）のキーに対応。キーはWindowsレジストリ内に安全に保存されます。</span>"
+        )
+        lbl_desc.setWordWrap(True)
+        layout.addWidget(lbl_desc)
+
+        h_key = QHBoxLayout()
+        self.txt_key = QLineEdit()
+        self.txt_key.setEchoMode(QLineEdit.Password)
+        self.txt_key.setPlaceholderText("Enter DeepL API Key (e.g. xxxxxxxx-...:fx)")
+        self.txt_key.setText(self.config.get_setting("DeepLAPIKey", ""))
+        
+        btn_show = QPushButton("Show")
+        btn_show.setFixedWidth(55)
+        btn_show.clicked.connect(self._toggle_show)
+
+        h_key.addWidget(self.txt_key, 1)
+        h_key.addWidget(btn_show)
+        layout.addLayout(h_key)
+
+        # Direct Universal Link to DeepL API Key management (auto-redirects to localized language)
+        btn_link = QPushButton("🔗 Get DeepL API Key / キー取得ページを開く (公式サイト)")
+        btn_link.setToolTip("ブラウザでDeepL公式サイトのAPIキー取得ページを開きます (自動で居住地言語にリダイレクト)")
+        btn_link.setProperty("btnType", "action")
+        btn_link.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(DeepLAPI.KEY_URL)))
+        layout.addWidget(btn_link)
+
+        # Action buttons
+        btn_bar = QHBoxLayout()
+        btn_bar.addStretch()
+
+        btn_cancel = QPushButton("Cancel")
+        btn_cancel.clicked.connect(self.reject)
+
+        btn_save = QPushButton("Save / 保存")
+        btn_save.setProperty("btnType", "success")
+        btn_save.clicked.connect(self._on_save)
+
+        btn_bar.addWidget(btn_cancel)
+        btn_bar.addWidget(btn_save)
+        layout.addLayout(btn_bar)
+
+    def _toggle_show(self):
+        if self.txt_key.echoMode() == QLineEdit.Password:
+            self.txt_key.setEchoMode(QLineEdit.Normal)
+        else:
+            self.txt_key.setEchoMode(QLineEdit.Password)
+
+    def _on_save(self):
+        key = self.txt_key.text().strip()
+        self.config.set_setting("DeepLAPIKey", key)
+        self.deepl_api.set_api_key(key)
+        self.accept()
 
 
 class TabCockpit(QWidget):
     open_matrix_requested = Signal()
     send_to_fav_requested = Signal(str, str) # prompt, description
+    user_tag_added = Signal(dict)            # Emitted when a new tag is registered to user dictionary
 
-    def __init__(self, prompt_engine: PromptEngine, config_manager: ConfigManager, parent=None):
+    def __init__(self, prompt_engine: PromptEngine, config_manager: ConfigManager, db_manager: Optional[DBManager] = None, parent=None):
         super().__init__(parent)
         self.engine = prompt_engine
         self.config = config_manager
+        self.db = db_manager
+        self.deepl_api = DeepLAPI(self.config.get_setting("DeepLAPIKey", ""))
+        self._trans_worker: Optional[DeepLTranslateWorker] = None
         self.init_ui()
 
     def init_ui(self):
@@ -38,7 +120,7 @@ class TabCockpit(QWidget):
         top_bar.setContentsMargins(2, 0, 2, 0)
         top_bar.setSpacing(12)
 
-        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.1.2</span>")
+        lbl_title = QLabel("🎨 <b style='color: #1E293B; font-size: 13px; font-family: Segoe UI, sans-serif;'>KENZEN SeaArt Helper</b> <span style='color: #475569; font-size: 11px; background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-weight: 600;'>v5.2.0</span>")
         lbl_title.setStyleSheet("padding: 2px;")
 
         btn_matrix = QPushButton("📖 Show Dictionary Matrix (辞書マトリクス表示)")
@@ -60,7 +142,80 @@ class TabCockpit(QWidget):
         self.txt_main.setPlaceholderText("Enter prompts here, or click tags in the Dictionary Matrix...")
         grp_layout.addWidget(self.txt_main)
 
-        layout.addWidget(grp_main, 1)
+        layout.addWidget(grp_main, 3)
+
+        # 3. DeepL Real-time Translation Assistant Panel (Split Layout)
+        grp_trans = QGroupBox("🌐 DeepL Translation Assistant / リアルタイム翻訳アシスタント")
+        grp_trans_layout = QVBoxLayout(grp_trans)
+        grp_trans_layout.setContentsMargins(10, 8, 10, 8)
+        grp_trans_layout.setSpacing(6)
+
+        # Header bar of Translation panel
+        trans_top = QHBoxLayout()
+        lbl_hint = QLabel("<span style='color: #64748B; font-size: 11px;'>Translate words/phrases from your language into English prompt tags. / 母国語の表現を英訳してプロンプトや辞書に追加できます。</span>")
+        
+        btn_get_key = QPushButton("🔗 Get API Key (DeepL)")
+        btn_get_key.setToolTip("Open DeepL API key page in browser (auto-redirects to your local language) / ブラウザでAPIキー取得ページを開く")
+        btn_get_key.setFixedHeight(26)
+        btn_get_key.clicked.connect(self.open_deepl_get_key_url)
+
+        btn_set_key = QPushButton("⚙️ API Key")
+        btn_set_key.setToolTip("Configure DeepL API Key / APIキーを設定・変更")
+        btn_set_key.setFixedHeight(26)
+        btn_set_key.clicked.connect(self.open_deepl_key_dialog)
+
+        trans_top.addWidget(lbl_hint, 1)
+        trans_top.addWidget(btn_get_key)
+        trans_top.addWidget(btn_set_key)
+        grp_trans_layout.addLayout(trans_top)
+
+        # Source Language Input row
+        h_ja = QHBoxLayout()
+        lbl_ja = QLabel("<b>Source / 原文:</b>")
+        lbl_ja.setFixedWidth(105)
+        self.txt_trans_ja = QLineEdit()
+        self.txt_trans_ja.setPlaceholderText("Enter word or phrase in your language (Enter to translate)... / 翻訳したい単語や表現")
+        self.txt_trans_ja.returnPressed.connect(self.on_translate_exec)
+
+        self.btn_trans_exec = QPushButton("🌐 Translate (翻訳)")
+        self.btn_trans_exec.setProperty("btnType", "action")
+        self.btn_trans_exec.setFixedHeight(30)
+        self.btn_trans_exec.setMinimumWidth(130)
+        self.btn_trans_exec.clicked.connect(self.on_translate_exec)
+
+        h_ja.addWidget(lbl_ja)
+        h_ja.addWidget(self.txt_trans_ja, 1)
+        h_ja.addWidget(self.btn_trans_exec)
+        grp_trans_layout.addLayout(h_ja)
+
+        # English Output row & Quick Action Buttons
+        h_en = QHBoxLayout()
+        lbl_en = QLabel("<b>English / 英訳:</b>")
+        lbl_en.setFixedWidth(105)
+        self.txt_trans_en = QLineEdit()
+        self.txt_trans_en.setPlaceholderText("English translation will appear here (Enter to add to prompt)... / 英訳結果")
+        self.txt_trans_en.returnPressed.connect(self.on_add_translated_to_prompt)
+
+        self.btn_add_trans = QPushButton("＋ Add to Prompt (追加)")
+        self.btn_add_trans.setToolTip("Appends translated tag to Main Prompt with comma (respects active weight) / プロンプト末尾に追加")
+        self.btn_add_trans.setProperty("btnType", "success")
+        self.btn_add_trans.setFixedHeight(30)
+        self.btn_add_trans.setMinimumWidth(150)
+        self.btn_add_trans.clicked.connect(self.on_add_translated_to_prompt)
+
+        self.btn_save_dict = QPushButton("💾 Save Tag (辞書登録)")
+        self.btn_save_dict.setToolTip("Saves to User Dictionary (user_tags.json) and updates Matrix immediately / ユーザー辞書に保存")
+        self.btn_save_dict.setFixedHeight(30)
+        self.btn_save_dict.setMinimumWidth(130)
+        self.btn_save_dict.clicked.connect(self.on_save_translated_to_dict)
+
+        h_en.addWidget(lbl_en)
+        h_en.addWidget(self.txt_trans_en, 1)
+        h_en.addWidget(self.btn_add_trans)
+        h_en.addWidget(self.btn_save_dict)
+        grp_trans_layout.addLayout(h_en)
+
+        layout.addWidget(grp_trans, 0)
 
         # 3. Weight & Modifier Controls
         weight_box = QHBoxLayout()
@@ -475,3 +630,121 @@ class TabCockpit(QWidget):
             )
             return
         self.send_to_fav_requested.emit(current, "")
+
+    # --- DeepL Translation & User Dictionary Operations ---
+    def open_deepl_get_key_url(self):
+        """Opens DeepL API key page in default browser (auto-redirects to local language)."""
+        QDesktopServices.openUrl(QUrl(DeepLAPI.KEY_URL))
+
+    def open_deepl_key_dialog(self):
+        """Opens modal dialog to configure DeepL API key."""
+        dlg = DeepLKeyDialog(self.config, self.deepl_api, self)
+        dlg.exec()
+
+    def on_translate_exec(self):
+        """Starts asynchronous translation of Japanese input via DeepL API."""
+        ja_text = self.txt_trans_ja.text().strip()
+        if not ja_text:
+            return
+
+        api_key = self.config.get_setting("DeepLAPIKey", "").strip()
+        if not api_key:
+            # Helpful guidance dialog with direct links
+            msg_box = QMessageBox(self)
+            msg_box.setIcon(QMessageBox.Information)
+            msg_box.setWindowTitle("DeepL API Key Required / APIキー設定のお願い")
+            msg_box.setText(
+                "<b>DeepL API Key is missing. / APIキーが設定されていません。</b><br><br>"
+                "To use the translation assistant, a DeepL API Free key (ends with <code>:fx</code>, 500,000 chars/month free) is required.<br>"
+                "翻訳機能を利用するには、DeepL API Free（月50万文字無料）のAPIキーが必要です。<br><br>"
+                "Would you like to get a key from DeepL official site now?<br>"
+                "今すぐDeepL公式サイトでキーを発行しますか？"
+            )
+            btn_browser = msg_box.addButton("🔗 Get API Key (公式サイト)", QMessageBox.ActionRole)
+            btn_enter_key = msg_box.addButton("⚙️ Enter Key (キー入力)", QMessageBox.ActionRole)
+            msg_box.addButton("Cancel / キャンセル", QMessageBox.RejectRole)
+
+            msg_box.exec()
+            clicked_btn = msg_box.clickedButton()
+
+            if clicked_btn == btn_browser:
+                self.open_deepl_get_key_url()
+                self.open_deepl_key_dialog()
+            elif clicked_btn == btn_enter_key:
+                self.open_deepl_key_dialog()
+            return
+
+        # Disable button while translating
+        self.btn_trans_exec.setEnabled(False)
+        self.btn_trans_exec.setText("Translating... / 翻訳中...")
+        self.txt_trans_ja.setEnabled(False)
+
+        self.deepl_api.set_api_key(api_key)
+        self._trans_worker = DeepLTranslateWorker(self.deepl_api, ja_text, self)
+        self._trans_worker.translation_finished.connect(self._on_translate_finished)
+        self._trans_worker.translation_error.connect(self._on_translate_error)
+        self._trans_worker.start()
+
+    def _on_translate_finished(self, translated_text: str):
+        self.btn_trans_exec.setEnabled(True)
+        self.btn_trans_exec.setText("🌐 Translate (翻訳)")
+        self.txt_trans_ja.setEnabled(True)
+        self.txt_trans_en.setText(translated_text)
+        self.txt_trans_en.setFocus()
+        self.txt_trans_en.selectAll()
+
+    def _on_translate_error(self, err_msg: str):
+        self.btn_trans_exec.setEnabled(True)
+        self.btn_trans_exec.setText("🌐 Translate (翻訳)")
+        self.txt_trans_ja.setEnabled(True)
+        QMessageBox.warning(
+            self,
+            "翻訳エラー / Translation Error",
+            f"翻訳に失敗しました:\nTranslation failed:\n\n{err_msg}"
+        )
+
+    def on_add_translated_to_prompt(self):
+        """Adds translated English text to Main Prompt Editor."""
+        en_text = self.txt_trans_en.text().strip()
+        if not en_text:
+            return
+
+        self.append_tag(en_text, is_comma=True)
+        
+        # Clear translation inputs for next query
+        self.txt_trans_ja.clear()
+        self.txt_trans_en.clear()
+        self.txt_trans_ja.setFocus()
+
+    def on_save_translated_to_dict(self):
+        """Saves current translation pair to User Dictionary (user_tags.json) and notifies Matrix."""
+        ja_text = self.txt_trans_ja.text().strip()
+        en_text = self.txt_trans_en.text().strip()
+
+        if not en_text:
+            QMessageBox.warning(
+                self,
+                "注意 / Warning",
+                "辞書に登録する英語プロンプトが空です。\n英訳を実行するか、直接入力してください。\n\n"
+                "English prompt is empty. Please translate or enter a prompt."
+            )
+            return
+
+        if not self.db:
+            QMessageBox.critical(self, "エラー / Error", "データベースマネージャーが初期化されていません。(DatabaseManager is not initialized)")
+            return
+
+        success, new_tag, msg = self.db.add_user_tag(label_ja=ja_text, prompt_en=en_text, note="DeepL Translation")
+        if success and new_tag:
+            self.user_tag_added.emit(new_tag)
+            QMessageBox.information(
+                self,
+                "辞書登録完了 / Registered to Dictionary",
+                f"ユーザー辞書（user_tags.json）に登録しました！\n"
+                f"辞書マトリクス画面および検索窓ですぐに利用できます。\n\n"
+                f"Saved to User Dictionary! Available immediately in Matrix and search.\n\n"
+                f"【Source / 原文】: {ja_text or '(None / 未指定)'}\n"
+                f"【English / 英訳】: {en_text}"
+            )
+        else:
+            QMessageBox.warning(self, "登録失敗 / Failed", msg)

@@ -38,6 +38,8 @@ def get_category_header_color(order: int) -> str:
         return "#E9D5FF" # 35. 場所 ～ 36. 時間帯・周囲の状況
     elif order == 37:
         return "#FFEDD5" # 37. その他アイテム
+    elif order == 41:
+        return "#FEF08A" # 41. ★ ユーザー登録タグ (User Dictionary / Gold Accent)
     else:
         return "#CBD5E1" # 38. 光源 ～ 40. 修正/特殊
 
@@ -478,7 +480,44 @@ class MatrixWindow(QWidget):
 
                 lbl_ja.setStyleSheet("font-size: 11px; color: #475569; font-weight: 500;")
                 lbl_ja.setWordWrap(True)
-                t_layout.addWidget(lbl_ja)
+
+                if cid == 9999:
+                    # User custom tag: distinctive light yellow frame & delete button
+                    tag_box.setStyleSheet("""
+                        QFrame {
+                            background-color: #FEFCE8;
+                            border: 1px solid #FDE047;
+                            border-radius: 4px;
+                        }
+                    """)
+                    h_ja_box = QHBoxLayout()
+                    h_ja_box.setContentsMargins(0, 0, 0, 0)
+                    h_ja_box.setSpacing(4)
+                    h_ja_box.addWidget(lbl_ja, 1)
+
+                    btn_del = QPushButton("×")
+                    btn_del.setToolTip("ユーザー辞書から削除 / Delete from User Dictionary")
+                    btn_del.setFixedSize(18, 18)
+                    btn_del.setStyleSheet("""
+                        QPushButton {
+                            color: #EF4444;
+                            font-weight: bold;
+                            font-size: 11px;
+                            background: #FEE2E2;
+                            border: 1px solid #FCA5A5;
+                            border-radius: 3px;
+                            padding: 0;
+                        }
+                        QPushButton:hover {
+                            background-color: #EF4444;
+                            color: #FFFFFF;
+                        }
+                    """)
+                    btn_del.clicked.connect(lambda _, tid=tag["id"], ten=tag.get("prompt_en", ""): self.on_delete_user_tag(tid, ten))
+                    h_ja_box.addWidget(btn_del)
+                    t_layout.addLayout(h_ja_box)
+                else:
+                    t_layout.addWidget(lbl_ja)
 
                 # English prompt button
                 en_text = tag.get("prompt_en", "")
@@ -526,6 +565,23 @@ class MatrixWindow(QWidget):
         self.tag_selected.emit(tag_text, is_comma)
         if tag_box and btn_en:
             self.flash_tag_widget(tag_box, btn_en)
+
+    def on_delete_user_tag(self, tag_id: str, tag_en: str):
+        """Deletes a custom user tag after user confirmation and refreshes matrix."""
+        ans = QMessageBox.question(
+            self,
+            "削除の確認 / Confirm Delete",
+            f"ユーザー辞書から以下のタグを削除しますか？\nDelete this custom tag from user dictionary?\n\n[{tag_en}]",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+        if ans == QMessageBox.Yes:
+            if self.db.delete_user_tag(tag_id):
+                self.populate_matrix()
+
+    def on_user_tag_added(self, new_tag: dict):
+        """Refreshes matrix layout when a new tag is registered in Cockpit."""
+        self.populate_matrix()
 
     def scroll_to_category(self, cid: int):
         """Scrolls directly to top-left of category card."""

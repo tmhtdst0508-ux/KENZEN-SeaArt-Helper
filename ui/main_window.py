@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
         self.gemini_api = GeminiAPI(self.config.get_setting("GeminiAPIKey", ""), self.db)
 
         # 2. Main Cockpit Setup
-        self.setWindowTitle("KENZEN SeaArt Helper v5.1.2")
+        self.setWindowTitle("KENZEN SeaArt Helper v5.2.0")
         self.resize(920, 680)
         self.setStyleSheet(MAIN_STYLESHEET)
 
@@ -104,7 +104,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.tab_widget)
 
         # Instantiate Tabs
-        self.tab_cockpit = TabCockpit(self.prompt_engine, self.config, self)
+        self.tab_cockpit = TabCockpit(self.prompt_engine, self.config, self.db, self)
         self.tab_positive = TabPositive(self.config, self)
         self.tab_negative = TabNegative(self.config, self.prompt_engine, self)
         self.tab_lora = TabLoRA(self.config, self.prompt_engine, self)
@@ -126,6 +126,7 @@ class MainWindow(QMainWindow):
         # Cross-Tab Signals
         self.tab_cockpit.open_matrix_requested.connect(self.focus_or_toggle_matrix_window)
         self.tab_cockpit.send_to_fav_requested.connect(self.on_send_to_fav)
+        self.tab_cockpit.user_tag_added.connect(self.matrix_window.on_user_tag_added)
 
         self.tab_positive.send_to_cockpit_beginning.connect(self.on_positive_to_cockpit_beginning)
 
@@ -148,7 +149,8 @@ class MainWindow(QMainWindow):
         self.status_bar = QStatusBar(self)
         self.setStatusBar(self.status_bar)
         total_tags = sum(len(tags) for tags in self.db._tags_by_category_cache.values())
-        self.status_bar.showMessage(f"KENZEN SeaArt Helper v5.1.2 - Ready (41 Categories / {total_tags:,} Tags Loaded)")
+        total_cats = len(self.db.get_categories())
+        self.status_bar.showMessage(f"KENZEN SeaArt Helper v5.2.0 - Ready ({total_cats} Categories / {total_tags:,} Tags Loaded)")
 
         # Global Shortcuts (Window-level context so they work across all tabs and focused inputs):
         # Ctrl+Shift+P for inserting Positive Prompt from any tab

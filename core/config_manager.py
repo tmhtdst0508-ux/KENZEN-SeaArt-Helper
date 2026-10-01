@@ -1,5 +1,5 @@
 """
-Config Manager for KENZEN SeaArt Helper v5.1.2
+Config Manager for KENZEN SeaArt Helper v5.2.0
 Handles loading, saving, and updating JSON configuration with v4.2.0 exact default data,
 BOM handling, selective export/import with Merge/Overwrite modes, and mobile memo parsing.
 """
@@ -13,7 +13,7 @@ from typing import Dict, Any, List, Optional, Tuple, Set
 
 DEFAULT_CONFIG: Dict[str, Any] = {
     "Settings": {
-        "AppName": "KENZEN SeaArt Helper v5.1.2",
+        "AppName": "KENZEN SeaArt Helper v5.2.0",
         "GachaCount": 0,
         "MaxGachaQuota": 15,
         "LastPTDate": "",
@@ -415,11 +415,16 @@ class ConfigManager:
     def save(self):
         """Saves current configuration to JSON file atomically using a temporary file and keeps a .bak copy."""
         try:
-            # 0. Security Guard: Ensure GeminiAPIKey is strictly stored in Windows Registry and completely purged from JSON
-            if "Settings" in self.data and "GeminiAPIKey" in self.data["Settings"]:
-                api_val = str(self.data["Settings"].pop("GeminiAPIKey", "")).strip()
-                if api_val:
-                    self.set_gemini_api_key(api_val)
+            # 0. Security Guard: Ensure API keys are strictly stored in Windows Registry and completely purged from JSON
+            if "Settings" in self.data:
+                if "GeminiAPIKey" in self.data["Settings"]:
+                    api_val = str(self.data["Settings"].pop("GeminiAPIKey", "")).strip()
+                    if api_val:
+                        self.set_gemini_api_key(api_val)
+                if "DeepLAPIKey" in self.data["Settings"]:
+                    deepl_val = str(self.data["Settings"].pop("DeepLAPIKey", "")).strip()
+                    if deepl_val:
+                        self.set_deepl_api_key(deepl_val)
 
             # 1. Edge-case Guard 2: Make backup of existing valid file before overwrite (must be > 10 bytes)
             if os.path.exists(self.config_path) and os.path.getsize(self.config_path) > 10:
@@ -449,11 +454,16 @@ class ConfigManager:
     def get_setting(self, key: str, default: Any = None) -> Any:
         if key == "GeminiAPIKey":
             return self.get_gemini_api_key(default or "")
+        if key == "DeepLAPIKey":
+            return self.get_deepl_api_key(default or "")
         return self.data.get("Settings", {}).get(key, default)
 
     def set_setting(self, key: str, value: Any):
         if key == "GeminiAPIKey":
             self.set_gemini_api_key(str(value))
+            return
+        if key == "DeepLAPIKey":
+            self.set_deepl_api_key(str(value))
             return
 
         if "Settings" not in self.data:
@@ -544,6 +554,57 @@ class ConfigManager:
         # 3. Purge from in-memory config payload
         if "Settings" in self.data and "GeminiAPIKey" in self.data["Settings"]:
             self.data["Settings"].pop("GeminiAPIKey", None)
+            self.save()
+
+    def get_deepl_api_key(self, default: str = "") -> str:
+        """
+        Retrieves DeepL API Key securely from Windows Registry (QSettings).
+        Never leaves the raw API key inside KENZEN_Config.json file.
+        """
+        try:
+            from PySide6.QtCore import QSettings
+            settings = QSettings("KENZEN_SeaArt_Helper", "Settings")
+            key = settings.value("DeepLAPIKey", "")
+            if key and str(key).strip():
+                return str(key).strip()
+        except Exception:
+            pass
+
+        # Check JSON if previously saved there, then migrate to registry and purge from JSON
+        json_key = self.data.get("Settings", {}).get("DeepLAPIKey", "")
+        if json_key and str(json_key).strip():
+            migrated_key = str(json_key).strip()
+            self.set_deepl_api_key(migrated_key)
+            return migrated_key
+
+        return default
+
+    def set_deepl_api_key(self, api_key: str):
+        """Saves DeepL API Key strictly to Windows Registry (purging it from JSON file)."""
+        clean_key = api_key.strip()
+        try:
+            from PySide6.QtCore import QSettings
+            settings = QSettings("KENZEN_SeaArt_Helper", "Settings")
+            settings.setValue("DeepLAPIKey", clean_key)
+        except Exception as e:
+            print(f"[ConfigManager] Error saving DeepL API key to registry: {e}")
+
+        if "Settings" in self.data and "DeepLAPIKey" in self.data["Settings"]:
+            self.data["Settings"].pop("DeepLAPIKey", None)
+            self.save()
+
+    def delete_deepl_api_key_registry(self):
+        """Deletes DeepL API Key completely from Windows Registry and memory."""
+        try:
+            from PySide6.QtCore import QSettings
+            settings = QSettings("KENZEN_SeaArt_Helper", "Settings")
+            settings.remove("DeepLAPIKey")
+            settings.sync()
+        except Exception as e:
+            print(f"[ConfigManager] Error removing DeepL API key from QSettings: {e}")
+
+        if "Settings" in self.data and "DeepLAPIKey" in self.data["Settings"]:
+            self.data["Settings"].pop("DeepLAPIKey", None)
             self.save()
 
     def get_gacha_quota(self) -> int:
