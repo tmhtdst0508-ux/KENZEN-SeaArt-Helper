@@ -336,10 +336,6 @@ Refer to the VirusTotal reports and SHA-256 values provided for each release. Vi
 
 If a warning appears or a hash does not match, postpone execution and check the download source, affected file, detection details, and signature information. A warning alone is not a reason to add an antivirus exclusion or bypass protection.
 
-* **Digital Signature:** All official binaries are digitally signed by the developer.
-* **Integrity Verification:** Every release is scanned on VirusTotal, and official SHA-256 checksums are published. Please check the specific release notes on the [Releases Page](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) to verify the scan results and file hashes before reporting an issue.
-* **Workaround:** If the file is quarantined or blocked, you may safely add it to your antivirus exclusion list or select "More info" -> "Run anyway" in Windows SmartScreen.
-
 ### Verify your download (v5.2.0)
 
 Before running, follow the [v5.2.0 verification information](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases/tag/v5.2.0): check (1) the ZIP’s SHA-256, (2) the extracted EXE’s SHA-256, (3) the VirusTotal report for that EXE hash, and (4) the signature status and signer in Windows. The ZIP digest covers the archive; it is neither the EXE hash nor a signature. Correspondence between the archived EXE and the published EXE hash, and signature validity, remain unverified. Matching hashes or no detections do not guarantee safety. Postpone execution if hashes differ or warnings appear.
@@ -644,10 +640,6 @@ KENZEN SeaArt Helper のソースコードには MIT License が適用されま�
 各リリースに掲載されたVirusTotalレポートとSHA-256を参照してください。VirusTotalの結果は解析時点の参考情報であり、安全性の保証ではありません。SHA-256の一致は、比較したファイルが公開値に対応することを確認するもので、デジタル署名や無害性の証明ではありません。ZIPと展開後のEXEは別々のファイルなので、それぞれ対応する値と比較してください。
 
 警告やハッシュの不一致がある場合は、実行を保留し、入手元、対象ファイル、検出内容、署名情報を確認してください。警告が出たことだけを理由に、除外登録や保護機能の回避を推奨するものではありません。
-
-* **デジタル署名の付与:** 公式配布バイナリには、すべて開発者によるデジタル署名を適用しています。
-* **安全性の検証:** 各バージョンは公開前に必ず VirusTotal にてスキャンを実施し、公式な SHA-256 チェックサムを公開しています。スキャン結果の詳細やハッシュ値については、各バージョンの [Releases ページ](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) をご確認ください。
-* **対処方法:** ファイルがブロックされたり隔離された場合は、セキュリティソフトの検出除外（ホワイトリスト）に登録するか、Windows SmartScreen の「詳細情報」をクリックして「実行」を選択してください。
 
 ### ダウンロード後の検証（v5.2.0）
 
