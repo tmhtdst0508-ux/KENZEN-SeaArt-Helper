@@ -292,7 +292,7 @@ See [LICENSE-DATA.md](LICENSE-DATA.md) for details.
 <a id = "en_6"></a>
 ## 6. Troubleshooting & FAQ
 
-### Antivirus or Windows SmartScreen Warnings (False Positives)
+### Antivirus or Windows SmartScreen Warnings
 
 Security software or Windows SmartScreen may display warnings when this application is downloaded or launched. False positives are possible, but not every warning can be assumed to be a false positive.
 
