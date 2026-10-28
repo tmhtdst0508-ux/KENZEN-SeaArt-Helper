@@ -24,7 +24,7 @@ That is exactly why I forged this tool for my comrades (read: you degenerates). 
 **How to Download & Launch**
 1. Download `KENZEN_SeaArt_Helper_v5.2.0.zip` from the GitHub Releases.
 2. Extract the ZIP file to any local folder on your PC (e.g. `C:\Tools\KENZEN_SeaArt_Helper`). *(Notice: Do NOT run directly from Cloud sync folders like OneDrive or Dropbox!)*
-3. Double-click `KENZEN_SeaArt_Helper.exe` to launch immediately. No installation or Excel setup required!
+3. Double-click `KENZEN_SeaArt_Helper_v5.2.0.exe` to launch immediately. No installation or Excel setup required!
 
 <a id="created-with-kenzen-seaart-helper"></a>
 ## 🔞 Created with KENZEN SeaArt Helper
@@ -38,14 +38,16 @@ The story-driven adult AI CG collections created using KENZEN SeaArt Helper.
 * Written by a former professional Japanese eroge scenario writer
 * English edition available
 
-* [***Melancholy & Bliss of a Futanari Office Lady***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) (Free trial [**here**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial))
-* [***That Handsome Captain's Unexpected Secret***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) (Free trial [**here**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver))
-* [***Rebellion at Futanari Academy***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) (Free Trial [**here**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver))
-* [***Futanari Idol's Special Fan Service!***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver))
-* [***Futanari in the Mirror***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) (Free Trial [**here**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver))
-* [***In Brief: I Am Futanari, Yet I Adore Thee***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (Free Trial [**here**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
-* [***Gunfight at the O.K. Futanari Corral? ***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral) (Free Trial [**here**](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral-trial-ver))
-* [***The Insatiable Futanari Shrine Maiden: Heaven & Hell ***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell) (Free Trial [**here**](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell-trial-ver))
+* [***Melancholy & Bliss of a Futanari Office Lady***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) 
+* [***That Handsome Captain's Unexpected Secret***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret)
+* [***Rebellion at Futanari Academy***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) 
+* [***Futanari Idol's Special Fan Service!***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) 
+* [***Futanari in the Mirror***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) 
+* [***In Brief: I Am Futanari, Yet I Adore Thee***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) 
+* [***Gunfight at the O.K. Futanari Corral?***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral) 
+* [***The Insatiable Futanari Shrine Maiden: Heaven & Hell***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell) 
+* [***The Futanari Maid Elf's Homecoming***](https://dst-fujikawa.itch.io/the-futanari-maid-elfs-homecoming)
+* [***The Plain Jane’s Futanari Love Story***](https://dst-fujikawa.itch.io/the-plain-janes-futanari-love-story)
 
 
 > **Adults only (18+).** The linked pages contain explicit fictional sexual content.
@@ -292,10 +294,13 @@ See [LICENSE-DATA.md](LICENSE-DATA.md) for details.
 
 ### Antivirus or Windows SmartScreen Warnings (False Positives)
 
-When downloading or running this application, your security software (such as ESET, Avast, or Windows SmartScreen) may flag it as "Suspicious" or unrecognized.
+Security software or Windows SmartScreen may display warnings when this application is downloaded or launched. False positives are possible, but not every warning can be assumed to be a false positive.
 
-**This is a false positive.**
-Because this software is built and packaged using Python and PyInstaller without an expensive commercial code-signing certificate, certain heuristic scanners automatically flag newly released binaries as unfamiliar files.
+Previous documentation stated both that no commercial code-signing certificate was used and that developer digital signatures were applied. These statements are not necessarily contradictory, but they do not establish the signing method, certificate trust, or signature verification results for individual distributed files. Do not interpret this description as a guarantee that Windows trusts the signer.
+
+Refer to the VirusTotal reports and SHA-256 values provided for each release. VirusTotal results reflect an analysis at a particular time and do not guarantee safety. A matching SHA-256 confirms correspondence with the published value; it is not a digital signature or proof that a file is harmless. The ZIP archive and the extracted executable are separate files and must be compared against their respective values.
+
+If a warning appears or a hash does not match, postpone execution and check the download source, affected file, detection details, and signature information. A warning alone is not a reason to add an antivirus exclusion or bypass protection.
 
 * **Digital Signature:** All official binaries are digitally signed by the developer.
 * **Integrity Verification:** Every release is scanned on VirusTotal, and official SHA-256 checksums are published. Please check the specific release notes on the [Releases Page](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) to verify the scan results and file hashes before reporting an issue.
@@ -315,7 +320,7 @@ Because this software is built and packaged using Python and PyInstaller without
 **ダウンロードと起動方法**
 1. GitHubのReleasesページから `KENZEN_SeaArt_Helper_v5.2.0.zip` をダウンロードします。
 2. PC上の任意のローカルフォルダ（例：`C:\Tools\KENZEN_SeaArt_Helper`）にZIPを解凍します。（※OneDriveやDropbox等のクラウド同期フォルダ直下には置かないでください）
-3. フォルダ内の `KENZEN_SeaArt_Helper.exe` をダブルクリックするだけで即座に起動します。Excelのインストールやマクロの許可設定は一切不要です！
+3. フォルダ内の `KENZEN_SeaArt_Helper_v5.2.0.exe` をダブルクリックするだけで即座に起動します。Excelのインストールやマクロの許可設定は一切不要です！
 
 <a id="created-with-kenzen-jp"></a>
 ## 🔞 KENZEN SeaArt Helperによる制作例
@@ -329,14 +334,16 @@ KENZEN SeaArt Helperを使用して制作した、物語連動型AI成人向けC
 * 元商業エロゲーシナリオライターによる構成・執筆
 * 英語版をitch.ioにて販売中
 
-* [***「ふたなりOLの憂鬱と幸福」***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady-free-trial)）
-* [***「男前なアイツの意外な秘密」***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret-trial-ver)）
-* [***「私立ふたなり学園の下剋上」***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy-trial-ver)）
-* [***「ふたなりアイドルのファンサービス！」***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service-trialver)）
-* [***「鏡の中のふたなり」***](https://dst-fujikawa.itch.io/futanari-in-the-mirror) （無料体験版は[**こちら**](https://dst-fujikawa.itch.io/futanari-in-the-mirror-trial-ver)）
-* [***「前略、ふたなりですが、お慕い申し上げております」***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee-trial-ver))
-* [***「ふたなりカウガールと女保安官の決斗？」***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral-trial-ver))
-* [***「絶倫ふたなり巫女の天国と地獄」***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell) (無料体験版は [**こちら**](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell-trial-ver))
+* [***「ふたなりOLの憂鬱と幸福」***](https://dst-fujikawa.itch.io/melancholy-bliss-of-a-futanari-office-lady)
+* [***「男前なアイツの意外な秘密」***](https://dst-fujikawa.itch.io/that-handsome-captains-unexpected-secret)
+* [***「私立ふたなり学園の下剋上」***](https://dst-fujikawa.itch.io/rebellion-at-futanari-academy)
+* [***「ふたなりアイドルのファンサービス！」***](https://dst-fujikawa.itch.io/futanari-idols-special-fan-service)
+* [***「鏡の中のふたなり」***](https://dst-fujikawa.itch.io/futanari-in-the-mirror)
+* [***「前略、ふたなりですが、お慕い申し上げております」***](https://dst-fujikawa.itch.io/in-brief-i-am-futanari-yet-i-adore-thee)
+* [***「ふたなりカウガールと女保安官の決斗？」***](https://dst-fujikawa.itch.io/gunfight-at-the-ok-futanari-corral)
+* [***「絶倫ふたなり巫女の天国と地獄」***](https://dst-fujikawa.itch.io/the-insatiable-futanari-shrine-maiden-heaven-hell)
+* [***「ふたなりメイドエルフの里帰り」***](https://dst-fujikawa.itch.io/the-futanari-maid-elfs-homecoming)
+* [***「地味子ちゃんのふたなり的恋愛事情」***](https://dst-fujikawa.itch.io/the-plain-janes-futanari-love-story)
 
 
 > **18歳未満閲覧禁止。** リンク先には、架空の成人キャラクターによる露骨な性的表現が含まれます。
@@ -592,10 +599,13 @@ KENZEN SeaArt Helper のソースコードには MIT License が適用されま�
 <a id = "ja_6"></a>
 ## 6. トラブルシューティング ＆ FAQ
 
-本アプリのダウンロード時や起動時に、セキュリティソフト（ESET、Avastなど）や Windows SmartScreen から「疑わしいファイル」「認識されないアプリ」として警告が表示されたり、ファイルが隔離される場合があります。
+本アプリのダウンロード時や起動時に、セキュリティソフトやWindows SmartScreenが警告を表示する場合があります。誤検知の可能性はありますが、すべての警告を誤検知と断定することはできません。
 
-**これらはすべて誤検知（False Positive）によるものです。**  
-本ソフトウェアは Python (PyInstaller) を用いてビルド・パッケージングされており、高額な市販コードサイニング証明書を使用していないため、一部のセキュリティソフトの推測検知（ヒューリスティック機能）によって「未知の新規バイナリ」として機械的にフラグ付けされることがあります。
+従来の説明では、市販コードサイニング証明書を使用していないことと、開発者によるデジタル署名を適用していることを記載していました。この二つは必ずしも矛盾しませんが、それだけでは署名方式、証明書の信頼性、各配布ファイルの署名検証結果は分かりません。本説明を、Windowsが署名者を信頼済みであることの保証として扱わないでください。
+
+各リリースに掲載されたVirusTotalレポートとSHA-256を参照してください。VirusTotalの結果は解析時点の参考情報であり、安全性の保証ではありません。SHA-256の一致は、比較したファイルが公開値に対応することを確認するもので、デジタル署名や無害性の証明ではありません。ZIPと展開後のEXEは別々のファイルなので、それぞれ対応する値と比較してください。
+
+警告やハッシュの不一致がある場合は、実行を保留し、入手元、対象ファイル、検出内容、署名情報を確認してください。警告が出たことだけを理由に、除外登録や保護機能の回避を推奨するものではありません。
 
 * **デジタル署名の付与:** 公式配布バイナリには、すべて開発者によるデジタル署名を適用しています。
 * **安全性の検証:** 各バージョンは公開前に必ず VirusTotal にてスキャンを実施し、公式な SHA-256 チェックサムを公開しています。スキャン結果の詳細やハッシュ値については、各バージョンの [Releases ページ](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) をご確認ください。
