@@ -12,6 +12,40 @@
 💬 開発理念なんかを、[ディスカッションスレッド](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/discussions)に書いています。お手柔らかに！
 
 ---
+### v5.2.0 ファイル検証 / File verification
+
+実行前に、ZIPと展開後のEXEをそれぞれ照合してください。  
+Before running, verify the ZIP and extracted EXE separately.
+
+| 対象 / Target | 公開値 / Published value |
+|---|---|
+| `KENZEN_SeaArt_Helper_v5.2.0.zip` — GitHub digest | `sha256:a017ef2cd16075d4586ebe14eb0171c8aeac11bc1508eccdc235076ee88d8da4` |
+| EXE（公開時の記載名 / published filename: `KENZEN_SeaArt_Helper_v5.2.0.exe`）— SHA-256 | `1196974b0767ff53cd8974ad9728a588649077dc16fdf5775c0ace3cbeb6320e` |
+
+1. **ZIP**：ダウンロードしたZIPのSHA-256を、上記digestの`sha256:`以降と比較してください。  
+   **ZIP:** Compare the downloaded ZIP’s SHA-256 with the digest above, excluding `sha256:`.
+
+2. **EXE**：ZIPを展開し、対象EXEのSHA-256を上記EXE値と比較してください。ZIPとEXEのハッシュは別の値です。  
+   **EXE:** Extract the ZIP and compare the executable’s SHA-256 with the EXE value above. ZIP and EXE hashes are separate values.
+
+3. **VirusTotal**：[公開EXEハッシュに対応するレポート / Report for the published EXE hash](https://www.virustotal.com/gui/file/1196974b0767ff53cd8974ad9728a588649077dc16fdf5775c0ace3cbeb6320e)で解析日時と検出内容を確認してください。  
+   Check the report’s analysis date and detections.
+
+4. **署名 / Signature**：Windows PowerShellで以下を実行し、署名状態と署名者証明書を確認してください。パスは実際のファイルに置き換えてください。  
+   Run the following in Windows PowerShell to inspect hashes and signature information. Replace the paths with your actual files.
+
+```powershell
+Get-FileHash -LiteralPath 'C:\path\download.zip' -Algorithm SHA256
+Get-FileHash -LiteralPath 'C:\path\extracted.exe' -Algorithm SHA256
+Get-AuthenticodeSignature -LiteralPath 'C:\path\extracted.exe' |
+    Format-List Status, StatusMessage, SignerCertificate, TimeStamperCertificate
+```
+
+**確認状況（2026-10-28）**：公開ZIPハッシュとGitHub digest、および公開EXEハッシュとVirusTotal URLは一致しています。配布ファイルのハッシュ再計算、ZIP内EXEとの対応、署名者・署名の有効性は未確認です。ハッシュ一致やVirusTotalの未検出は、安全性を保証しません。不一致や警告がある場合は実行を保留してください。
+
+**Status (2026-10-28):** The published ZIP hash matches GitHub’s digest, and the published EXE hash matches the VirusTotal URL. Independent file hashing, correspondence with the EXE inside the ZIP, and signer/signature validity remain unverified. Matching hashes or no VirusTotal detections do not guarantee safety. Postpone execution if hashes differ or warnings appear.
+
+---
 
 # Welcome to the KENZEN SeaArt Helper! 🤝
 
@@ -305,6 +339,10 @@ If a warning appears or a hash does not match, postpone execution and check the 
 * **Digital Signature:** All official binaries are digitally signed by the developer.
 * **Integrity Verification:** Every release is scanned on VirusTotal, and official SHA-256 checksums are published. Please check the specific release notes on the [Releases Page](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) to verify the scan results and file hashes before reporting an issue.
 * **Workaround:** If the file is quarantined or blocked, you may safely add it to your antivirus exclusion list or select "More info" -> "Run anyway" in Windows SmartScreen.
+
+### Verify your download (v5.2.0)
+
+Before running, follow the [v5.2.0 verification information](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases/tag/v5.2.0): check (1) the ZIP’s SHA-256, (2) the extracted EXE’s SHA-256, (3) the VirusTotal report for that EXE hash, and (4) the signature status and signer in Windows. The ZIP digest covers the archive; it is neither the EXE hash nor a signature. Correspondence between the archived EXE and the published EXE hash, and signature validity, remain unverified. Matching hashes or no detections do not guarantee safety. Postpone execution if hashes differ or warnings appear.
 
 ---
 
@@ -610,6 +648,10 @@ KENZEN SeaArt Helper のソースコードには MIT License が適用されま�
 * **デジタル署名の付与:** 公式配布バイナリには、すべて開発者によるデジタル署名を適用しています。
 * **安全性の検証:** 各バージョンは公開前に必ず VirusTotal にてスキャンを実施し、公式な SHA-256 チェックサムを公開しています。スキャン結果の詳細やハッシュ値については、各バージョンの [Releases ページ](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases) をご確認ください。
 * **対処方法:** ファイルがブロックされたり隔離された場合は、セキュリティソフトの検出除外（ホワイトリスト）に登録するか、Windows SmartScreen の「詳細情報」をクリックして「実行」を選択してください。
+
+### ダウンロード後の検証（v5.2.0）
+
+実行前に、[v5.2.0の検証情報](https://github.com/tmhtdst0508-ux/KENZEN-SeaArt-Helper/releases/tag/v5.2.0)に従い、①ZIPのSHA-256、②展開後EXEのSHA-256、③そのEXEハッシュのVirusTotalレポート、④Windowsでの署名状態・署名者を確認してください。ZIP digestはアーカイブ全体の値で、EXEのハッシュや署名ではありません。ZIP内EXEと公開EXEハッシュの対応、および署名の有効性は未確認です。ハッシュ一致・未検出は安全性の保証ではありません。不一致や警告がある場合は実行を保留してください。
 
 
 **さあ、進化した独立コックピットで、良きKENZENなるAIライフを！😊**
